@@ -64,6 +64,8 @@ public final class FontUtilities {
 
     static final String LUCIDA_FILE_NAME = "LucidaSansRegular.ttf";
 
+    static final String OPPO_FILE_NAME = "OPPOSans-S-R-0802.ttf";
+
     private static boolean debugFonts = false;
     private static PlatformLogger logger = null;
     private static boolean logging;
