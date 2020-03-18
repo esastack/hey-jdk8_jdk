@@ -42,7 +42,6 @@ import jdk.testlibrary.thread.XRun;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  *

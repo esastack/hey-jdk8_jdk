@@ -37,7 +37,6 @@ import sun.hotspot.WhiteBox;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @requires vm.compMode!="Xint" & vm.flavor == "server" & (vm.opt.TieredStopAtLevel == 4 | vm.opt.TieredStopAtLevel == null)
  * @library /lib/testlibrary

@@ -36,7 +36,6 @@ import jdk.testlibrary.jfr.VoidFunction;
 /**
  * @test
  * @summary Test ValueDescriptor.getAnnotations()
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.metadata.valuedescriptor.TestClasses

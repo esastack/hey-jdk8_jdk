@@ -27,7 +27,6 @@ package jdk.jfr.event.gc.collection;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  *
  * @requires vm.gc == "Serial" | vm.gc == null

@@ -42,7 +42,6 @@ import jdk.testlibrary.jfr.RecurseThread;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @summary
  * @library /lib/testlibrary

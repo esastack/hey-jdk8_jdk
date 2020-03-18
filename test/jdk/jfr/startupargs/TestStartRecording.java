@@ -35,7 +35,6 @@ import jdk.testlibrary.process.OutputAnalyzer;
 /**
  * @test
  * @summary Start a recording with -XX:StartFlightRecording. Dump recording with jcmd.
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm -XX:StartFlightRecording=name=TestStartRecording,settings=profile jdk.jfr.startupargs.TestStartRecording

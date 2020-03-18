@@ -33,7 +33,6 @@ import java.util.List;
 
 /**
  * @test TestLogOutput
- * @key jfr
  * @summary Sanity test jfr logging output
  * @requires vm.hasJFR
  * @library /lib/testlibrary

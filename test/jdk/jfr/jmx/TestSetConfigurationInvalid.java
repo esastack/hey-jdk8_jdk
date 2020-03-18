@@ -36,7 +36,6 @@ import jdk.testlibrary.jfr.EventNames;
 
 /**
  * @test
- * @key jfr
  * @summary Verify Exception when setting invalid config.
  * @requires vm.hasJFR
  * @library /lib/testlibrary

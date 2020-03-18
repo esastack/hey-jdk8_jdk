@@ -36,7 +36,6 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @summary Verifies that a single JFR event is recorded as expected
  * @library /lib/testlibrary

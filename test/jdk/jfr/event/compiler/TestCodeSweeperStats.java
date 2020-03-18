@@ -43,7 +43,6 @@ import jdk.testlibrary.Utils;
 
 /**
  * @test TestCodeSweeperStats
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @requires vm.compMode!="Xint"

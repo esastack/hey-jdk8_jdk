@@ -37,7 +37,6 @@ import jdk.testlibrary.jfr.Events;
 /**
  * @test
  * @summary Test event threshold.
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.event.TestThreshold

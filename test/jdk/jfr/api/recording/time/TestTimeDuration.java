@@ -33,7 +33,6 @@ import jdk.testlibrary.Asserts;
 
 /**
  * @test
- * @key jfr
  * @summary Test Recording.setDuration() and Recording.get*Time()
  * @requires vm.hasJFR
  * @library /lib/testlibrary

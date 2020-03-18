@@ -39,7 +39,6 @@ import jdk.jfr.jmx.JmxHelper;
 
 /**
  * @test
- * @key jfr
  * @summary Test with minimal needed permissions. All functions should work.
  * @requires vm.hasJFR
  * @library /lib/testlibrary

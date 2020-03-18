@@ -34,7 +34,6 @@ import jdk.management.jfr.FlightRecorderMXBean;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.jmx.TestStartRecording

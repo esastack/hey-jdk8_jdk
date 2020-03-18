@@ -39,7 +39,6 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @summary Verifies that the recorded value descriptors are correct
  * @library /lib/testlibrary

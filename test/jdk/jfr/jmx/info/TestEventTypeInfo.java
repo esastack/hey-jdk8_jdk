@@ -40,7 +40,6 @@ import jdk.testlibrary.Asserts;
 
 /**
  * @test
- * @key jfr
  * @summary Test for EventTypeInfo
  * @requires vm.hasJFR
  * @library /lib/testlibrary

@@ -39,7 +39,6 @@ import jdk.testlibrary.jfr.SimpleEvent;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @summary Simple test for RecordedFrame APIs
  * @library /lib/testlibrary

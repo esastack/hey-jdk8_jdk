@@ -53,7 +53,6 @@ import jdk.testlibrary.Asserts;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.metadata.annotations.TestTypesIdentical

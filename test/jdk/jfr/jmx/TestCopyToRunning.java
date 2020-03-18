@@ -40,7 +40,6 @@ import jdk.testlibrary.jfr.SimpleEventHelper;
 
 /**
  * @test
- * @key jfr
  * @summary Copy a recording to file while it is running.
  * @requires vm.hasJFR
  * @library /lib/testlibrary

@@ -41,7 +41,6 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @key jfr
  * @summary Verifies that attributes in FlightRecorderMXBean can be inspected
  *          without causing a memory leak.
  * @requires vm.hasJFR

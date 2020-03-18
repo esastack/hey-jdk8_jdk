@@ -34,7 +34,6 @@ import jdk.testlibrary.Asserts;
 /**
  * @test
  * @summary Test enable/disable event and verify recording has expected events.
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm -Xlog:jfr+event+setting=trace jdk.jfr.api.event.TestShouldCommit

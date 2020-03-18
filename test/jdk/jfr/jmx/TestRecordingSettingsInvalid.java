@@ -33,7 +33,6 @@ import jdk.testlibrary.Asserts;
 
 /**
  * @test
- * @key jfr
  * @summary Verify exception when setting invalid settings.
  * @requires vm.hasJFR
  * @library /lib/testlibrary

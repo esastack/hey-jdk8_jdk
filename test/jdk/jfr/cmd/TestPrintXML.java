@@ -54,7 +54,6 @@ import org.xml.sax.helpers.DefaultHandler;
 
 /**
  * @test
- * @key jfr
  * @summary Tests print --xml
  * @requires vm.hasJFR
  *

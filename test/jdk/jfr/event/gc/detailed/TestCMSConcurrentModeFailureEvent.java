@@ -40,7 +40,6 @@ import jdk.testlibrary.jfr.EventNames;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  *
  * @requires (vm.gc == "ConcMarkSweep" | vm.gc == null) & !vm.graal.enabled

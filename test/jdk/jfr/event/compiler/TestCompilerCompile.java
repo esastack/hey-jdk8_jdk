@@ -41,7 +41,6 @@ import sun.hotspot.WhiteBox;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @requires vm.compMode!="Xint"
  * @library /lib/testlibrary

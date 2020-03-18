@@ -40,7 +40,6 @@ import jdk.testlibrary.jfr.CommonHelper;
 
 /**
  * @test
- * @key jfr
  * @summary Test for RecordingInfo
  * @requires vm.hasJFR
  * @library /lib/testlibrary

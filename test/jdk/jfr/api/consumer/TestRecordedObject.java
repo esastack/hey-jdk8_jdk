@@ -49,7 +49,6 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @summary Verifies the methods of the RecordedObject
  * @library /lib/testlibrary

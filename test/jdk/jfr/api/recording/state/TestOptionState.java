@@ -33,7 +33,6 @@ import jdk.testlibrary.Asserts;
 
 /**
  * @test
- * @key jfr
  * @summary Test options in different states
  * @requires vm.hasJFR
  * @library /lib/testlibrary

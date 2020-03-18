@@ -40,7 +40,6 @@ import jdk.testlibrary.jfr.Events;
 /**
  * @test
  * @summary Test enable/disable event and verify recording has expected events.
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.event.TestClinitRegistration

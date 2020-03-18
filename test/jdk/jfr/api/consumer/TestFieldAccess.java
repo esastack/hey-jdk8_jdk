@@ -37,7 +37,6 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @summary Field access test
  * @library /lib/testlibrary

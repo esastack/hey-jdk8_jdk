@@ -28,7 +28,6 @@ import jdk.testlibrary.jfr.GCHelper;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  *
  * @requires vm.gc == "G1" | vm.gc == null

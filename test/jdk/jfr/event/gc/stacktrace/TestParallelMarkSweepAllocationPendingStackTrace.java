@@ -26,7 +26,6 @@ package jdk.jfr.event.gc.stacktrace;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  *
  * @requires vm.gc == "null" | vm.gc == "Parallel"

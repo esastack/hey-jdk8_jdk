@@ -35,7 +35,6 @@ import jdk.testlibrary.jfr.CommonHelper;
 
 /**
  * @test
- * @key jfr
  * @summary Test Recording.scheduleStart() and Recording.get*Time()
  * @requires vm.hasJFR
  * @library /lib/testlibrary

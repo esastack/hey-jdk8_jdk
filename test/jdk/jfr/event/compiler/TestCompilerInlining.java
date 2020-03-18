@@ -46,7 +46,6 @@ import java.util.stream.IntStream;
 /**
  * @test CompilerInliningTest
  * @bug 8073607
- * @key jfr
  * @summary Verifies that corresponding JFR events are emitted in case of inlining.
  * @requires vm.hasJFR
  *

@@ -39,7 +39,6 @@ import java.util.stream.Collectors;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  *

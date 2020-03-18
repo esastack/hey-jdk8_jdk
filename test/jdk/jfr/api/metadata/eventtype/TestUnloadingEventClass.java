@@ -40,7 +40,6 @@ import jdk.testlibrary.Utils;
 
 /**
  * @test
- * @key jfr
  * @summary Test that verifies event metadata is removed when an event class is unloaded.
  * @requires vm.hasJFR
  *

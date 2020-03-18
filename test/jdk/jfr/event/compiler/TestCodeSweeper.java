@@ -53,7 +53,6 @@ import sun.hotspot.code.CodeBlob;
  */
 /**
  * @test TestCodeSweeper
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @build sun.hotspot.WhiteBox

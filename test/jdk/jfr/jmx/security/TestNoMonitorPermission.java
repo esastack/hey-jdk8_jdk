@@ -33,7 +33,6 @@ import jdk.testlibrary.jfr.VoidFunction;
 
 /**
  * @test
- * @key jfr
  * @summary Verify we get SecurityExceptions when missing management permission "monitor".
  * @requires vm.hasJFR
  * @library /lib/testlibrary

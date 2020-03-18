@@ -39,7 +39,6 @@ import jdk.testlibrary.jfr.Events;
 /**
  * @test
  * @summary Load event class after recording started.
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @build jdk.testlibrary.jfr.SimpleEvent

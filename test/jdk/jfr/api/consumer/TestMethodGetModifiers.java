@@ -41,7 +41,6 @@ import jdk.testlibrary.jfr.SimpleEvent;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm -Xint jdk.jfr.api.consumer.TestMethodGetModifiers

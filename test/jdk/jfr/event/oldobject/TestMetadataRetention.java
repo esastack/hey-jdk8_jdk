@@ -46,7 +46,6 @@ import jdk.testlibrary.jfr.TestClassLoader;
  * @summary The test verifies that an old object sample maintains references to "stale" metadata
  * @requires vm.hasJFR
  * @requires vm.gc == "null"
- * @key jfr
  * @modules jdk.jfr/jdk.jfr.internal.test
  * @library /lib/testlibrary
  * @build jdk.jfr.event.oldobject.TestMetadataObject

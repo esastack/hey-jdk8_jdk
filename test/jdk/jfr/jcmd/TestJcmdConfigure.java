@@ -35,7 +35,6 @@ import jdk.testlibrary.Asserts;
 /**
  * @test
  * @summary The test verifies JFR.configure command
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @modules jdk.jfr/jdk.jfr.internal

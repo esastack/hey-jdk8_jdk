@@ -39,7 +39,6 @@ import jdk.testlibrary.process.ProcessTools;
 
 /*
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @modules java.base/jdk.internal.misc

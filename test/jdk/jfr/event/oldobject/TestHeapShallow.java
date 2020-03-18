@@ -34,7 +34,6 @@ import jdk.testlibrary.jfr.EventNames;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @requires vm.gc == "null"
  * @library /lib/testlibrary

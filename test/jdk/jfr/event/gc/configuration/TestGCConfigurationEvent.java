@@ -37,7 +37,6 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @requires (vm.gc == "Parallel" | vm.gc == null)
  *           & vm.opt.ExplicitGCInvokesConcurrent != true

@@ -21,7 +21,6 @@
 # questions.
 #
 # @test TestGCHeapConfigurationEventWith32BitOops
-# @key jfr
 # @requires vm.hasJFR
 # @requires vm.gc == "Parallel" | vm.gc == null
 # @library /lib/testlibrary

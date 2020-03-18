@@ -47,7 +47,6 @@ import jdk.testlibrary.jfr.EventNames;
  * @requires vm.hasJFR
  * @modules jdk.jfr/jdk.jfr.internal.test
  * @library /lib/testlibrary
- * @key jfr
  *
  * @run main/othervm -XX:TLABSize=2k jdk.jfr.jcmd.TestJcmdDumpPathToGCRoots
  */

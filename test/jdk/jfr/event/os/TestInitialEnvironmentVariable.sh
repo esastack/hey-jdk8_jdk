@@ -21,7 +21,6 @@
 # questions.
 #
 # @test
-# @key jfr
 # @requires vm.hasJFR
 # @library /lib/testlibrary
 # @build jdk.jfr.event.os.TestInitialEnvironmentVariable

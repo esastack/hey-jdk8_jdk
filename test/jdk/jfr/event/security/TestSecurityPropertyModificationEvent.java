@@ -37,7 +37,6 @@ import jdk.testlibrary.security.JDKSecurityProperties;
  * @test
  * @bug 8148188
  * @summary Enhance the security libraries to record events of interest
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.event.security.TestSecurityPropertyModificationEvent

@@ -46,7 +46,6 @@ import jdk.testlibrary.thread.TestThread;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  *

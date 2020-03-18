@@ -37,7 +37,6 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @requires vm.gc == "Serial" | vm.gc == null
  * @library /lib/testlibrary

@@ -39,7 +39,6 @@ import jdk.testlibrary.jfr.SimpleEvent;
 /**
  * @test
  * @summary Test for RecordedEvent.getDuration()
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.event.TestGetDuration

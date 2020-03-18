@@ -42,7 +42,6 @@ import jdk.jfr.consumer.RecordingFile;
 
 /**
  * @test TestGetThreadId
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @modules jdk.jfr/jdk.jfr.internal

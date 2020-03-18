@@ -38,7 +38,6 @@ import jdk.testlibrary.jfr.TestClassLoader;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @summary Verifies the methods of the RecordedClassLoader
  * @library /lib/testlibrary

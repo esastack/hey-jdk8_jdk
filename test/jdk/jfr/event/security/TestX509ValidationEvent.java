@@ -39,7 +39,6 @@ import jdk.testlibrary.security.TestCertificate;
  * @test
  * @bug 8148188
  * @summary Enhance the security libraries to record events of interest
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @modules jdk.jfr/jdk.jfr.events

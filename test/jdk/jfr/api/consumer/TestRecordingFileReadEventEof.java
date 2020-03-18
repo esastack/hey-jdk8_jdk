@@ -35,7 +35,6 @@ import jdk.testlibrary.jfr.SimpleEvent;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @summary Verifies that RecordingFile.readEvent() throws EOF when past the last record
  * @library /lib/testlibrary

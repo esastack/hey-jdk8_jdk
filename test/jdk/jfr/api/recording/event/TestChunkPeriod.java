@@ -40,7 +40,6 @@ import jdk.testlibrary.jfr.SimpleEvent;
 /**
  * @test
  * @summary Test periodic setting that involves chunks.
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.event.TestChunkPeriod

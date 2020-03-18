@@ -37,7 +37,6 @@ import jdk.testlibrary.jfr.GCHelper;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @requires (vm.gc == "ConcMarkSweep" | vm.gc == null) & !vm.graal.enabled
  *           & vm.opt.ExplicitGCInvokesConcurrent != false

@@ -40,7 +40,6 @@ import jdk.testlibrary.process.OutputAnalyzer;
 
 /**
  * @test
- * @key jfr
  * @summary Tests print --json
  * @requires vm.hasJFR
  *

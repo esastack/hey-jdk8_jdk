@@ -29,7 +29,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @test
- * @key jfr
  * @bug 8013122
  * @requires vm.hasJFR
  * @library /lib/testlibrary

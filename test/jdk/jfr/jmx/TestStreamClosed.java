@@ -33,7 +33,6 @@ import jdk.testlibrary.jfr.SimpleEventHelper;
 
 /**
  * @test
- * @key jfr
  * @summary Call readStream() after closeStream()
  * @requires vm.hasJFR
  * @library /lib/testlibrary

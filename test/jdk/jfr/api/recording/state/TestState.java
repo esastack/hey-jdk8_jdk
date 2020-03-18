@@ -34,7 +34,6 @@ import jdk.testlibrary.jfr.CommonHelper;
 /**
  * @test
  * @summary Test Recording state
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.state.TestState

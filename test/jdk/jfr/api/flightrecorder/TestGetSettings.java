@@ -37,7 +37,6 @@ import jdk.jfr.Recording;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.flightrecorder.TestGetSettings

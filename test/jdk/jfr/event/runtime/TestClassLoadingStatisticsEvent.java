@@ -36,7 +36,6 @@ import jdk.testlibrary.jfr.TestClassLoader;
 
 /**
  * @test
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @build jdk.jfr.event.runtime.TestClasses

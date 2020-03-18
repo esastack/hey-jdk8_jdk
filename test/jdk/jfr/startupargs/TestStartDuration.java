@@ -37,7 +37,6 @@ import jdk.testlibrary.process.ProcessTools;
 /**
  * @test
  * @summary Start a recording with duration. Verify recording stops.
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main jdk.jfr.startupargs.TestStartDuration

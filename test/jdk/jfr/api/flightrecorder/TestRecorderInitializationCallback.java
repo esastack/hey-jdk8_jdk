@@ -35,7 +35,6 @@ import jdk.jfr.FlightRecorderListener;
 /**
  * @test
  * @summary Test Flight Recorder initialization callback is only called once
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.flightrecorder.TestRecorderInitializationCallback

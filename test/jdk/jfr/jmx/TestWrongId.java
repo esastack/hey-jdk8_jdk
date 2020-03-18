@@ -34,7 +34,6 @@ import jdk.testlibrary.jfr.VoidFunction;
 
 /**
  * @test
- * @key jfr
  * @summary Call functions with invalid argument id. Verify Exception.
  * @requires vm.hasJFR
  * @library /lib/testlibrary

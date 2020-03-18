@@ -26,7 +26,6 @@
 /**
  * @test
  * @summary Intrinsic for JFR
- * @key jfr
  * @requires vm.hasJFR
  * @library /lib/testlibrary
  *
