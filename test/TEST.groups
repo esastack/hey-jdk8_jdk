@@ -195,6 +195,9 @@ jdk_jmx = \
 jdk_jdi = \
     com/sun/jdi
 
+jdk_jfr = \
+    jdk/jfr
+
 #
 # Tool (and tool API) tests are split into core and svc groups
 #
@@ -270,6 +273,7 @@ jdk_svc = \
     :jdk_instrument \
     :jdk_jmx \
     :jdk_jdi \
+    :jdk_jfr \
     :svc_tools
 
 #############################
