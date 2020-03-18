@@ -38,8 +38,6 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @requires vm.hasJFR
- * @requires vm.gc == "G1" | vm.gc == null
  * @library /lib/testlibrary
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:G1HeapRegionSize=1m -Xmx64m -Xmn16m -XX:+UseG1GC jdk.jfr.event.gc.detailed.TestEvacuationInfoEvent
  */

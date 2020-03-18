@@ -43,9 +43,7 @@ import jdk.testlibrary.Utils;
 
 /**
  * @test TestCodeSweeperStats
- * @requires vm.hasJFR
  * @library /lib/testlibrary
- * @requires vm.compMode!="Xint"
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox
  *     sun.hotspot.WhiteBox$WhiteBoxPermission

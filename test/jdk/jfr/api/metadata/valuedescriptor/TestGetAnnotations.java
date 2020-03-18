@@ -40,7 +40,6 @@ import jdk.testlibrary.Asserts;
 /**
  * @test
  * @summary Test ValueDescriptor.getAnnotations()
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.metadata.valuedescriptor.TestGetAnnotations
  */

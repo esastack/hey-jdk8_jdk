@@ -37,8 +37,6 @@ import jdk.testlibrary.jfr.GCHelper;
 
 /**
  * @test
- * @requires vm.hasJFR
- * @requires (vm.gc == "ConcMarkSweep" | vm.gc == null) & !vm.graal.enabled
  *           & vm.opt.ExplicitGCInvokesConcurrent != false
  * @library /lib/testlibrary
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+UseConcMarkSweepGC -XX:+ExplicitGCInvokesConcurrent jdk.jfr.event.gc.heapsummary.TestHeapSummaryEventConcurrentCMS

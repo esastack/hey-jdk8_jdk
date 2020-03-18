@@ -36,10 +36,8 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @requires vm.hasJFR
  *
  * @library /lib/testlibrary
- * @requires vm.gc == "G1" | vm.gc == null
  *
  * @run main jdk.jfr.event.gc.detailed.TestEvacuationFailedEvent
  */

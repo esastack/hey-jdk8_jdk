@@ -40,7 +40,6 @@ import jdk.testlibrary.process.OutputAnalyzer;
 
 /**
  * @test TestClassId
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @modules jdk.jfr/jdk.jfr.internal
  * @run main/othervm jdk.jfr.jcmd.TestJcmdLegacy

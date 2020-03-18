@@ -34,7 +34,6 @@ import jdk.testlibrary.process.OutputAnalyzer;
 /**
  * @test
  * @summary Test jfr info
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.cmd.TestSummary
  */

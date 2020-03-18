@@ -41,7 +41,6 @@ import jdk.testlibrary.jfr.CommonHelper;
 /**
  * @test
  * @summary Test for RecordingInfo
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.jmx.info.TestRecordingInfo
  */

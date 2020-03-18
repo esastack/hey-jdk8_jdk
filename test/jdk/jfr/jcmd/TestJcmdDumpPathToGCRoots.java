@@ -44,7 +44,6 @@ import jdk.testlibrary.jfr.EventNames;
 /**
  * @test
  * @summary Start a recording with or without path-to-gc-roots
- * @requires vm.hasJFR
  * @modules jdk.jfr/jdk.jfr.internal.test
  * @library /lib/testlibrary
  *

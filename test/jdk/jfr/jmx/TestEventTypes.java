@@ -45,7 +45,6 @@ import jdk.testlibrary.jfr.Events;
 /**
  * @test
  * @summary Verifies that EventTypes from jmx and FlightRecorder are the same.
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.jmx.TestEventTypes
  */

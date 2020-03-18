@@ -21,8 +21,6 @@
 # questions.
 #
 # @test TestGCHeapConfigurationEventWithZeroBasedOops
-# @requires vm.hasJFR
-# @requires vm.gc == "Parallel" | vm.gc == null
 # @library /lib/testlibrary
 # @build jdk.jfr.event.gc.configuration.TestGCHeapConfigurationEventWithZeroBasedOops
 # @run shell TestGCHeapConfigurationEventWithZeroBasedOops.sh

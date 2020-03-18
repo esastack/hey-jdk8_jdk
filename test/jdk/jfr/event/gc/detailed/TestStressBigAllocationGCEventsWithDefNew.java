@@ -26,8 +26,6 @@ package jdk.jfr.event.gc.detailed;
 
 /**
  * @test
- * @requires vm.hasJFR
- * @requires vm.gc == "null" | vm.gc == "Serial"
  * @library /lib/testlibrary
  * @run main/othervm -XX:+UseSerialGC -Xmx256m jdk.jfr.event.gc.detailed.TestStressBigAllocationGCEventsWithDefNew 1048576
  */

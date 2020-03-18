@@ -28,9 +28,7 @@ import jdk.testlibrary.jfr.GCHelper;
 
 /**
  * @test
- * @requires vm.hasJFR
  *
- * @requires vm.gc == "Parallel" | vm.gc == null
  * @library /lib/testlibrary
  *
  * @run driver jdk.jfr.event.gc.collection.TestGCCauseWithParallelOld

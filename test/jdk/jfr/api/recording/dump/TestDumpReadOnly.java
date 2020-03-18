@@ -38,7 +38,6 @@ import jdk.testlibrary.jfr.VoidFunction;
 /**
  * @test
  * @summary Test copyTo and parse file
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.dump.TestDumpReadOnly
  */

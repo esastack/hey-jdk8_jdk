@@ -35,7 +35,6 @@ import jdk.testlibrary.Asserts;
 
 /**
  * @test
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.jmx.TestPredefinedConfiguration
  */

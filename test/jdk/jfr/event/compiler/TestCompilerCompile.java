@@ -41,8 +41,6 @@ import sun.hotspot.WhiteBox;
 
 /**
  * @test
- * @requires vm.hasJFR
- * @requires vm.compMode!="Xint"
  * @library /lib/testlibrary
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox

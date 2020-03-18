@@ -36,7 +36,6 @@ import sun.hotspot.WhiteBox;
 
 /**
  * @test TestCodeCacheConfig
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox

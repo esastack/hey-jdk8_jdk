@@ -33,11 +33,9 @@ import jdk.testlibrary.Platform;
  * @test
  * @bug 8153324
  * @summary Verify instrumented Throwable bytecode by compiling it with C1.
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @modules java.base/jdk.internal.misc
  *          java.management
- * @requires vm.compMode!="Xint"
  * @build  sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox
  * @run main/othervm -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI

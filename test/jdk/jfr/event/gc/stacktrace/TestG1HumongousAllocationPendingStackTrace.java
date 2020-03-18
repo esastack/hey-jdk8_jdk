@@ -26,9 +26,7 @@ package jdk.jfr.event.gc.stacktrace;
 
 /**
  * @test
- * @requires vm.hasJFR
  *
- * @requires vm.gc == "null" | vm.gc == "G1"
  * @library /lib/testlibrary
  * @run main/othervm -XX:+UseG1GC -Xlog:gc* -Xmx64M -XX:InitiatingHeapOccupancyPercent=100 jdk.jfr.event.gc.stacktrace.TestG1HumongousAllocationPendingStackTrace
  */

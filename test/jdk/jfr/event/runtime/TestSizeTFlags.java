@@ -37,8 +37,6 @@ import jdk.testlibrary.jfr.Events;
 /**
  * @test
  * @bug 8058552
- * @requires vm.hasJFR
- * @requires vm.gc == "G1" | vm.gc == null
  * @summary Test checks that flags of type size_t are being sent to the jfr
  * @library /lib/testlibrary
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+UseG1GC -XX:+UseTLAB -XX:MinTLABSize=3k -XX:OldSize=30m -XX:YoungPLABSize=3k -XX:MaxDirectMemorySize=5M  jdk.jfr.event.runtime.TestSizeTFlags

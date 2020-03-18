@@ -30,7 +30,6 @@ import jdk.testlibrary.Asserts;
 
 /**
  * @test
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm -XX:+FlightRecorder jdk.jfr.api.flightrecorder.TestIsAvailable true
  * @run main/othervm -XX:-FlightRecorder jdk.jfr.api.flightrecorder.TestIsAvailable  false

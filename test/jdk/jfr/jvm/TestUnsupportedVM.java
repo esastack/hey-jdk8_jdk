@@ -66,7 +66,6 @@ import jdk.testlibrary.Utils;
 
 /**
  * @test TestUnsupportedVM
- * @requires vm.hasJFR
  *
  * @modules jdk.jfr
  *          jdk.management.jfr

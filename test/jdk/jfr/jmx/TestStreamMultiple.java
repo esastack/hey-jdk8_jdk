@@ -34,7 +34,6 @@ import jdk.testlibrary.jfr.SimpleEventHelper;
 
 /**
  * @test
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.jmx.TestStreamMultiple
  */

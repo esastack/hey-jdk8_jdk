@@ -36,7 +36,6 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @modules jdk.jfr/jdk.jfr.internal.test
  * @run main/othervm -XX:TLABSize=2k jdk.jfr.event.oldobject.TestThreadLocalLeak

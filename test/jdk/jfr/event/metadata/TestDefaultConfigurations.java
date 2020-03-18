@@ -55,7 +55,6 @@ import org.xml.sax.SAXException;
 
 /**
  * @test
- * @requires vm.hasJFR
  *
  * @library /lib/testlibrary
  * @modules java.xml

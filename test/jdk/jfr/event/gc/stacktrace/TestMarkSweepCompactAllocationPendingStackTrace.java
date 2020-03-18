@@ -26,9 +26,7 @@ package jdk.jfr.event.gc.stacktrace;
 
 /**
  * @test
- * @requires vm.hasJFR
  *
- * @requires vm.gc == "null" | vm.gc == "Serial"
  * @library /lib/testlibrary
  * @run main/othervm -XX:MaxNewSize=10M -Xmx64M -XX:+UseSerialGC -Xlog:gc* jdk.jfr.event.gc.stacktrace.TestMarkSweepCompactAllocationPendingStackTrace
  */

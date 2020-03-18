@@ -38,7 +38,6 @@ import jdk.testlibrary.Asserts;
 /**
  * @test
  * @summary Test with minimal needed permissions. All functions should work.
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm/secure=java.lang.SecurityManager/java.security.policy=enough.policy jdk.jfr.jmx.security.TestEnoughPermission
  */

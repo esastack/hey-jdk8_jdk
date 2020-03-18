@@ -40,7 +40,6 @@ import jdk.testlibrary.jfr.FileHelper;
 /**
  * @test
  * @summary Set destination to a long path
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.destination.TestDestLongPath
  */

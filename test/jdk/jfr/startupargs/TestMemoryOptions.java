@@ -35,7 +35,6 @@ import jdk.internal.misc.Unsafe;
 
 /**
  * @test
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @modules jdk.jfr/jdk.jfr.internal
  *                 java.base/jdk.internal.misc

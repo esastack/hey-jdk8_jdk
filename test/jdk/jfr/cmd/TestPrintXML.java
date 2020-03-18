@@ -55,7 +55,6 @@ import org.xml.sax.helpers.DefaultHandler;
 /**
  * @test
  * @summary Tests print --xml
- * @requires vm.hasJFR
  *
  * @library /lib/testlibrary
  * @modules java.scripting

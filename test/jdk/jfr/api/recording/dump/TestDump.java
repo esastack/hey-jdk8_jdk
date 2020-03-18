@@ -37,7 +37,6 @@ import jdk.testlibrary.jfr.EventNames;
 /**
  * @test
  * @summary Test copyTo and parse file
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.dump.TestDump
  */

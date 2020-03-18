@@ -35,7 +35,6 @@ import jdk.jfr.internal.JVM;
 /**
  * @test
  * @summary Unit test for JVM#getUnloadedEventClassCount
- * @requires vm.hasJFR
  *
  * @library /lib/testlibrary
  * @modules jdk.jfr/jdk.jfr.internal

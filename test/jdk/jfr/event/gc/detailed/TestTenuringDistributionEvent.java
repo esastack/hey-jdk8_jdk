@@ -37,8 +37,6 @@ import jdk.testlibrary.jfr.Events;
 /**
  * @test
  * @bug 8009538
- * @requires vm.hasJFR
- * @requires vm.gc == "G1" | vm.gc == null
  * @library /lib/testlibrary
  * @run main/othervm -XX:NewSize=2m -XX:MaxNewSize=2m -Xmx32m -XX:+UseG1GC -XX:+NeverTenure jdk.jfr.event.gc.detailed.TestTenuringDistributionEvent
  */

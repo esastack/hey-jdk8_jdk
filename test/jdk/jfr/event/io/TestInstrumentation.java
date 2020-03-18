@@ -46,7 +46,6 @@ import jdk.testlibrary.process.ProcessTools;
 /*
  * @test
  * @summary Test that will instrument the same classes that JFR will also instrument.
- * @requires vm.hasJFR
  *
  * @library /lib/testlibrary
  * @modules java.base/jdk.internal.org.objectweb.asm

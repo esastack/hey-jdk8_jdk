@@ -32,7 +32,6 @@ import jdk.testlibrary.process.OutputAnalyzer;
 /**
  * @test
  * @summary Tests print --json
- * @requires vm.hasJFR
  *
  * @library /lib/testlibrary
  * @modules java.scripting

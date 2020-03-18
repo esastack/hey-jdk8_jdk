@@ -37,7 +37,6 @@ import jdk.testlibrary.jfr.Events;
 /**
  * @test
  * @summary Test -XX:FlightRecorderOptions=old-object-queue-size
- * @requires vm.hasJFR
  * @modules jdk.jfr/jdk.jfr.internal.test
  * @library /lib/testlibrary
  *

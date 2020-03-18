@@ -26,8 +26,6 @@ package jdk.jfr.event.gc.detailed;
 
 /**
  * @test
- * @requires vm.hasJFR
- * @requires vm.gc == "null" | vm.gc == "Parallel"
  * @library /lib/testlibrary
  * @run main/othervm -XX:+UseParallelGC -Xmx256m jdk.jfr.event.gc.detailed.TestStressBigAllocationGCEventsWithParallel 1048576
  */

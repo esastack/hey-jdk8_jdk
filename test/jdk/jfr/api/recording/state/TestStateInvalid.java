@@ -33,7 +33,6 @@ import jdk.testlibrary.jfr.VoidFunction;
 /**
  * @test
  * @summary Test start/stop/close recording from different recording states.
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.state.TestStateInvalid
  */

@@ -36,8 +36,6 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @requires vm.hasJFR
- * @requires vm.gc == "null" & !vm.graal.enabled
  * @summary Test leak profiler with CMS GC
  * @library /lib/testlibrary
  * @modules jdk.jfr/jdk.jfr.internal.test

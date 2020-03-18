@@ -38,8 +38,6 @@ import sun.hotspot.WhiteBox;
 
 /**
  * @test
- * @requires vm.hasJFR
- * @requires vm.gc == "Parallel" | vm.gc == null
  * @library /lib/testlibrary
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox

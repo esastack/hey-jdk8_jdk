@@ -35,8 +35,6 @@ import jdk.testlibrary.jfr.GCHelper;
 
 /**
  * @test
- * @requires vm.hasJFR
-  * @requires vm.gc == "Parallel" | vm.gc == null
  * @library /lib/testlibrary
  * @run main/othervm -XX:+UseParallelGC -XX:+UseParallelOldGC jdk.jfr.event.gc.collection.TestGCWithFasttime
  */

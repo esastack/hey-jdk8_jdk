@@ -45,7 +45,6 @@ import jdk.testlibrary.jfr.VoidFunction;
 /**
  * @test
  * @summary call copyTo() with recording in all states.
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.dump.TestDumpState
  */

@@ -34,7 +34,6 @@ import jdk.testlibrary.jfr.SimpleEventHelper;
 /**
  * @test
  * @summary Call readStream() after closeStream()
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.jmx.TestStreamClosed
  */

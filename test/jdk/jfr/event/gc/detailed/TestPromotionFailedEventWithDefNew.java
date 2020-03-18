@@ -27,9 +27,7 @@ package jdk.jfr.event.gc.detailed;
 
 /**
  * @test
- * @requires vm.hasJFR
  *
- * @requires vm.gc == "Serial" | vm.gc == null
  * @library /lib/testlibrary
  * @run main jdk.jfr.event.gc.detailed.TestPromotionFailedEventWithDefNew
  */

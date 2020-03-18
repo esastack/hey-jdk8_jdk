@@ -34,7 +34,6 @@ import jdk.testlibrary.jfr.SimpleEvent;
 
 /**
  * @test
- * @requires vm.hasJFR
  * @summary Tests that chunks are read in order and constant pools from multiple chunks can be read
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.consumer.TestRecordingInternals

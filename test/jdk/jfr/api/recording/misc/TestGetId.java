@@ -34,7 +34,6 @@ import jdk.testlibrary.Asserts;
 /**
  * @test
  * @summary Verify that each recording get unique a id
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm  jdk.jfr.api.recording.misc.TestGetId
  */

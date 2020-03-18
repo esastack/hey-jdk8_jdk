@@ -26,9 +26,7 @@ package jdk.jfr.event.gc.stacktrace;
 
 /**
  * @test
- * @requires vm.hasJFR
  *
- * @requires (vm.gc == "null" | vm.gc == "ConcMarkSweep") & !vm.graal.enabled
  * @library /lib/testlibrary
  * @run main/othervm -XX:+UseConcMarkSweepGC -Xlog:gc* -XX:+FlightRecorder jdk.jfr.event.gc.stacktrace.TestParNewAllocationPendingStackTrace
  */

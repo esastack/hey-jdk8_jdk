@@ -40,7 +40,6 @@ import sun.hotspot.WhiteBox;
 
 /**
  * @test TestSafepointEvents
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox

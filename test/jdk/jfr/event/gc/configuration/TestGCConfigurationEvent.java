@@ -37,8 +37,6 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @requires vm.hasJFR
- * @requires (vm.gc == "Parallel" | vm.gc == null)
  *           & vm.opt.ExplicitGCInvokesConcurrent != true
  * @library /lib/testlibrary
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+UseParallelGC -XX:+UseParallelOldGC -XX:ParallelGCThreads=3 -XX:ConcGCThreads=2 -XX:+UseDynamicNumberOfGCThreads -XX:-ExplicitGCInvokesConcurrent -XX:-DisableExplicitGC -XX:MaxGCPauseMillis=800 -XX:GCTimeRatio=19 jdk.jfr.event.gc.configuration.TestGCConfigurationEvent

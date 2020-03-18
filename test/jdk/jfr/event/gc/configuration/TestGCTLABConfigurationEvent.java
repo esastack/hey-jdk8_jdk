@@ -37,8 +37,6 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @requires vm.hasJFR
- * @requires vm.gc == "Parallel" | vm.gc == null
  * @library /lib/testlibrary
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+UseParallelGC -XX:+UseParallelOldGC -XX:+UseTLAB -XX:MinTLABSize=3k -XX:TLABRefillWasteFraction=96 jdk.jfr.event.gc.configuration.TestGCTLABConfigurationEvent
  */

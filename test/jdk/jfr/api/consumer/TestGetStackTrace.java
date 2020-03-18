@@ -44,7 +44,6 @@ import jdk.testlibrary.jfr.SimpleEvent;
 
 /**
  * @test
- * @requires vm.hasJFR
  * @summary Verifies that a recorded JFR event has the correct stack trace info
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.consumer.TestGetStackTrace

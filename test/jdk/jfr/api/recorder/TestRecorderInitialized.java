@@ -31,7 +31,6 @@ import jdk.testlibrary.Asserts;
 
 /**
  * @test TestRecorderListener
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  *
  * @run main/othervm jdk.jfr.api.recorder.TestRecorderInitialized

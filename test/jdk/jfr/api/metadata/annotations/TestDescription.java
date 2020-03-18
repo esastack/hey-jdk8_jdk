@@ -43,7 +43,6 @@ import jdk.testlibrary.jfr.SimpleSetting;
 
 /**
  * @test
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.metadata.annotations.TestDescription
  */

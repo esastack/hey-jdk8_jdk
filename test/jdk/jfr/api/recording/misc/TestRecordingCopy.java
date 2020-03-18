@@ -36,7 +36,6 @@ import java.util.List;
 /**
  * @test
  * @summary A simple test for Recording.copy()
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.misc.TestRecordingCopy
  */

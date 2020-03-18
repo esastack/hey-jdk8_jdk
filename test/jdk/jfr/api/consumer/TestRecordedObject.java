@@ -49,7 +49,6 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @requires vm.hasJFR
  * @summary Verifies the methods of the RecordedObject
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.consumer.TestRecordedObject

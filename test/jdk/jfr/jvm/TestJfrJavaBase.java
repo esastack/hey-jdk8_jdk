@@ -27,7 +27,6 @@
  * @test
  * @bug 8157032
  * @summary verify that jfr can not be used when JVM is executed only with java.base
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @modules java.base/jdk.internal.misc
  * @run driver jdk.jfr.jvm.TestJfrJavaBase

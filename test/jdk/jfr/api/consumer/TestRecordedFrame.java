@@ -39,7 +39,6 @@ import jdk.testlibrary.jfr.SimpleEvent;
 
 /**
  * @test
- * @requires vm.hasJFR
  * @summary Simple test for RecordedFrame APIs
  * @library /lib/testlibrary
  * @run main/othervm -Xint  -XX:+UseInterpreter -Dinterpreted=true  jdk.jfr.api.consumer.TestRecordedFrame

@@ -28,8 +28,6 @@ import jdk.testlibrary.jfr.GCHelper;
 
 /**
  * @test
- * @requires vm.hasJFR
- * @requires vm.gc == "Serial" | vm.gc == null
  * @library /lib/testlibrary
  * @run main/othervm  -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xlog:gc+heap=trace,gc*=debug -Xmx50m -Xmn2m -XX:+UseSerialGC jdk.jfr.event.gc.refstat.TestRefStatEventWithDefNew
  */

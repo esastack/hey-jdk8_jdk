@@ -42,7 +42,6 @@ import jdk.testlibrary.jfr.RecurseThread;
 
 /**
  * @test
- * @requires vm.hasJFR
  * @summary
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.consumer.TestRecordedFullStackTrace

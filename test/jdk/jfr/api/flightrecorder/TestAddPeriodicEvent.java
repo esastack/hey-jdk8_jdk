@@ -38,7 +38,6 @@ import jdk.jfr.Recording;
 /**
  * @test
  * @summary
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.flightrecorder.TestAddPeriodicEvent
  */

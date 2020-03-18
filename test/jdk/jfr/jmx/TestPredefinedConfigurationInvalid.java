@@ -33,7 +33,6 @@ import jdk.testlibrary.jfr.VoidFunction;
 
 /**
  * @test
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.jmx.TestPredefinedConfigurationInvalid
  */

@@ -46,7 +46,6 @@ import jdk.testlibrary.process.OutputAnalyzer;
 /**
  * @test
  * @summary The test verifies JFR.dump command
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.jcmd.TestJcmdDumpLimited
  */

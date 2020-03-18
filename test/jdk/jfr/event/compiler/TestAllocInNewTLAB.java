@@ -39,7 +39,6 @@ import jdk.testlibrary.jfr.Events;
 /**
  * @test
  * @summary Test that event is triggered when an object is allocated in a new TLAB.
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm -XX:+UseTLAB -XX:TLABSize=100k -XX:-ResizeTLAB -XX:TLABRefillWasteFraction=1 jdk.jfr.event.compiler.TestAllocInNewTLAB
  * @run main/othervm -XX:+UseTLAB -XX:TLABSize=100k -XX:-ResizeTLAB -XX:TLABRefillWasteFraction=1 -XX:-FastTLABRefill jdk.jfr.event.compiler.TestAllocInNewTLAB

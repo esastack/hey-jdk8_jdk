@@ -33,7 +33,6 @@ import jdk.jfr.FlightRecorder;
 
 /**
  * @test
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.metadata.annotations.TestRegistered
  */

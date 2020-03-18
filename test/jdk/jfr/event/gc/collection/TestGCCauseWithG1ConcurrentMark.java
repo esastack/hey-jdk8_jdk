@@ -28,10 +28,7 @@ import jdk.testlibrary.jfr.GCHelper;
 
 /**
  * @test
- * @requires vm.hasJFR
  *
- * @requires vm.gc == "G1" | vm.gc == null
- * @requires vm.opt.ExplicitGCInvokesConcurrent != false
  * @library /lib/testlibrary
  *
  * @run driver jdk.jfr.event.gc.collection.TestGCCauseWithG1ConcurrentMark

@@ -38,7 +38,6 @@ import jdk.testlibrary.dcmd.PidJcmdExecutor;
 /**
  * @test TestJcmdLogLevelChange
  * @summary Test changing log level
- * @requires vm.hasJFR
  *
  * @library /lib/testlibrary
  *

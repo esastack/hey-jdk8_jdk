@@ -26,9 +26,7 @@ package jdk.jfr.event.gc.stacktrace;
 
 /**
  * @test
- * @requires vm.hasJFR
  *
- * @requires vm.gc == "null" | vm.gc == "Parallel"
  * @library /lib/testlibrary
  * @run main/othervm -XX:MaxNewSize=10M -Xmx64M -XX:+UseParallelGC -Xlog:gc* -XX:+FlightRecorder jdk.jfr.event.gc.stacktrace.TestParallelMarkSweepAllocationPendingStackTrace
  */

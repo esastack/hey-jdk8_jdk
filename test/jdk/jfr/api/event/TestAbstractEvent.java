@@ -40,7 +40,6 @@ import jdk.testlibrary.jfr.Events;
 /**
  * @test
  * @summary Tests that abstract events are not part of metadata
- * @requires vm.hasJFR
  * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.event.TestAbstractEvent
  */
