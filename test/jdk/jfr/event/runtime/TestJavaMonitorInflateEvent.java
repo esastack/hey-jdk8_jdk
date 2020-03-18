@@ -42,7 +42,7 @@ import jdk.testlibrary.thread.XRun;
  * @test TestJavaMonitorInflateEvent
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.event.runtime.TestJavaMonitorInflateEvent
  */
 public class TestJavaMonitorInflateEvent {

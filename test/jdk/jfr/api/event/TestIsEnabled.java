@@ -35,7 +35,7 @@ import jdk.testlibrary.jfr.SimpleEvent;
  * @summary Test Event.isEnabled()
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.event.TestIsEnabled
  */
 

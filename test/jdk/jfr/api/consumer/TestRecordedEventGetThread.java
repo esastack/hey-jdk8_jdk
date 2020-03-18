@@ -36,10 +36,10 @@ import jdk.testlibrary.jfr.SimpleEvent;
 
 /**
  * @test
- * @summary Tests that the RecordedEvent.getThread() returns th expected info
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @summary Tests that the RecordedEvent.getThread() returns th expected info
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.consumer.TestRecordedEventGetThread
  */
 public class TestRecordedEventGetThread {

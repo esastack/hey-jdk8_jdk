@@ -42,7 +42,7 @@ import jdk.testlibrary.jfr.Events;
  * @summary Test event period.
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.event.TestPeriod
  */
 public class TestPeriod {

@@ -38,7 +38,7 @@ import jdk.testlibrary.jfr.VoidFunction;
  * @summary Test Recording state
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.state.TestStateScheduleStart
  */
 public class TestStateScheduleStart {

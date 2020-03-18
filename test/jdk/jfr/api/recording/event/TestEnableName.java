@@ -40,7 +40,7 @@ import jdk.testlibrary.jfr.Events;
  * @summary Simple enable Event class.
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.event.TestEnableName
  */
 public class TestEnableName {

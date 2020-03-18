@@ -23,7 +23,7 @@
 # @test
 # @key jfr
 # @requires vm.hasJFR
-# @library /test/lib
+# @library /lib/testlibrary
 # @build jdk.jfr.event.os.TestInitialEnvironmentVariable
 # @run shell TestInitialEnvironmentVariable.sh
 

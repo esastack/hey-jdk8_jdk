@@ -44,7 +44,7 @@ import jdk.testlibrary.jfr.SimpleEventHelper;
  * @summary Test that recording is auto closed after duration
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.destination.TestDestWithDuration
  */
 public class TestDestWithDuration {

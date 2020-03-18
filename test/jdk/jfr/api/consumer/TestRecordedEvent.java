@@ -39,10 +39,10 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @summary Verifies the methods of the RecordedEvent
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @summary Verifies the methods of the RecordedEvent
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.consumer.TestRecordedEvent
  */
 public class TestRecordedEvent {

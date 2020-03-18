@@ -43,7 +43,7 @@ import jdk.testlibrary.jfr.Events;
  * @summary Test getStartTime() and getEndTime(). Verify startTime <= endTime
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.event.TestEventTime
  */
 public class TestEventTime {

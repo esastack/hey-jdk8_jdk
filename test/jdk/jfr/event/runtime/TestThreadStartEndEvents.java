@@ -38,7 +38,7 @@ import jdk.testlibrary.jfr.Events;
  * @test
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.event.runtime.TestThreadStartEndEvents
  */
 

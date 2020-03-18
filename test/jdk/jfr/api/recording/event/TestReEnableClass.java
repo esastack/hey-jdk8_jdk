@@ -36,7 +36,7 @@ import jdk.testlibrary.jfr.SimpleEventHelper;
  * @summary Enable, disable, enable event during recording.
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.event.TestReEnableClass
  */
 public class TestReEnableClass {

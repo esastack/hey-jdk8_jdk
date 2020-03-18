@@ -33,7 +33,7 @@ import jdk.testlibrary.jfr.GCHelper;
  *
  * @requires vm.gc == "G1" | vm.gc == null
  * @requires vm.opt.ExplicitGCInvokesConcurrent != false
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  *
  * @run driver jdk.jfr.event.gc.collection.TestGCCauseWithG1ConcurrentMark
  */

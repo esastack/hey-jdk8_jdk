@@ -30,7 +30,7 @@ package jdk.jfr.event.gc.stacktrace;
  *
  * @requires vm.gc == "null" | vm.gc == "G1"
  * @requires !(vm.compMode == "Xcomp" & os.arch == "aarch64")
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:+UseG1GC -Xlog:gc* -XX:MaxMetaspaceSize=64M jdk.jfr.event.gc.stacktrace.TestMetaspaceG1GCAllocationPendingStackTrace
  */
 

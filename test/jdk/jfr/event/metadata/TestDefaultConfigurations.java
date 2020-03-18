@@ -58,7 +58,7 @@ import org.xml.sax.SAXException;
  * @key jfr
  * @requires vm.hasJFR
  *
- * @library /test/lib
+ * @library /lib/testlibrary
  * @modules java.xml
  *          jdk.jfr
  *

@@ -40,7 +40,7 @@ import jdk.testlibrary.jfr.Events;
  * @summary Check that event values are properly formatted and sanity check
  *              that extreme values don't throws exceptions
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.metadata.annotations.TestFormatMissingValue
  */
 public class TestFormatMissingValue {

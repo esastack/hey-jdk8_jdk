@@ -39,7 +39,7 @@ import sun.hotspot.code.BlobType;
  * @test TestCodeCacheFull
  * @requires vm.hasJFR
  *
- * @library /test/lib
+ * @library /lib/testlibrary
  * @modules jdk.jfr
  *          jdk.management.jfr
  * @build sun.hotspot.WhiteBox

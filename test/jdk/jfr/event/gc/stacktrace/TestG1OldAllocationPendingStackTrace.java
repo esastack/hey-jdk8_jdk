@@ -30,7 +30,7 @@ package jdk.jfr.event.gc.stacktrace;
  * @requires vm.hasJFR
  *
  * @requires vm.gc == "null" | vm.gc == "G1"
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:MaxNewSize=10M -Xmx128M -XX:+UseG1GC -Xlog:gc* jdk.jfr.event.gc.stacktrace.TestG1OldAllocationPendingStackTrace
  */
 public class TestG1OldAllocationPendingStackTrace {

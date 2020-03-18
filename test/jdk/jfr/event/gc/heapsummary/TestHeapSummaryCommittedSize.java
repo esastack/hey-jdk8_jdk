@@ -41,7 +41,7 @@ import sun.hotspot.WhiteBox;
  * @key jfr
  * @requires vm.hasJFR
  * @requires vm.gc == "Parallel" | vm.gc == null
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox
  * @run main/othervm -XX:+UnlockExperimentalVMOptions

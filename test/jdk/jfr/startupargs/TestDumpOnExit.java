@@ -43,7 +43,7 @@ import jdk.testlibrary.process.ProcessTools;
  * @summary Start a FlightRecording with dumponexit. Verify dump exists.
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.startupargs.TestDumpOnExit
  */
 public class TestDumpOnExit {

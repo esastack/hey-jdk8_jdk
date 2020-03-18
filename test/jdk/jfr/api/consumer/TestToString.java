@@ -36,10 +36,10 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @summary Sanity checks that RecordedEvent#toString returns something valid
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @summary Sanity checks that RecordedEvent#toString returns something valid
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.consumer.TestToString
  */
 public class TestToString {

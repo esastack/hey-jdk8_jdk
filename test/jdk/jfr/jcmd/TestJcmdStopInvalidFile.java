@@ -32,7 +32,7 @@ import jdk.testlibrary.process.OutputAnalyzer;
  * @summary Verify error when stopping with invalid file.
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.jcmd.TestJcmdStopInvalidFile
  */
 public class TestJcmdStopInvalidFile {

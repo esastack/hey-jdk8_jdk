@@ -39,7 +39,7 @@ import jdk.testlibrary.jfr.Events;
  * @test
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps jdk.jfr.event.gc.configuration.TestGCConfigurationEventWithDefaultPauseTarget
  */
 public class TestGCConfigurationEventWithDefaultPauseTarget {

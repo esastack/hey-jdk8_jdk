@@ -36,10 +36,10 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @summary Verifies that a single JFR event is recorded as expected
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @summary Verifies that a single JFR event is recorded as expected
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.consumer.TestSingleRecordedEvent
  */
 public class TestSingleRecordedEvent {

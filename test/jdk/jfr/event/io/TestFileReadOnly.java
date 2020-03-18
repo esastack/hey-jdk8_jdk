@@ -44,7 +44,7 @@ import jdk.testlibrary.jfr.Events;
  * @test
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.event.io.TestFileReadOnly
  */
 public class TestFileReadOnly {

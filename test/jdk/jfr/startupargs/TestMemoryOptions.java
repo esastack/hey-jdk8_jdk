@@ -37,7 +37,7 @@ import jdk.internal.misc.Unsafe;
  * @test
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @modules jdk.jfr/jdk.jfr.internal
  *                 java.base/jdk.internal.misc
  * @run main/timeout=900 jdk.jfr.startupargs.TestMemoryOptions

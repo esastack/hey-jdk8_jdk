@@ -41,7 +41,7 @@ import jdk.testlibrary.jfr.SimpleEventHelper;
  * @summary Test copyTo and parse file
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.dump.TestDumpMultiple
  */
 public class TestDumpMultiple {

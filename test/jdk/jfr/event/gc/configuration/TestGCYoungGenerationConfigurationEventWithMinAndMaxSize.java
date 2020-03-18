@@ -34,7 +34,7 @@ import jdk.testlibrary.process.ProcessTools;
  * @test
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run driver jdk.jfr.event.gc.configuration.TestGCYoungGenerationConfigurationEventWithMinAndMaxSize
  */
 public class TestGCYoungGenerationConfigurationEventWithMinAndMaxSize {

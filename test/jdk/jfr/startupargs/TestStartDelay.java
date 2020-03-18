@@ -38,7 +38,7 @@ import jdk.testlibrary.jfr.CommonHelper;
  * @summary Start a recording with delay. Verify recording starts later.
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:StartFlightRecording=name=TestStartDelay,delay=5000s jdk.jfr.startupargs.TestStartDelay
  */
 public class TestStartDelay {

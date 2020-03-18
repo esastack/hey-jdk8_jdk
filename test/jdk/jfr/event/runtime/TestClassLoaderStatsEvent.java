@@ -43,7 +43,7 @@ import jdk.testlibrary.jfr.Events;
  * @test
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @build jdk.jfr.event.runtime.TestClasses
  * @run main/othervm jdk.jfr.event.runtime.TestClassLoaderStatsEvent
  */

@@ -34,7 +34,7 @@ import jdk.testlibrary.Platform;
  * @bug 8153324
  * @summary Verify instrumented Throwable bytecode by compiling it with C1.
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @modules java.base/jdk.internal.misc
  *          java.management
  * @requires vm.compMode!="Xint"

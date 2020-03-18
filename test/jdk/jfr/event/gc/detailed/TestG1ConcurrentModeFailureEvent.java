@@ -44,7 +44,7 @@ import jdk.testlibrary.jfr.EventNames;
  * @requires vm.hasJFR
  *
  * @requires vm.gc == "G1" | vm.gc == null
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main jdk.jfr.event.gc.detailed.TestG1ConcurrentModeFailureEvent
  */
 

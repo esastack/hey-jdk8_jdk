@@ -32,7 +32,7 @@ package jdk.jfr.event.gc.collection;
  *
  * @requires (vm.gc == "G1" | vm.gc == null)
  *           & vm.opt.ExplicitGCInvokesConcurrent != true
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xmx32m -Xmn8m -XX:+UseG1GC -XX:-ExplicitGCInvokesConcurrent jdk.jfr.event.gc.collection.TestGCEventMixedWithG1FullCollection
  * good debug flags: -Xlog:gc*=debug
  */

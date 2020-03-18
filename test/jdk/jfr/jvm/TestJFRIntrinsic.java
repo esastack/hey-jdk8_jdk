@@ -28,7 +28,7 @@
  * @summary Intrinsic for JFR
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  *
  * @modules jdk.jfr/jdk.jfr.internal
  *          java.base/jdk.internal.misc

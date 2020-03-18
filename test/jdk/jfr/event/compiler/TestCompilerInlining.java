@@ -51,7 +51,7 @@ import java.util.stream.IntStream;
  * @requires vm.hasJFR
  *
  * @requires vm.opt.Inline == true | vm.opt.Inline == null
- * @library /test/lib
+ * @library /lib/testlibrary
  * @modules java.base/jdk.internal.org.objectweb.asm
  *          jdk.jfr
  *

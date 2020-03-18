@@ -36,7 +36,7 @@ import jdk.testlibrary.Asserts;
  * @key jfr
  * @summary Test Recording.setDuration() and Recording.get*Time()
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.time.TestTimeDuration
  */
 

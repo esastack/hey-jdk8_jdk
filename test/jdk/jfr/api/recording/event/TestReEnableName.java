@@ -40,7 +40,7 @@ import jdk.testlibrary.jfr.Events;
  * @summary Enable/disable event by name during recording.
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.event.TestReEnableName
  */
 public class TestReEnableName {

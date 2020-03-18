@@ -41,7 +41,7 @@ import jdk.testlibrary.dcmd.PidJcmdExecutor;
  * @summary Test changing log level
  * @requires vm.hasJFR
  *
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  *
  * @run main/othervm -Xlog:jfr=info jdk.jfr.jcmd.TestJcmdChangeLogLevel
  */

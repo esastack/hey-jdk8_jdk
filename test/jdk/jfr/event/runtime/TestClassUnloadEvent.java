@@ -42,7 +42,7 @@ import jdk.testlibrary.jfr.TestClassLoader;
  * @summary The test verifies that a class unload event is created when class is unloaded
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @build jdk.jfr.event.runtime.TestClasses
  * @run main/othervm -Xlog:class+unload -Xlog:gc -Xmx16m jdk.jfr.event.runtime.TestClassUnloadEvent
  */

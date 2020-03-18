@@ -24,7 +24,7 @@
 # @key jfr
 # @requires vm.hasJFR
 # @requires vm.gc == "Parallel" | vm.gc == null
-# @library /test/lib /test/jdk
+# @library /lib/testlibrary
 # @build jdk.jfr.event.gc.configuration.TestGCHeapConfigurationEventWithHeapBasedOops
 # @run shell TestGCHeapConfigurationEventWithHeapBasedOops.sh
 

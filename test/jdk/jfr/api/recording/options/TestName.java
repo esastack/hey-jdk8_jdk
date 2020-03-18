@@ -35,7 +35,7 @@ import jdk.testlibrary.jfr.VoidFunction;
  * @summary Test setName().
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.options.TestName
  */
 public class TestName {

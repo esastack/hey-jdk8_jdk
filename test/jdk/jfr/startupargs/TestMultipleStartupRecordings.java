@@ -34,7 +34,7 @@ import jdk.testlibrary.process.ProcessTools;
  * @key jfr
  * @requires vm.hasJFR
  *
- * @library /test/lib
+ * @library /lib/testlibrary
  *
  * @run main jdk.jfr.startupargs.TestMultipleStartupRecordings
  */

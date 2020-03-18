@@ -32,7 +32,7 @@ package jdk.jfr.event.gc.collection;
  *
  * @requires (vm.gc == "ConcMarkSweep" | vm.gc == null) & !vm.graal.enabled
  *           & vm.opt.ExplicitGCInvokesConcurrent != false
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  *
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xmx32m -Xmn8m -XX:+UseConcMarkSweepGC -XX:+ExplicitGCInvokesConcurrent jdk.jfr.event.gc.collection.TestGCEventMixedWithCMSConcurrent
  * good debug flags: -Xlog:gc+heap=trace,gc*=debug

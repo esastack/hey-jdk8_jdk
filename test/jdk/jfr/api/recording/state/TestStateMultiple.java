@@ -35,7 +35,7 @@ import jdk.testlibrary.jfr.VoidFunction;
  * @summary Test Recording state with concurrent recordings
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.state.TestStateMultiple
  */
 public class TestStateMultiple {

@@ -36,7 +36,7 @@ import jdk.testlibrary.jfr.Events;
  * @key jfr
  * @requires vm.hasJFR
  * @requires vm.gc == "G1" | vm.gc == null
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:NewSize=2m -XX:MaxNewSize=2m -Xmx32m -XX:+UseG1GC -XX:MaxGCPauseMillis=75 -XX:GCPauseIntervalMillis=150 -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps jdk.jfr.event.gc.detailed.TestG1MMUEvent
  */
 public class TestG1MMUEvent {

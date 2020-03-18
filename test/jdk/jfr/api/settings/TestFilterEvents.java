@@ -39,7 +39,7 @@ import static jdk.testlibrary.Asserts.assertEquals;
  * @summary The test uses SettingControl
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.settings.TestFilterEvents
  */
 public class TestFilterEvents {

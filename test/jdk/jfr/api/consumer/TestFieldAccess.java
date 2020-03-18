@@ -39,7 +39,8 @@ import jdk.testlibrary.jfr.Events;
  * @test
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @summary Field access test
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.consumer.TestFieldAccess
  */
 public class TestFieldAccess {

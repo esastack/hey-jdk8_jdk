@@ -31,7 +31,7 @@ package jdk.jfr.event.gc.detailed;
  * @requires vm.hasJFR
  *
  * @requires vm.gc == "Parallel" | vm.gc == null
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main jdk.jfr.event.gc.detailed.TestPromotionFailedEventWithParallelScavenge
  */
 public class TestPromotionFailedEventWithParallelScavenge {

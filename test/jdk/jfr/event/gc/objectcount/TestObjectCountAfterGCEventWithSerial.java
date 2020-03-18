@@ -31,7 +31,7 @@ import jdk.testlibrary.jfr.GCHelper;
  * @key jfr
  * @requires vm.hasJFR
  * @requires vm.gc == "Serial" | vm.gc == null
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+UseSerialGC -XX:MarkSweepDeadRatio=0 -XX:-UseCompressedOops -XX:+IgnoreUnrecognizedVMOptions jdk.jfr.event.gc.objectcount.TestObjectCountAfterGCEventWithSerial
  */
 public class TestObjectCountAfterGCEventWithSerial {

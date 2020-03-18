@@ -47,7 +47,7 @@ import jdk.testlibrary.thread.XRun;
  * @summary Verify the event time stamp and thread name
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps jdk.jfr.event.io.TestRandomAccessFileThread
  */
 

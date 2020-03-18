@@ -32,7 +32,7 @@ package jdk.jfr.event.gc.detailed;
  *
  * @requires (vm.gc == "G1" | vm.gc == null)
  *           & vm.opt.ExplicitGCInvokesConcurrent != true
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -Xmx32m -Xms32m -Xmn12m -XX:+UseG1GC -XX:-UseStringDeduplication -XX:MaxTenuringThreshold=5 -XX:InitialTenuringThreshold=5
  * jdk.jfr.event.gc.detailed.TestPromotionEventWithG1
  */

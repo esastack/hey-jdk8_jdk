@@ -40,7 +40,7 @@ import jdk.testlibrary.jfr.Events;
  * @summary Tests that a cloned event can be successfully committed.
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.event.TestClonedEvent
  */
 

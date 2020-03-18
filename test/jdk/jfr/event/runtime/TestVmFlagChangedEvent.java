@@ -41,7 +41,7 @@ import jdk.testlibrary.jfr.Events;
  * @test TestVmFlagChangedEvent
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @modules jdk.jfr
  *          jdk.management
  *

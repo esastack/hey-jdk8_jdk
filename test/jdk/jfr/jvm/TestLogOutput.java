@@ -36,7 +36,7 @@ import java.util.List;
  * @key jfr
  * @summary Sanity test jfr logging output
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm -Xlog:disable -Xlog:jfr*=trace:file=jfr_trace.txt -XX:StartFlightRecording=duration=1s,filename=recording.jfr jdk.jfr.jvm.TestLogOutput
  */
 public class TestLogOutput {

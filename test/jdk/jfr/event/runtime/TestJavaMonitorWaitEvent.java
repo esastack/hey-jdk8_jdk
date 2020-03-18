@@ -42,7 +42,7 @@ import jdk.testlibrary.thread.XRun;
  * @test
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.event.runtime.TestJavaMonitorWaitEvent
  */
 public class TestJavaMonitorWaitEvent {

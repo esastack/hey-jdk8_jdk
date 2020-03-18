@@ -33,7 +33,7 @@ import jdk.jfr.FlightRecorder;
  * @test
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.flightrecorder.TestListenerNull
  */
 public class TestListenerNull {

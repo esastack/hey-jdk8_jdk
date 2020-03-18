@@ -36,7 +36,7 @@ import jdk.testlibrary.jfr.Events;
  * @summary Test SettingDescriptor.getDescription()
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.metadata.settingdescriptor.TestGetDescription
  */
 public class TestGetDescription {

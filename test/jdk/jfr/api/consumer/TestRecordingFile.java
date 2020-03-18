@@ -51,10 +51,10 @@ import jdk.testlibrary.Utils;
 
 /**
  * @test
- * @summary Verifies that all methods in RecordingFIle are working
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @summary Verifies that all methods in RecordingFIle are working
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.consumer.TestRecordingFile
  */
 public class TestRecordingFile {

@@ -43,7 +43,7 @@ import jdk.testlibrary.Asserts;
  * @summary Test all basic types in ValueDescriptor.
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.metadata.valuedescriptor.TestSimpleTypes
  */
 public class TestSimpleTypes {

@@ -39,7 +39,7 @@ import jdk.testlibrary.jfr.Events;
  * @requires vm.hasJFR
  * @requires vm.gc == "Parallel" | vm.gc == null
  * @key jfr
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm -XX:+UseParallelGC jdk.jfr.event.runtime.TestVMOperation
  */
 public class TestVMOperation {

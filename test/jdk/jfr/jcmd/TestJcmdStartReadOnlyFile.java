@@ -36,7 +36,7 @@ import jdk.testlibrary.process.OutputAnalyzer;
  * @summary Verify error when starting with read-only file.
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.jcmd.TestJcmdStartReadOnlyFile
  */
 public class TestJcmdStartReadOnlyFile {

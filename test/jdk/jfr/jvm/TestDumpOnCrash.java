@@ -42,7 +42,7 @@ import jdk.testlibrary.process.ProcessTools;
  * @summary Verifies that data associated with a running recording can be evacuated to an hs_err_pidXXX.jfr when the VM crashes
  * @requires vm.hasJFR
  *
- * @library /test/lib
+ * @library /lib/testlibrary
  * @modules java.base/jdk.internal.misc
  *          java.management
  *          jdk.jfr

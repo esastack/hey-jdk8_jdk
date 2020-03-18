@@ -33,7 +33,7 @@ import jdk.testlibrary.jfr.SimpleEventHelper;
  * @summary Simple enable Event class.
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.event.TestEnableClass
  */
 public class TestEnableClass {

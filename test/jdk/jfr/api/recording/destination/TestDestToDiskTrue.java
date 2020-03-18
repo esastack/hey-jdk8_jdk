@@ -43,7 +43,7 @@ import jdk.testlibrary.jfr.EventNames;
  * @summary Basic test for setDestination with disk=true
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.destination.TestDestToDiskTrue
  */
 public class TestDestToDiskTrue {

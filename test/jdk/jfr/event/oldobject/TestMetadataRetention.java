@@ -48,7 +48,7 @@ import jdk.testlibrary.jfr.TestClassLoader;
  * @requires vm.gc == "null"
  * @key jfr
  * @modules jdk.jfr/jdk.jfr.internal.test
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @build jdk.jfr.event.oldobject.TestMetadataObject
  * @run main/othervm -XX:TLABSize=2k -Xmx16m jdk.jfr.event.oldobject.TestMetadataRetention
  */

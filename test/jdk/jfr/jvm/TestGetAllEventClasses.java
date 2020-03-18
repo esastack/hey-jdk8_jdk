@@ -34,7 +34,7 @@ import java.util.List;
  * @test TestGetAllEventClasses
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @modules jdk.jfr/jdk.jfr.internal
  *
  * @build jdk.jfr.jvm.HelloWorldEvent1

@@ -44,7 +44,7 @@ import jdk.testlibrary.process.OutputAnalyzer;
  * @summary Tests print --json
  * @requires vm.hasJFR
  *
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @modules jdk.scripting.nashorn
  *          jdk.jfr
  *

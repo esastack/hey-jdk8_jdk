@@ -36,7 +36,7 @@ import jdk.jfr.Recording;
  * @summary Test Recording state with concurrent recordings
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.state.TestStateIdenticalListeners
  */
 public class TestStateIdenticalListeners {

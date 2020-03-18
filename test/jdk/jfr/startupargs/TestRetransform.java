@@ -36,7 +36,7 @@ import jdk.testlibrary.jfr.SimpleEvent;
  * @test
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm -XX:FlightRecorderOptions=retransform=false jdk.jfr.startupargs.TestRetransform
  * @run main/othervm -XX:FlightRecorderOptions=retransform=true jdk.jfr.startupargs.TestRetransform
  */

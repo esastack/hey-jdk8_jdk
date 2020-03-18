@@ -37,7 +37,7 @@ import jdk.testlibrary.Asserts;
  * @summary Verifies Configuration.getContents() for every configuration
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.settings.TestConfigurationGetContents
  */
 public class TestConfigurationGetContents {

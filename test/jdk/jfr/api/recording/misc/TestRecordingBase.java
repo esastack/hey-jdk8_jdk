@@ -45,7 +45,7 @@ import jdk.jfr.RecordingState;
  * @summary Basic tests for Recording
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.misc.TestRecordingBase
  */
 public class TestRecordingBase {

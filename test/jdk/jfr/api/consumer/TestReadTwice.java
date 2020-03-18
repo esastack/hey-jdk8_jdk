@@ -40,10 +40,10 @@ import jdk.testlibrary.Utils;
 
 /**
  * @test
- * @summary Reads the recorded file two times and verifies that both reads are the same
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @summary Reads the recorded file two times and verifies that both reads are the same
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.consumer.TestReadTwice
  */
 public class TestReadTwice {

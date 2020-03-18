@@ -38,7 +38,7 @@ import jdk.testlibrary.Asserts;
  * @bug 8220657
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.jcmd.TestJcmdDumpWithFileName
  */
 public class TestJcmdDumpWithFileName {

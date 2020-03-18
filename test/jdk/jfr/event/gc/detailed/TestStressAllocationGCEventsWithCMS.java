@@ -28,7 +28,7 @@ package jdk.jfr.event.gc.detailed;
  * @test
  * @requires vm.hasJFR
  * @requires (vm.gc == "null" | vm.gc == "ConcMarkSweep") & !vm.graal.enabled
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:+UseConcMarkSweepGC -Xmx64m jdk.jfr.event.gc.detailed.TestStressAllocationGCEventsWithCMS
  */
 public class TestStressAllocationGCEventsWithCMS {

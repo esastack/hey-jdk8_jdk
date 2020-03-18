@@ -36,7 +36,7 @@ import jdk.testlibrary.Asserts;
  * @key jfr
  * @summary Verify exception when setting invalid settings.
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.jmx.TestRecordingSettingsInvalid
  */
 public class TestRecordingSettingsInvalid {

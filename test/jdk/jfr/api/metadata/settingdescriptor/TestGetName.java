@@ -33,7 +33,7 @@ import jdk.testlibrary.jfr.Events;
  * @summary Test SettingDescriptor.getName()
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.metadata.settingdescriptor.TestGetName
  */
 public class TestGetName {

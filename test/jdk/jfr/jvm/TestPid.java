@@ -33,7 +33,7 @@ import jdk.jfr.internal.JVM;
  * @test TestPid
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @modules jdk.jfr/jdk.jfr.internal
  * @run main/othervm jdk.jfr.jvm.TestPid
  */

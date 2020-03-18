@@ -49,7 +49,7 @@ import jdk.testlibrary.process.ProcessTools;
  * @key jfr
  * @requires vm.hasJFR
  *
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @modules java.base/jdk.internal.org.objectweb.asm
  *          java.instrument
  *          jdk.jartool/sun.tools.jar

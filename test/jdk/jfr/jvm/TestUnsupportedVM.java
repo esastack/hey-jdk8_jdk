@@ -72,7 +72,7 @@ import jdk.testlibrary.Utils;
  * @modules jdk.jfr
  *          jdk.management.jfr
  *
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm -Dprepare-recording=true jdk.jfr.jvm.TestUnsupportedVM
  * @run main/othervm -Djfr.unsupported.vm=true jdk.jfr.jvm.TestUnsupportedVM
  */

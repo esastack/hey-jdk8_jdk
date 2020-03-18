@@ -33,7 +33,7 @@ import jdk.jfr.Registered;
  * @test Tests that commit doesn't throw exception when an event has not been registered.
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.metadata.annotations.TestRegisteredFalseAndRunning
  * @run main/othervm -XX:FlightRecorderOptions=retransform=false jdk.jfr.api.metadata.annotations.TestRegisteredFalseAndRunning
  */

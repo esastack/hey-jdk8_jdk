@@ -31,7 +31,7 @@ package jdk.jfr.event.gc.collection;
  * @requires vm.hasJFR
  *
  * @requires vm.gc == "Serial" | vm.gc == null
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xmx32m -Xmn8m -XX:+UseSerialGC jdk.jfr.event.gc.collection.TestGCEventMixedWithSerial
  */
 public class TestGCEventMixedWithSerial {

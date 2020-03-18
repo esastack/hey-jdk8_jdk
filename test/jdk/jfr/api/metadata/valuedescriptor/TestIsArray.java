@@ -35,7 +35,7 @@ import jdk.testlibrary.Asserts;
  * @summary Test ValueDescriptor.isArray().
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.metadata.valuedescriptor.TestIsArray
  */
 public class TestIsArray {

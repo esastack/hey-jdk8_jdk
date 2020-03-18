@@ -42,7 +42,7 @@ import jdk.testlibrary.jfr.Events;
  * @test TestFileStreamEvents
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.event.io.TestFileStreamEvents
  */
 

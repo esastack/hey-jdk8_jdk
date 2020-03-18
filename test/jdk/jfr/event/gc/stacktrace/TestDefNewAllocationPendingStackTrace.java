@@ -30,7 +30,7 @@ package jdk.jfr.event.gc.stacktrace;
  * @requires vm.hasJFR
  *
  * @requires vm.gc == "null" | vm.gc == "Serial"
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:+UseSerialGC -Xlog:gc* jdk.jfr.event.gc.stacktrace.TestDefNewAllocationPendingStackTrace
  */
 public class TestDefNewAllocationPendingStackTrace {

@@ -38,7 +38,7 @@ import jdk.jfr.SettingDefinition;
  * @test
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.flightrecorder.TestSettingsControl
  */
 public class TestSettingsControl {

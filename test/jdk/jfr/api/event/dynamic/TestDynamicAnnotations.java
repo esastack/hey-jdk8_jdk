@@ -55,7 +55,7 @@ import jdk.testlibrary.jfr.Events;
  * @test
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.event.dynamic.TestDynamicAnnotations
  */
 public class TestDynamicAnnotations {

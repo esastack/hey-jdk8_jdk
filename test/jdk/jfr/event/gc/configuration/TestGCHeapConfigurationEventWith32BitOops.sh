@@ -24,7 +24,7 @@
 # @key jfr
 # @requires vm.hasJFR
 # @requires vm.gc == "Parallel" | vm.gc == null
-# @library /test/lib /test/jdk
+# @library /lib/testlibrary
 # @build jdk.jfr.event.gc.configuration.TestGCHeapConfigurationEventWith32BitOops sun.hotspot.WhiteBox
 # @run main ClassFileInstaller sun.hotspot.WhiteBox
 # @run shell TestGCHeapConfigurationEventWith32BitOops.sh

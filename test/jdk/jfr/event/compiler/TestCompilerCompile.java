@@ -44,7 +44,7 @@ import sun.hotspot.WhiteBox;
  * @key jfr
  * @requires vm.hasJFR
  * @requires vm.compMode!="Xint"
- * @library /test/lib
+ * @library /lib/testlibrary
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox
  *     sun.hotspot.WhiteBox$WhiteBoxPermission

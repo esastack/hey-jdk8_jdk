@@ -44,7 +44,7 @@ import jdk.testlibrary.Utils;
  * @summary Test that verifies event metadata is removed when an event class is unloaded.
  * @requires vm.hasJFR
  *
- * @library /test/lib
+ * @library /lib/testlibrary
  * @modules jdk.jfr/jdk.jfr.internal
  *          java.base/jdk.internal.misc
  *

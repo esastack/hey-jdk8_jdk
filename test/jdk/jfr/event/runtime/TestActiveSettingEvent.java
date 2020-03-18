@@ -45,7 +45,7 @@ import jdk.testlibrary.jfr.Events;
  * @summary Tests that active setting are available in the ActiveSettingevent
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.event.runtime.TestActiveSettingEvent
  */
 public final class TestActiveSettingEvent {

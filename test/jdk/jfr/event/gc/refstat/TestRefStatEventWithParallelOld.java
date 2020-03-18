@@ -31,7 +31,7 @@ import jdk.testlibrary.jfr.GCHelper;
  * @key jfr
  * @requires vm.hasJFR
  * @requires vm.gc == "Parallel" | vm.gc == null
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xlog:gc+heap=trace,gc*=debug -XX:+UseParallelGC -XX:+UseParallelOldGC jdk.jfr.event.gc.refstat.TestRefStatEventWithParallelOld
  */
 public class TestRefStatEventWithParallelOld {

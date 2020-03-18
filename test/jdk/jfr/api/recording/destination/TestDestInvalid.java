@@ -44,7 +44,7 @@ import jdk.testlibrary.jfr.VoidFunction;
  * @summary Test setDestination to invalid paths
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.destination.TestDestInvalid
  */
 public class TestDestInvalid {

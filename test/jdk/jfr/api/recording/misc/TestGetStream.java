@@ -48,7 +48,7 @@ import jdk.testlibrary.jfr.SimpleEvent;
  * @summary A simple test for Recording.getStream()
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.misc.TestGetStream
  */
 public class TestGetStream {

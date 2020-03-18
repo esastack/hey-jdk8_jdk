@@ -40,7 +40,7 @@ import sun.hotspot.WhiteBox;
  * @key jfr
  * @requires vm.hasJFR
  * @requires vm.compMode!="Xint" & vm.flavor == "server" & (vm.opt.TieredStopAtLevel == 4 | vm.opt.TieredStopAtLevel == null)
- * @library /test/lib
+ * @library /lib/testlibrary
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox
  *     sun.hotspot.WhiteBox$WhiteBoxPermission

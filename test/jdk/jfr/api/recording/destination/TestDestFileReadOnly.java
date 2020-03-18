@@ -38,7 +38,7 @@ import jdk.testlibrary.jfr.FileHelper;
  * @summary Set destination to a read-only file. Expects exception.
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.recording.destination.TestDestFileReadOnly
  */
 public class TestDestFileReadOnly {

@@ -35,10 +35,10 @@ import jdk.testlibrary.jfr.SimpleEvent;
 
 /**
  * @test
- * @summary Tests getParent method in RecordedThreadGroup
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @summary Tests getParent method in RecordedThreadGroup
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.consumer.TestRecordedThreadGroupParent
  */
 public class TestRecordedThreadGroupParent {

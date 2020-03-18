@@ -41,7 +41,7 @@ import jdk.testlibrary.jfr.GCHelper;
  * @requires vm.hasJFR
  * @requires vm.gc == "G1" | vm.gc == null
  * @key jfr
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:NewSize=2m -XX:MaxNewSize=2m -Xmx32m -XX:G1HeapRegionSize=1m -XX:+UseG1GC jdk.jfr.event.gc.detailed.TestG1HeapRegionTypeChangeEvent
  */
 

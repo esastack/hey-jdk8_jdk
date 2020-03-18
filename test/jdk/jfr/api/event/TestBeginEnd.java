@@ -37,7 +37,7 @@ import jdk.testlibrary.jfr.SimpleEvent;
  * @summary Test for RecordedEvent.getDuration()
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.event.TestBeginEnd
  */
 public class TestBeginEnd {

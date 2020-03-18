@@ -48,7 +48,7 @@ import java.util.concurrent.CountDownLatch;
  * instrumentation in JFR does not interfere with javaagents.
  * @requires vm.hasJFR
  *
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @modules java.instrument
  *
  * @run shell MakeJAR.sh EvilInstrument 'Can-Redefine-Classes: true'

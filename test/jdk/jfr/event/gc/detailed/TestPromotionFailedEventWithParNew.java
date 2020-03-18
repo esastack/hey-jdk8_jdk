@@ -29,7 +29,7 @@ package jdk.jfr.event.gc.detailed;
  * @key jfr
  * @requires vm.hasJFR
  * @requires (vm.gc == "ConcMarkSweep" | vm.gc == null) & !vm.graal.enabled
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm  jdk.jfr.event.gc.detailed.TestPromotionFailedEventWithParNew
  */
 public class TestPromotionFailedEventWithParNew {

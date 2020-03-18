@@ -35,10 +35,10 @@ import jdk.testlibrary.jfr.SimpleEvent;
 
 /**
  * @test
- * @summary Tests that an instant event gets recorded with its start time equal to its end time
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @summary Tests that an instant event gets recorded with its start time equal to its end time
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.api.consumer.TestRecordedInstantEventTimestamp
  */
 public class TestRecordedInstantEventTimestamp {

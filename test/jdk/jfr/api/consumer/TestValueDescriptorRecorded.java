@@ -39,10 +39,10 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @summary Verifies that the recorded value descriptors are correct
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @summary Verifies that the recorded value descriptors are correct
+ * @library /lib/testlibrary
  * @run main/othervm  jdk.jfr.api.consumer.TestValueDescriptorRecorded
  */
 public class TestValueDescriptorRecorded {

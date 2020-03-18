@@ -32,7 +32,7 @@ import jdk.testlibrary.jfr.GCHelper;
  * @requires vm.hasJFR
  * @requires (vm.gc == "G1" | vm.gc == null)
  *           & vm.opt.ExplicitGCInvokesConcurrent != false
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xlog:gc+heap=trace,gc*=debug -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent jdk.jfr.event.gc.refstat.TestRefStatEventWithG1ConcurrentMark
  */
 public class TestRefStatEventWithG1ConcurrentMark {

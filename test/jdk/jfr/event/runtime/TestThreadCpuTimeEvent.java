@@ -47,7 +47,7 @@ import java.util.stream.Collectors;
  * @test
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @modules jdk.jfr
  *          jdk.management
  *

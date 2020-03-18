@@ -42,7 +42,7 @@ import jdk.testlibrary.jfr.Events;
  * @key jfr
  * @requires vm.hasJFR
  * @requires !vm.graal.enabled
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm --limit-modules java.base,jdk.jfr jdk.jfr.event.runtime.TestModuleEvents
  */
 public final class TestModuleEvents {

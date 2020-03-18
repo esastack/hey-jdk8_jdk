@@ -31,7 +31,7 @@ import jdk.testlibrary.jfr.GCHelper;
  * @key jfr
  * @requires vm.hasJFR
  * @requires vm.gc == "Serial" | vm.gc == null
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  * @run main/othervm -XX:+UseSerialGC jdk.jfr.event.gc.heapsummary.TestHeapSummaryEventDefNewSerial
  */
 public class TestHeapSummaryEventDefNewSerial {

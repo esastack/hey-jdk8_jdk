@@ -32,7 +32,7 @@ import jdk.testlibrary.jfr.GCHelper;
  * @requires vm.hasJFR
  *
  * @requires vm.gc == "Serial" | vm.gc == null
- * @library /test/lib /test/jdk
+ * @library /lib/testlibrary
  *
  * @run driver jdk.jfr.event.gc.collection.TestGCCauseWithSerial
  */

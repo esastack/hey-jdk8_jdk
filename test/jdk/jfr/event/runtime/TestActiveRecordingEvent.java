@@ -48,7 +48,7 @@ import jdk.testlibrary.jfr.Events;
  * @summary Tests that the recording properties are properly reflected in the ActiveRecording event
  * @key jfr
  * @requires vm.hasJFR
- * @library /test/lib
+ * @library /lib/testlibrary
  * @run main/othervm jdk.jfr.event.runtime.TestActiveRecordingEvent
  */
 public final class TestActiveRecordingEvent {
