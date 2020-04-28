@@ -31,7 +31,7 @@ import jdk.jfr.FlightRecorder;
 import jdk.jfr.Recording;
 import jdk.testlibrary.Asserts;
 import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 
 

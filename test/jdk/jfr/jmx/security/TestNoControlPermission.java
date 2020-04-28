@@ -34,7 +34,7 @@ import jdk.testlibrary.jfr.VoidFunction;
 /**
  * @test
  * @summary Verify we get SecurityExceptions when missing management permission "control".
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm/secure=java.lang.SecurityManager/java.security.policy=nocontrol.policy jdk.jfr.jmx.security.TestNoControlPermission
  */
 public class TestNoControlPermission {

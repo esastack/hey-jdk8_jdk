@@ -25,12 +25,12 @@
 
 package jdk.jfr.jcmd;
 
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 /**
  * @test
  * @summary Verify error when starting with invalid file.
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jcmd.TestJcmdStartInvaldFile
  */
 public class TestJcmdStartInvaldFile {

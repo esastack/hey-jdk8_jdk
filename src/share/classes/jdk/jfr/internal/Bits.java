@@ -32,7 +32,7 @@ import sun.misc.Unsafe;
 final class Bits {                            // package-private
 
     private static final Unsafe unsafe = Unsafe.getUnsafe();
-    private static final boolean unalignedAccess = unaligned();
+    private static final boolean unalignedAccess = false; // unaligned();
     private static final boolean bigEndian =  (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN);
 
     private Bits() { }

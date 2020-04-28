@@ -32,7 +32,7 @@ import java.util.List;
 
 /**
  * @test TestGetAllEventClasses
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @modules jdk.jfr/jdk.jfr.internal
  *
  * @build jdk.jfr.jvm.HelloWorldEvent1

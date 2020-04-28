@@ -35,8 +35,7 @@ import jdk.testlibrary.Asserts;
 /**
  * @test
  * @summary The test verifies JFR.configure command
- * @library /lib/testlibrary
- * @modules jdk.jfr/jdk.jfr.internal
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jcmd.TestJcmdConfigure
  */
 public class TestJcmdConfigure {

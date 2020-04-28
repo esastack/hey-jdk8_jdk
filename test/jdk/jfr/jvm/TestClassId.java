@@ -33,7 +33,7 @@ import jdk.jfr.internal.Type;
 
 /**
  * @test TestClassId
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @modules jdk.jfr/jdk.jfr.internal
  * @run main/othervm jdk.jfr.jvm.TestClassId
  */

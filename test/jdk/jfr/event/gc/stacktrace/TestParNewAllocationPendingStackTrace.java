@@ -27,8 +27,8 @@ package jdk.jfr.event.gc.stacktrace;
 /**
  * @test
  *
- * @library /lib/testlibrary
- * @run main/othervm -XX:+UseConcMarkSweepGC -Xlog:gc* -XX:+FlightRecorder jdk.jfr.event.gc.stacktrace.TestParNewAllocationPendingStackTrace
+ * @library /lib/testlibrary /
+ * @run main/othervm -XX:+UseConcMarkSweepGC -XX:+FlightRecorder jdk.jfr.event.gc.stacktrace.TestParNewAllocationPendingStackTrace
  */
 public class TestParNewAllocationPendingStackTrace {
 

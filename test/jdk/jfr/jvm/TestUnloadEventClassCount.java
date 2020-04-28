@@ -36,11 +36,11 @@ import jdk.jfr.internal.JVM;
  * @test
  * @summary Unit test for JVM#getUnloadedEventClassCount
  *
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @modules jdk.jfr/jdk.jfr.internal
  *          java.base/jdk.internal.misc
  *
- * @run main/othervm -Xlog:class+unload -Xlog:gc -Xmx16m jdk.jfr.jvm.TestUnloadEventClassCount
+ * @run main/othervm -Xmx16m jdk.jfr.jvm.TestUnloadEventClassCount
  */
 public class TestUnloadEventClassCount {
 
@@ -51,7 +51,6 @@ public class TestUnloadEventClassCount {
 
     static public class MyClassLoader extends ClassLoader {
         public MyClassLoader() {
-            super("MyClassLoader", null);
         }
 
         public final Class<?> defineClass(String name, byte[] b) {

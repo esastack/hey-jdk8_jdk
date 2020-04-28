@@ -400,8 +400,8 @@ $(eval $(call SetupArchive,BUILD_CHARSETS_JAR, , \
 ##########################################################################################
 
 $(eval $(call SetupArchive,BUILD_JFR_JAR, , \
-    SRCS := $(JDK_OUTPUTDIR)/classes, \
-    SUFFIXES := .class .jfc .xsd, \
+    SRCS := $(JDK_OUTPUTDIR)/classes $(HOTSPOT_DIST)/lib, \
+    SUFFIXES := .class .jfc .xsd .xml, \
     INCLUDES := jdk/management/jfr \
 	jdk/jfr, \
     JAR := $(IMAGES_OUTPUTDIR)/lib/jfr.jar, \

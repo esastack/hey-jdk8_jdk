@@ -41,7 +41,7 @@ import jdk.testlibrary.jfr.SimpleEventHelper;
  * @test
  * @summary Test setDestination with concurrent recordings
  * @library /lib/testlibrary
- * @run main/othervm -Xlog:jfr=trace jdk.jfr.api.recording.destination.TestDestMultiple
+ * @run main/othervm jdk.jfr.api.recording.destination.TestDestMultiple
  */
 public class TestDestMultiple {
 

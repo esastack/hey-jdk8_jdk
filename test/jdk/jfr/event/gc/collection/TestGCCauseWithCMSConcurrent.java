@@ -28,11 +28,11 @@ import jdk.testlibrary.jfr.GCHelper;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run driver jdk.jfr.event.gc.collection.TestGCCauseWithCMSConcurrent
  */
 public class TestGCCauseWithCMSConcurrent {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Throwable {
         String testID = "CMSConcurrent";
         String[] vmFlags = {"-XX:+UseConcMarkSweepGC", "-XX:+ExplicitGCInvokesConcurrent"};
         String[] gcNames = {GCHelper.gcConcurrentMarkSweep, GCHelper.gcParNew, GCHelper.gcSerialOld};

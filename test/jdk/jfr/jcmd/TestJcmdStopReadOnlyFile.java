@@ -29,12 +29,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import jdk.testlibrary.jfr.FileHelper;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 /**
  * @test
  * @summary Verify error when stopping with read-only file.
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jcmd.TestJcmdStopReadOnlyFile
  */
 public class TestJcmdStopReadOnlyFile {

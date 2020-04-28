@@ -21,7 +21,7 @@
 # questions.
 #
 # @test
-# @library jdk/test/jdk/jfr/event/runtime/TestVMInfoEvent.sh
+# @library /lib/testlibrary /
 # @build jdk.jfr.event.runtime.TestVMInfoEvent
 # @run shell TestVMInfoEvent.sh
 

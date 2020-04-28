@@ -33,12 +33,12 @@ import jdk.jfr.consumer.RecordingFile;
 import jdk.testlibrary.Asserts;
 import jdk.testlibrary.jfr.EventNames;
 import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 /**
  * @test
  * @summary The test verifies that recording can be started with setting file(s)
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jcmd.TestJcmdStartWithSettings
  */
 public class TestJcmdStartWithSettings {

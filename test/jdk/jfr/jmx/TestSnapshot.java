@@ -36,7 +36,7 @@ import jdk.testlibrary.jfr.SimpleEvent;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jmx.TestSnapshot
  */
 public class TestSnapshot {

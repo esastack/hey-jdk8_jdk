@@ -28,7 +28,7 @@ package jdk.jfr.event.gc.collection;
 /**
  * @test
  *
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xmx32m -Xmn8m -XX:+UseParallelGC -XX:+UseParallelOldGC jdk.jfr.event.gc.collection.TestGCEventMixedWithParallelOld
  * good debug flags: -Xlog:gc*=debug
  */

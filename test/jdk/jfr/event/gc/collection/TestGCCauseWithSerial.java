@@ -29,12 +29,12 @@ import jdk.testlibrary.jfr.GCHelper;
 /**
  * @test
  *
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  *
  * @run driver jdk.jfr.event.gc.collection.TestGCCauseWithSerial
  */
 public class TestGCCauseWithSerial {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Throwable {
         String testID = "Serial";
         String[] vmFlags = {"-XX:+UseSerialGC"};
         String[] gcNames = {GCHelper.gcDefNew, GCHelper.gcSerialOld};

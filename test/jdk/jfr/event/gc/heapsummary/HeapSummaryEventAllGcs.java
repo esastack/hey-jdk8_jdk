@@ -43,6 +43,7 @@ public class HeapSummaryEventAllGcs {
         recording.enable(EventNames.GCHeapSummary);
         recording.enable(EventNames.PSHeapSummary);
         recording.enable(EventNames.MetaspaceSummary).withThreshold(Duration.ofMillis(0));
+        recording.enable(EventNames.G1HeapSummary);
 
         recording.start();
         // To eliminate the risk of being in the middle of a GC when the recording starts/stops,
@@ -64,6 +65,7 @@ public class HeapSummaryEventAllGcs {
         int lastHeapGcId = -1;
         int lastPSGcId = -1;
         int lastMetaspaceGcId = -1;
+        int lastG1GcId = -1;
 
         for (RecordedEvent event : events) {
             final String eventName = event.getEventType().getName();
@@ -80,6 +82,11 @@ public class HeapSummaryEventAllGcs {
                     lastMetaspaceGcId = checkGcId(event, lastMetaspaceGcId);
                     checkMetaspaceEventContent(event);
                     break;
+                case EventNames.G1HeapSummary:
+                    lastG1GcId = checkGcId(event, lastG1GcId);
+                    checkG1EventContent(event);
+                    break;
+
                 default:
                     System.out.println("Failed event: " + event);
                     Asserts.fail("Unknown event type: " + eventName);
@@ -90,6 +97,15 @@ public class HeapSummaryEventAllGcs {
         Asserts.assertEquals(lastHeapGcId, lastMetaspaceGcId, "Should have gotten perm gen events for all GCs");
     }
 
+    private static void checkG1EventContent(RecordedEvent event) {                                                                     
+        long edenUsedSize = Events.assertField(event, "edenUsedSize").atLeast(0L).getValue();
+        long edenTotalSize = Events.assertField(event, "edenTotalSize").atLeast(0L).getValue();
+        Asserts.assertLessThanOrEqual(edenUsedSize, edenTotalSize, "used can not exceed size");
+        Events.assertField(event, "survivorUsedSize").atLeast(0L);
+        Events.assertField(event, "numberOfRegions").atLeast(0);
+    }
+
+    
     private static void checkMetaspaceEventContent(RecordedEvent event) {
         long totalUsed = Events.assertField(event, "metaspace.used").atLeast(0L).getValue();
         long totalCommitted = Events.assertField(event, "metaspace.committed").atLeast(totalUsed).getValue();

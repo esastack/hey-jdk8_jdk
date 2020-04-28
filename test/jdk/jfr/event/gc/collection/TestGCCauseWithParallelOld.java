@@ -29,12 +29,12 @@ import jdk.testlibrary.jfr.GCHelper;
 /**
  * @test
  *
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  *
  * @run driver jdk.jfr.event.gc.collection.TestGCCauseWithParallelOld
  */
 public class TestGCCauseWithParallelOld {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Throwable {
         String testID = "ParallelOld";
         String[] vmFlags = {"-XX:+UseParallelGC", "-XX:+UseParallelOldGC"};
         String[] gcNames = {GCHelper.gcParallelScavenge, GCHelper.gcParallelOld};

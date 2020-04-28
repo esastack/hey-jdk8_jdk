@@ -42,7 +42,7 @@ import jdk.testlibrary.jfr.SimpleEventHelper;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jmx.TestClone
  */
 public class TestClone {

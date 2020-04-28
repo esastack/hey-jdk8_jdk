@@ -28,8 +28,8 @@ import jdk.testlibrary.jfr.GCHelper;
 
 /**
  * @test
- * @library /lib/testlibrary
- * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xlog:gc+heap=trace,gc*=debug -XX:+UseParallelGC -XX:+UseParallelOldGC jdk.jfr.event.gc.refstat.TestRefStatEventWithParallelOld
+ * @library /lib/testlibrary /
+ * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+UseParallelGC -XX:+UseParallelOldGC jdk.jfr.event.gc.refstat.TestRefStatEventWithParallelOld
  */
 public class TestRefStatEventWithParallelOld {
     public static void main(String[] args) throws Exception {

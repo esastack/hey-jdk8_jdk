@@ -40,7 +40,7 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test TestFileStreamEvents
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.event.io.TestFileStreamEvents
  */
 

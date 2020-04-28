@@ -31,7 +31,7 @@ import jdk.testlibrary.Asserts;
 import jdk.testlibrary.dcmd.PidJcmdExecutor;
 import jdk.testlibrary.jfr.EventNames;
 import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 import java.util.*;
 import java.util.concurrent.FutureTask;
@@ -39,9 +39,9 @@ import java.util.stream.Collectors;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  *
- * @run main/othervm jdk.jfr.event.runtime.TestBiasedLockRevocationEvents
+ * @run main/othervm -XX:BiasedLockingStartupDelay=0 jdk.jfr.event.runtime.TestBiasedLockRevocationEvents
  */
 public class TestBiasedLockRevocationEvents {
 

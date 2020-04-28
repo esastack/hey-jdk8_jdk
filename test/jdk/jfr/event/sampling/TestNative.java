@@ -34,13 +34,12 @@ import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
 import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.process.OutputAnalyzer;
-import jdk.testlibrary.process.ProcessTools;
+import jdk.testlibrary.OutputAnalyzer;
+import jdk.testlibrary.ProcessTools;
 
 /*
  * @test
- * @library /lib/testlibrary
- * @modules java.base/jdk.internal.misc
+ * @library /lib/testlibrary /
  * @run main/native jdk.jfr.event.sampling.TestNative
  */
 public class TestNative {
@@ -53,7 +52,7 @@ public class TestNative {
 
     public static native void longTime();
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Throwable {
         String lib = System.getProperty("test.nativepath");
         ProcessBuilder pb = ProcessTools.createJavaProcessBuilder(true, "-Djava.library.path=" + lib, "jdk.jfr.event.sampling.TestNative$Test");
 

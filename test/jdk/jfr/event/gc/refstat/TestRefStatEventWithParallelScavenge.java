@@ -28,8 +28,8 @@ import jdk.testlibrary.jfr.GCHelper;
 
 /**
  * @test
- * @library /lib/testlibrary
- * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xlog:gc+heap=trace,gc*=debug -Xmx50m -Xmn2m -XX:-UseLargePages -XX:+UseParallelGC -XX:-UseAdaptiveSizePolicy jdk.jfr.event.gc.refstat.TestRefStatEventWithParallelScavenge
+ * @library /lib/testlibrary /
+ * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xmx50m -Xmn2m -XX:-UseLargePages -XX:+UseParallelGC -XX:-UseAdaptiveSizePolicy jdk.jfr.event.gc.refstat.TestRefStatEventWithParallelScavenge
  */
 public class TestRefStatEventWithParallelScavenge {
     public static void main(String[] args) throws Exception {

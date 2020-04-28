@@ -29,12 +29,12 @@ import java.nio.file.Path;
 
 import jdk.jfr.EventType;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 /**
  * @test
  * @summary Test jfr info
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.cmd.TestSummary
  */
 public class TestSummary {

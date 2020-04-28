@@ -28,10 +28,11 @@ package jdk.jfr.jvm;
 import static jdk.testlibrary.Asserts.assertEquals;
 
 import jdk.jfr.internal.JVM;
+import jdk.testlibrary.ProcessTools;
 
 /**
  * @test TestPid
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @modules jdk.jfr/jdk.jfr.internal
  * @run main/othervm jdk.jfr.jvm.TestPid
  */
@@ -43,9 +44,9 @@ public class TestPid {
         String pid = jvm.getPid();
 
         try {
-            String managementPid = String.valueOf(ProcessHandle.current().pid());
+            String managementPid = String.valueOf(ProcessTools.getProcessId());
             assertEquals(pid, managementPid, "Pid doesn't match value returned by RuntimeMXBean");
-        } catch (NumberFormatException nfe) {
+        } catch (Exception nfe) {
             throw new AssertionError("Pid must be numeric, but was '" + pid + "'");
         }
     }

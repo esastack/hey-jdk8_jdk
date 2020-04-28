@@ -30,7 +30,7 @@ import jdk.testlibrary.jfr.EventVerifier;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:NewRatio=4 jdk.jfr.event.gc.configuration.TestGCYoungGenerationConfigurationEventWithNewRatio
  */
 public class TestGCYoungGenerationConfigurationEventWithNewRatio

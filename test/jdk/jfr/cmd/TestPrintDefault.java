@@ -27,13 +27,13 @@ package jdk.jfr.cmd;
 
 import java.nio.file.Path;
 
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 /**
  * @test
  * @summary Tests print --json
  *
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @modules java.scripting
  *          jdk.jfr
  *

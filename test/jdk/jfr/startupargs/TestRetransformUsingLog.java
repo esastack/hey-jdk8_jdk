@@ -31,12 +31,12 @@ import java.util.function.Consumer;
 
 import jdk.testlibrary.jfr.EventNames;
 import jdk.testlibrary.jfr.SimpleEvent;
-import jdk.testlibrary.process.OutputAnalyzer;
-import jdk.testlibrary.process.ProcessTools;
+import jdk.testlibrary.OutputAnalyzer;
+import jdk.testlibrary.ProcessTools;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.startupargs.TestRetransformUsingLog
  */
 public class TestRetransformUsingLog {
@@ -52,35 +52,35 @@ public class TestRetransformUsingLog {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Throwable {
         testRecordingRetransFormFalse();
         testRecordingRetransFormTrue();
         testNoRecordingRetransFormFalse();
         testNoRecordingRetransFormTrue();
     }
 
-    private static void testRecordingRetransFormFalse() throws Exception {
+    private static void testRecordingRetransFormFalse() throws Throwable {
         startApp(true, false, out -> {
             out.shouldContain(FILE_READ_FORCED_CLASS_LOAD);
             out.shouldContain(SIMPLE_EVENT_FORCED_CLASS_LOAD);
         });
     }
 
-    private static void testRecordingRetransFormTrue() throws Exception {
+    private static void testRecordingRetransFormTrue() throws Throwable {
         startApp(true, true, out -> {
             out.shouldContain(FILE_READ_FORCED_CLASS_LOAD);
             out.shouldContain(SIMPLE_EVENT_UNFORCED_CLASS_LOAD);
         });
     }
 
-    private static void testNoRecordingRetransFormFalse() throws Exception {
+    private static void testNoRecordingRetransFormFalse() throws Throwable {
         startApp(false, false, out -> {
             out.shouldNotContain(FILE_READ_FORCED_CLASS_LOAD);
             out.shouldContain(SIMPLE_EVENT_FORCED_CLASS_LOAD);
         });
     }
 
-    private static void testNoRecordingRetransFormTrue() throws Exception {
+    private static void testNoRecordingRetransFormTrue() throws Throwable {
         startApp(false, true, out -> {
             out.shouldNotContain(FILE_READ_FORCED_CLASS_LOAD);
             out.shouldNotContain(SIMPLE_EVENT_FORCED_CLASS_LOAD);
@@ -88,9 +88,9 @@ public class TestRetransformUsingLog {
         });
     }
 
-    private static void startApp(boolean recording, boolean retransform, Consumer<OutputAnalyzer> verifier) throws Exception {
+    private static void startApp(boolean recording, boolean retransform, Consumer<OutputAnalyzer> verifier) throws Throwable {
         List<String> args = new ArrayList<>();
-        args.add("-Xlog:jfr+system");
+        //args.add("-Xlog:jfr+system");
         args.add("-XX:FlightRecorderOptions=retransform=" + retransform);
         if (recording) {
             args.add("-XX:StartFlightRecording");

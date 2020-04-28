@@ -383,7 +383,7 @@ public final class Utils {
         if (Event.class.isAssignableFrom(eventClass) && Modifier.isAbstract(eventClass.getModifiers())) {
             throw new IllegalArgumentException("Abstract event classes are not allowed");
         }
-        if (eventClass == Event.class || eventClass == Event.class || !Event.class.isAssignableFrom(eventClass)) {
+        if (eventClass == Event.class || !Event.class.isAssignableFrom(eventClass)) {
             throw new IllegalArgumentException("Must be a subclass to " + Event.class.getName());
         }
     }

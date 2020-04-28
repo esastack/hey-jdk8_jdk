@@ -46,7 +46,7 @@ import jdk.testlibrary.Utils;
  * @modules jdk.jfr/jdk.jfr.internal
  *          java.base/jdk.internal.misc
  *
- * @run main/othervm -Xlog:class+unload -Xlog:gc jdk.jfr.api.metadata.eventtype.TestUnloadingEventClass
+ * @run main/othervm -XX:+PrintGC -XX:+PrintGCDetails jdk.jfr.api.metadata.eventtype.TestUnloadingEventClass
  */
 public class TestUnloadingEventClass {
 
@@ -57,7 +57,6 @@ public class TestUnloadingEventClass {
 
     static public class MyClassLoader extends ClassLoader {
         public MyClassLoader() {
-            super("MyClassLoader", null);
         }
 
         public final Class<?> defineClass(String name, byte[] b) {
@@ -83,7 +82,7 @@ public class TestUnloadingEventClass {
         try (Recording r1 = new Recording(); Recording r2 = new Recording(); Recording r3 = new Recording()) {
             r1.start();
             r2.start();
-            System.out.println("Class loader with name " + myClassLoader.getName() + " is on the heap");
+            System.out.println("Class loader with name " + myClassLoader.getClass().getSimpleName() + " is on the heap");
             unLoadEventClass();
             r3.start();
 
@@ -149,7 +148,7 @@ public class TestUnloadingEventClass {
         System.out.println("Event class unloaded!");
         System.out.println("Event classes currently on the heap:");
         for (Class<?> eventClass : JVM.getJVM().getAllEventClasses()) {
-            System.out.println(eventClass + " " + (eventClass.getClassLoader() != null ? eventClass.getClassLoader().getName() : null));
+            System.out.println(eventClass + " " + (eventClass.getClassLoader() != null ? eventClass.getClassLoader().getClass().getSimpleName() : null));
         }
 
     }

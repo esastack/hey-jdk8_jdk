@@ -45,7 +45,6 @@ import jdk.jfr.internal.LogTag;
 import jdk.jfr.internal.Logger;
 import jdk.jfr.internal.RequestEngine;
 import jdk.jfr.internal.SecuritySupport;
-import jdk.jfr.internal.Utils;
 
 public final class JDKEvents {
 

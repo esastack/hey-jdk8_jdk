@@ -34,7 +34,7 @@ import jdk.testlibrary.Asserts;
 /**
  * @test
  * @summary Test getSettings()
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.api.metadata.eventtype.TestGetSettings
  */
 public class TestGetSettings {

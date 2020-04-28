@@ -599,12 +599,12 @@ COPY_FILES += $(JDK_OUTPUTDIR)/lib/sound.properties
 JFR_CONFIGURATION_DIR_SRC := $(JDK_TOPDIR)/src/share/lib/jfr
 JFR_CONFIGURATION_DIR_DST := $(JDK_OUTPUTDIR)/lib/jfr
 
-OPY_FILES += $(JFR_CONFIGURATION_DIR_DST)/default.jfc \
+COPY_FILES += $(JFR_CONFIGURATION_DIR_DST)/default.jfc \
     $(JFR_CONFIGURATION_DIR_DST)/profile.jfc
 
 $(JFR_CONFIGURATION_DIR_DST)/%.jfc: $(JFR_CONFIGURATION_DIR_SRC)/%.jfc
 	$(call install-file)
-
+	
 ##########################################################################################
 
 -include $(CUSTOM_MAKE_DIR)/CopyFiles.gmk

@@ -42,7 +42,7 @@ import jdk.testlibrary.jfr.Events;
 /**
  * @test
  * @summary Test with FlightRecorder enabled but with the events disabled.
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.event.io.TestDisabledEvents
  */
 

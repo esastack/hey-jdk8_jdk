@@ -42,7 +42,7 @@ import jdk.testlibrary.thread.XRun;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  *
  * @run main/othervm jdk.jfr.event.runtime.TestJavaBlockedEvent
  */

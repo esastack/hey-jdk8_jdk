@@ -27,8 +27,8 @@ package jdk.jfr.event.gc.collection;
 
 /**
  * @test
- * @library /lib/testlibrary
- * @run main/othervm -Xmx50m -Xmn2m -XX:+UseSerialGC -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xlog:gc+heap=trace,gc*=debug jdk.jfr.event.gc.collection.TestYoungGarbageCollectionEventWithDefNew
+ * @library /lib/testlibrary /
+ * @run main/othervm -Xmx50m -Xmn2m -XX:+UseSerialGC -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps jdk.jfr.event.gc.collection.TestYoungGarbageCollectionEventWithDefNew
  */
 public class TestYoungGarbageCollectionEventWithDefNew {
 

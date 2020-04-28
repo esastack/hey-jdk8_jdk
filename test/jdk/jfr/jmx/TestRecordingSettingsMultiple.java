@@ -32,7 +32,7 @@ import jdk.management.jfr.FlightRecorderMXBean;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jmx.TestRecordingSettingsMultiple
  */
 public class TestRecordingSettingsMultiple {

@@ -241,7 +241,7 @@ public final class SecuritySupport {
     }
 
     public static void registerEvent(Class<? extends Event> eventClass) {
-        doPrivileged(() ->  MetadataRepository.getInstance().register(eventClass), new FlightRecorderPermission(Utils.REGISTER_EVENT));
+        doPrivileged(() ->  FlightRecorder.register(eventClass), new FlightRecorderPermission(Utils.REGISTER_EVENT));
     }
 
     static boolean getBooleanProperty(String propertyName) {

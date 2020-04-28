@@ -32,12 +32,12 @@ import java.util.regex.Pattern;
 
 import jdk.testlibrary.Asserts;
 import jdk.testlibrary.jfr.FileHelper;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 /**
  * @test
  * @summary Start a recording without name.
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jcmd.TestJcmdStartStopDefault
  */
 public class TestJcmdStartStopDefault {

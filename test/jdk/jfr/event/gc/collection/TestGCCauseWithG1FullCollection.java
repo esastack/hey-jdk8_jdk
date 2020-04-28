@@ -29,15 +29,15 @@ import jdk.testlibrary.jfr.GCHelper;
 /**
  * @test
  *
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  *
  * @run driver jdk.jfr.event.gc.collection.TestGCCauseWithG1FullCollection
  */
 public class TestGCCauseWithG1FullCollection {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Throwable {
         String testID = "G1FullCollection";
         String[] vmFlags = {"-XX:+UseG1GC"};
-        String[] gcNames = {GCHelper.gcG1New, GCHelper.gcG1Old, GCHelper.gcG1Full};
+        String[] gcNames = {GCHelper.gcSerialOld, GCHelper.gcG1New, GCHelper.gcG1Old, GCHelper.gcG1Full};
         String[] gcCauses = {"G1 Evacuation Pause", "Allocation Failure", "System.gc()"};
         GCGarbageCollectionUtil.test(testID, vmFlags, gcNames, gcCauses);
     }

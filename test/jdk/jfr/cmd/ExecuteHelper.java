@@ -34,8 +34,8 @@ import jdk.jfr.Configuration;
 import jdk.jfr.Event;
 import jdk.jfr.Recording;
 import jdk.testlibrary.Utils;
-import jdk.testlibrary.process.OutputAnalyzer;
-import jdk.testlibrary.process.ProcessTools;;
+import jdk.testlibrary.OutputAnalyzer;
+import jdk.testlibrary.ProcessTools;;
 
 final class ExecuteHelper {
 
@@ -58,8 +58,8 @@ final class ExecuteHelper {
         System.arraycopy(args, 0, array, 1, args.length);
         array[0] = "jdk.jfr.internal.cmd.Execute";
         try {
-            return ProcessTools.executeTestJava(array);
-        } catch (Exception e) {
+            return ProcessTools.executeTestJvm(array);
+        } catch (Throwable e) {
             String message = String.format("Caught exception while executing '%s'", Arrays.asList(array));
             throw new RuntimeException(message, e);
         }

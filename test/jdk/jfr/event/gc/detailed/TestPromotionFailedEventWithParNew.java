@@ -26,7 +26,7 @@ package jdk.jfr.event.gc.detailed;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm  jdk.jfr.event.gc.detailed.TestPromotionFailedEventWithParNew
  */
 public class TestPromotionFailedEventWithParNew {
@@ -35,7 +35,7 @@ public class TestPromotionFailedEventWithParNew {
         PromotionFailedEvent.test("TestPromotionFailedEventWithParNew",
                 new String[]{"-Xmx32m", "-Xmn30m", "-XX:-UseDynamicNumberOfGCThreads",
                     "-XX:ParallelGCThreads=3", "-XX:MaxTenuringThreshold=0",
-                    "-Xlog:gc*=debug", "-XX:+UseConcMarkSweepGC",
+                    "-XX:+UseConcMarkSweepGC",
                     "-XX:+UnlockExperimentalVMOptions", "-XX:-UseFastUnorderedTimeStamps"});
     }
 

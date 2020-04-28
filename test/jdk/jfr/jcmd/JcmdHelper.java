@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 import jdk.testlibrary.Asserts;
 import jdk.testlibrary.dcmd.CommandExecutor;
 import jdk.testlibrary.dcmd.PidJcmdExecutor;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 public class JcmdHelper {
 

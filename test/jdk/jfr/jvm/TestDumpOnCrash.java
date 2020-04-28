@@ -24,28 +24,29 @@
  */
 package jdk.jfr.jvm;
 
+import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import jdk.internal.misc.Unsafe;
+import sun.misc.Unsafe;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
 import jdk.testlibrary.Asserts;
-import jdk.testlibrary.process.OutputAnalyzer;
-import jdk.testlibrary.process.ProcessTools;
+import jdk.testlibrary.OutputAnalyzer;
+import jdk.testlibrary.ProcessTools;
 
 /**
  * @test
  * @summary Verifies that data associated with a running recording can be evacuated to an hs_err_pidXXX.jfr when the VM crashes
  *
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @modules java.base/jdk.internal.misc
  *          java.management
  *          jdk.jfr
  *
- * @run main/othervm --add-exports=java.base/jdk.internal.misc=ALL-UNNAMED jdk.jfr.jvm.TestDumpOnCrash
+ * @run main/othervm jdk.jfr.jvm.TestDumpOnCrash
  */
 public class TestDumpOnCrash {
 
@@ -54,7 +55,15 @@ public class TestDumpOnCrash {
 
     static class Crasher {
         public static void main(String[] args) {
-            Unsafe.getUnsafe().putInt(0L, 0);
+          try {
+            Field theUnsafeRefLocation = Unsafe.class.getDeclaredField("theUnsafe");
+            theUnsafeRefLocation.setAccessible(true);
+            ((Unsafe)theUnsafeRefLocation.get(null)).putInt(0L, 0);
+           }
+          catch(Exception ex) {
+            Asserts.fail("cannot execute");
+          }
+
         }
     }
 
@@ -68,14 +77,14 @@ public class TestDumpOnCrash {
                 "-Xmx64m",
                 "-Xint",
                 "-XX:-TransmitErrorReport",
-                "-XX:-CreateCoredumpOnCrash",
-                "--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED",
+                "-XX:-CreateMinidumpOnCrash",
+//                "--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED",
                 "-XX:StartFlightRecording=dumponexit=true",
                 Crasher.class.getName()).start());
     }
 
     private static void processOutput(OutputAnalyzer output) throws Exception {
-        output.shouldContain("CreateCoredumpOnCrash turned off, no core file dumped");
+//        output.shouldContain("CreateCoredumpOnCrash turned off, no core file dumped");
 
         final Path jfrEmergencyFilePath = getHsErrJfrPath(output);
         Asserts.assertTrue(Files.exists(jfrEmergencyFilePath), "No emergency jfr recording file " + jfrEmergencyFilePath + " exists");

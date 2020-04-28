@@ -27,8 +27,8 @@ package jdk.jfr.event.gc.stacktrace;
 /**
  * @test
  *
- * @library /lib/testlibrary
- * @run main/othervm -XX:+UseConcMarkSweepGC -XX:MaxMetaspaceSize=64M -Xlog:gc* jdk.jfr.event.gc.stacktrace.TestMetaspaceConcMarkSweepGCAllocationPendingStackTrace
+ * @library /lib/testlibrary /
+ * @run main/othervm -XX:+UseConcMarkSweepGC -XX:MaxMetaspaceSize=64M jdk.jfr.event.gc.stacktrace.TestMetaspaceConcMarkSweepGCAllocationPendingStackTrace
  */
 public class TestMetaspaceConcMarkSweepGCAllocationPendingStackTrace {
 

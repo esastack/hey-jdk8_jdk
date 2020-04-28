@@ -27,11 +27,12 @@ package jdk.jfr.startupargs;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.lang.reflect.Field;
 
 import jdk.jfr.internal.Options;
-import jdk.testlibrary.process.OutputAnalyzer;
-import jdk.testlibrary.process.ProcessTools;
-import jdk.internal.misc.Unsafe;
+import jdk.testlibrary.OutputAnalyzer;
+import jdk.testlibrary.ProcessTools;
+import sun.misc.Unsafe;
 
 /**
  * @test
@@ -69,7 +70,15 @@ public class TestMemoryOptions {
         static final long UNDEFINED = -1;
 
         static {
-            PAGE_SIZE = Unsafe.getUnsafe().pageSize();
+            // PAGE_SIZE = Unsafe.getUnsafe().pageSize();
+            try {
+              Field theUnsafeRefLocation = Unsafe.class.getDeclaredField("theUnsafe");
+              theUnsafeRefLocation.setAccessible(true);
+              PAGE_SIZE = ((Unsafe)theUnsafeRefLocation.get(null)).pageSize();                                                           
+            }
+            catch(Exception ex) {
+              throw new RuntimeException(ex);
+            }
             if (PAGE_SIZE == MIN_THREAD_BUFFER_SIZE) {
                 DEFAULT_THREAD_BUFFER_SIZE = PAGE_SIZE * 2;
             } else {
@@ -479,13 +488,13 @@ public class TestMemoryOptions {
     }
 
     private static class Driver {
-        private static void launchTestVM(TestCase tc) throws Exception {
+        private static void launchTestVM(TestCase tc) throws Throwable {
             final String flightRecorderOptions = tc.getTestString();
             ProcessBuilder pb;
             if (flightRecorderOptions != null) {
                 pb = ProcessTools.createJavaProcessBuilder(true,
-                                                           "--add-exports=jdk.jfr/jdk.jfr.internal=ALL-UNNAMED",
-                                                           "--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED",
+                                                           //"--add-exports=jdk.jfr/jdk.jfr.internal=ALL-UNNAMED",
+                                                           //"--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED",
                                                            flightRecorderOptions,
                                                            "-XX:StartFlightRecording",
                                                            SUT.class.getName(),
@@ -493,8 +502,8 @@ public class TestMemoryOptions {
             } else {
                 // default, no FlightRecorderOptions passed
                 pb = ProcessTools.createJavaProcessBuilder(true,
-                                                           "--add-exports=jdk.jfr/jdk.jfr.internal=ALL-UNNAMED",
-                                                           "--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED",
+                                                           //"--add-exports=jdk.jfr/jdk.jfr.internal=ALL-UNNAMED",
+                                                           //"--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED",
                                                            "-XX:StartFlightRecording",
                                                            SUT.class.getName(),
                                                            tc.getTestName());
@@ -514,7 +523,7 @@ public class TestMemoryOptions {
             }
         }
 
-        public static void runTestCase(TestCase tc) throws Exception {
+        public static void runTestCase(TestCase tc) throws Throwable {
             launchTestVM(tc);
         }
     }
@@ -642,7 +651,7 @@ public class TestMemoryOptions {
         testCases.add(tc);
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Throwable {
         System.out.println("Testing " + testCases.size() + " number of testcases");
         for (TestCase tc : testCases) {
             Driver.runTestCase(tc);

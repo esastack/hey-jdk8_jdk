@@ -30,12 +30,12 @@ import java.nio.file.Paths;
 
 import jdk.jfr.consumer.RecordingFile;
 import jdk.testlibrary.Asserts;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 /**
  * @test
  * @summary Start a recording with -XX:StartFlightRecording. Dump recording with jcmd.
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm -XX:StartFlightRecording=name=TestStartRecording,settings=profile jdk.jfr.startupargs.TestStartRecording
  */
 public class TestStartRecording {

@@ -29,7 +29,7 @@ import jdk.testlibrary.jfr.GCHelper;
 /**
  * @test
  *           & vm.opt.ExplicitGCInvokesConcurrent != true
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+UseG1GC jdk.jfr.event.gc.heapsummary.TestHeapSummaryEventG1
  */
 public class TestHeapSummaryEventG1 {

@@ -32,7 +32,7 @@ import jdk.testlibrary.jfr.Events;
 /**
  * @test
  * @summary Test SettingDescriptor.getTypeName();
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.api.metadata.settingdescriptor.TestGetTypeName
  */
 public class TestGetTypeName {

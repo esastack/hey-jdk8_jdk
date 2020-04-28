@@ -37,6 +37,7 @@ import jdk.jfr.consumer.RecordedEvent;
 import jdk.testlibrary.Asserts;
 import jdk.testlibrary.jfr.EventNames;
 import jdk.testlibrary.jfr.Events;
+import jdk.testlibrary.ProcessTools;
 
 /**
  * The test will verify that JVM Information event values are delivered
@@ -65,7 +66,7 @@ public class TestVMInfoEvent {
             String jvmArgs = Events.assertField(event, "jvmArguments").notNull().getValue();
             String jvmFlags = Events.assertField(event, "jvmFlags").notNull().getValue();
             Long pid = Events.assertField(event, "pid").atLeast(0L).getValue();
-            Asserts.assertEquals(pid, ProcessHandle.current().pid());
+            Asserts.assertEquals(pid, ProcessTools.getProcessId());
             String eventArgs = (jvmFlags.trim() + " " + jvmArgs).trim();
             String beanArgs = mbean.getInputArguments().stream().collect(Collectors.joining(" "));
             Asserts.assertEquals(eventArgs, beanArgs, "Wrong inputArgs");

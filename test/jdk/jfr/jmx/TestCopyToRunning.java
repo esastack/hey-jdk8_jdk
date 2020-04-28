@@ -41,7 +41,7 @@ import jdk.testlibrary.jfr.SimpleEventHelper;
 /**
  * @test
  * @summary Copy a recording to file while it is running.
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jmx.TestCopyToRunning
  */
 public class TestCopyToRunning {

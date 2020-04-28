@@ -66,7 +66,7 @@ public class EventNames {
     public final static String ClassDefine = PREFIX + "ClassDefine";
     public final static String ClassUnload = PREFIX + "ClassUnload";
     public final static String SafepointBegin = PREFIX + "SafepointBegin";
-    public final static String SafepointStateSyncronization = PREFIX + "SafepointStateSynchronization";
+    public final static String SafepointStateSynchronization = PREFIX + "SafepointStateSynchronization";
     public final static String SafepointWaitBlocked = PREFIX + "SafepointWaitBlocked";
     public final static String SafepointCleanup = PREFIX + "SafepointCleanup";
     public final static String SafepointCleanupTask = PREFIX + "SafepointCleanupTask";
@@ -166,12 +166,12 @@ public class EventNames {
     public final static String ExceptionStatistics = PREFIX + "ExceptionStatistics";
     public final static String JavaExceptionThrow = PREFIX + "JavaExceptionThrow";
     public final static String JavaErrorThrow = PREFIX + "JavaErrorThrow";
-    public final static String ModuleRequire = PREFIX + "ModuleRequire";
-    public final static String ModuleExport = PREFIX + "ModuleExport";
-    public final static String TLSHandshake = PREFIX + "TLSHandshake";
-    public final static String X509Certificate = PREFIX + "X509Certificate";
-    public final static String X509Validation = PREFIX + "X509Validation";
-    public final static String SecurityProperty = PREFIX + "SecurityPropertyModification";
+//    public final static String ModuleRequire = PREFIX + "ModuleRequire";
+//    public final static String ModuleExport = PREFIX + "ModuleExport";
+//    public final static String TLSHandshake = PREFIX + "TLSHandshake";
+//    public final static String X509Certificate = PREFIX + "X509Certificate";
+//    public final static String X509Validation = PREFIX + "X509Validation";
+//    public final static String SecurityProperty = PREFIX + "SecurityPropertyModification";
 
     // Flight Recorder
     public final static String DumpReason = PREFIX + "DumpReason";

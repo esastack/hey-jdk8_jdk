@@ -27,12 +27,12 @@ package jdk.jfr.startupargs;
 
 import jdk.jfr.Recording;
 import jdk.testlibrary.Asserts;
-import jdk.testlibrary.process.OutputAnalyzer;
-import jdk.testlibrary.process.ProcessTools;
+import jdk.testlibrary.OutputAnalyzer;
+import jdk.testlibrary.ProcessTools;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main jdk.jfr.startupargs.TestStartName
  */
 public class TestStartName {
@@ -44,7 +44,7 @@ public class TestStartName {
         }
     }
 
-    private static void testName(String recordingName, boolean validName) throws Exception {
+    private static void testName(String recordingName, boolean validName) throws Throwable {
         ProcessBuilder pb = ProcessTools.createJavaProcessBuilder(true,
             "-XX:StartFlightRecording=name=" + recordingName, TestName.class.getName(), recordingName);
         OutputAnalyzer out = ProcessTools.executeProcess(pb);
@@ -57,7 +57,7 @@ public class TestStartName {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Throwable {
         testName("12345a", true);
         testName("--12345", true);
         testName("[()]", true);

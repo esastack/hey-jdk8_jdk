@@ -29,6 +29,7 @@ import jdk.jfr.internal.JVM;
 
 /**
  * @test TestBeginAndEnd
+ * @library /lib/testlibrary /
  * @modules jdk.jfr/jdk.jfr.internal
  * @run main/othervm jdk.jfr.jvm.TestBeginAndEnd
  */

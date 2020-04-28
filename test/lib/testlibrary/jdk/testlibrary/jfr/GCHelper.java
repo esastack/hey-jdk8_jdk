@@ -183,6 +183,7 @@ public class GCHelper {
 
         // List of expected collector overrides. "A.B" means that collector A may use collector B.
         collectorOverrides.add("G1Old.G1Full");
+        collectorOverrides.add("G1Old.SerialOld");
         collectorOverrides.add("ConcurrentMarkSweep.SerialOld");
         collectorOverrides.add("SerialOld.PSMarkSweep");
 
@@ -296,6 +297,8 @@ public class GCHelper {
             sb.append(this.toString() + System.getProperty("line.separator"));
             for (RecordedEvent event : events) {
                 sb.append(String.format("event: %s%n", event));
+                sb.append("StartTime: " + event.getStartTime() + ", EndTime: " + event.getEndTime() 
+                        + System.getProperty("line.separator"));
             }
             return sb.toString();
         }

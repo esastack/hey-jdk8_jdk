@@ -29,11 +29,11 @@ import jdk.testlibrary.jfr.GCHelper;
 /**
  * @test
  *
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run driver jdk.jfr.event.gc.collection.TestGCCauseWithCMSMarkSweep
  */
 public class TestGCCauseWithCMSMarkSweep {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Throwable {
         String testID = "CMSMarkSweep";
         String[] vmFlags = {"-XX:+UseConcMarkSweepGC"};
         String[] gcNames = {GCHelper.gcConcurrentMarkSweep, GCHelper.gcParNew, GCHelper.gcSerialOld};

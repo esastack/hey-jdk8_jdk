@@ -38,7 +38,7 @@ import sun.hotspot.WhiteBox;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /lib /
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox
  * @run main/othervm -XX:+UnlockExperimentalVMOptions

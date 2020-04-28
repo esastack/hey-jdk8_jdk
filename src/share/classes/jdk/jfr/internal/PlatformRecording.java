@@ -318,6 +318,7 @@ public final class PlatformRecording implements AutoCloseable {
         PlatformRecording clone = recorder.newTemporaryRecording();
         clone.setShouldWriteActiveRecordingEvent(false);
         clone.setName(getName());
+//        clone.setDestination(this.destination);
         clone.setToDisk(true);
         // We purposely don't clone settings here, since
         // a union a == a
@@ -326,6 +327,7 @@ public final class PlatformRecording implements AutoCloseable {
             clone.start();
         } else {
             // using existing chunks on disk
+            System.err.println("RepositoryChunk running chunk count: " + chunks.size());
             for (RepositoryChunk c : chunks) {
                 clone.add(c);
             }

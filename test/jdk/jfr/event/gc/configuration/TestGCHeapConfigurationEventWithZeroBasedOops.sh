@@ -21,7 +21,7 @@
 # questions.
 #
 # @test TestGCHeapConfigurationEventWithZeroBasedOops
-# @library /lib/testlibrary
+# @library /lib/testlibrary /
 # @build jdk.jfr.event.gc.configuration.TestGCHeapConfigurationEventWithZeroBasedOops
 # @run shell TestGCHeapConfigurationEventWithZeroBasedOops.sh
 

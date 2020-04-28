@@ -29,8 +29,8 @@ import jdk.testlibrary.jfr.GCHelper;
 /**
  * @test
  *           & vm.opt.ExplicitGCInvokesConcurrent != false
- * @library /lib/testlibrary
- * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xlog:gc+heap=trace,gc*=debug -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent jdk.jfr.event.gc.refstat.TestRefStatEventWithG1ConcurrentMark
+ * @library /lib/testlibrary /
+ * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent jdk.jfr.event.gc.refstat.TestRefStatEventWithG1ConcurrentMark
  */
 public class TestRefStatEventWithG1ConcurrentMark {
     public static void main(String[] args) throws Exception {

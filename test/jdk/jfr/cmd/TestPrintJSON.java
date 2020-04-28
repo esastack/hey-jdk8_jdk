@@ -36,13 +36,13 @@ import jdk.jfr.consumer.RecordedObject;
 import jdk.jfr.consumer.RecordingFile;
 import jdk.nashorn.api.scripting.JSObject;
 import jdk.testlibrary.Asserts;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 /**
  * @test
  * @summary Tests print --json
  *
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @modules jdk.scripting.nashorn
  *          jdk.jfr
  *

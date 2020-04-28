@@ -41,7 +41,7 @@ import jdk.testlibrary.Asserts;
 /**
  * @test
  * @summary Test for EventTypeInfo
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jmx.info.TestEventTypeInfo
  */
 public class TestEventTypeInfo {

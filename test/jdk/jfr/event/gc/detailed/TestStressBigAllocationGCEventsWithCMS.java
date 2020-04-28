@@ -26,7 +26,7 @@ package jdk.jfr.event.gc.detailed;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm -XX:+UseConcMarkSweepGC -Xmx256m jdk.jfr.event.gc.detailed.TestStressBigAllocationGCEventsWithCMS 1048576
  */
 public class TestStressBigAllocationGCEventsWithCMS {

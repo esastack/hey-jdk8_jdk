@@ -35,7 +35,7 @@ import jdk.testlibrary.jfr.VoidFunction;
 /**
  * @test
  * @summary Call functions with invalid argument id. Verify Exception.
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jmx.TestWrongId
  */
 public class TestWrongId {

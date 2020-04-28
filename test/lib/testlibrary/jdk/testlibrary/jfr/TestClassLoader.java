@@ -34,7 +34,7 @@ import java.io.InputStream;
  * If there are any errors, the parent class loader will be used instead.
  */
 public class TestClassLoader extends ClassLoader {
-    static public final String CLASS_LOADER_NAME = "JFR TestClassLoader";
+    static public final String CLASS_LOADER_NAME = "jdk/testlibrary/jfr/TestClassLoader"; // "JFR TestClassLoader";
 
     public TestClassLoader() {
     }

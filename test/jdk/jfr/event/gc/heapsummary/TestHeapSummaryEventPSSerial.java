@@ -28,7 +28,7 @@ import jdk.testlibrary.jfr.GCHelper;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:-UseParallelOldGC -XX:+UseParallelGC jdk.jfr.event.gc.heapsummary.TestHeapSummaryEventPSSerial
  */
 public class TestHeapSummaryEventPSSerial {

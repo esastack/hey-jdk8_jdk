@@ -41,13 +41,13 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @build jdk.jfr.event.runtime.TestClasses
  * @run main/othervm jdk.jfr.event.runtime.TestClassLoaderStatsEvent
  */
 public class TestClassLoaderStatsEvent {
     private final static String EVENT_NAME = EventNames.ClassLoaderStatistics;
-    private final static String CLASS_LOADER_NAME = "MyDummyClassLoader";
+    private final static String CLASS_LOADER_NAME = "jdk/jfr/event/runtime/TestClassLoaderStatsEvent$DummyClassLoader"; //  unsupport "MyDummyClassLoader";
     private final static String CLASSLOADER_TYPE_NAME = "jdk.jfr.event.runtime.TestClassLoaderStatsEvent$DummyClassLoader";
     public static DummyClassLoader dummyloader;
 
@@ -125,7 +125,7 @@ public class TestClassLoaderStatsEvent {
         }
 
         public DummyClassLoader(String name) {
-            super(name, ClassLoader.getSystemClassLoader());
+            super(ClassLoader.getSystemClassLoader());
         }
     }
 }

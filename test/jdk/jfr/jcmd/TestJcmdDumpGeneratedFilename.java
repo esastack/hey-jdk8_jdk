@@ -33,12 +33,13 @@ import java.util.Iterator;
 import jdk.jfr.Configuration;
 import jdk.jfr.Recording;
 import jdk.testlibrary.jfr.FileHelper;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
+import jdk.testlibrary.ProcessTools;
 
 /**
  * @test
  * @summary The test verifies JFR.dump command
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jcmd.TestJcmdDumpGeneratedFilename
  */
 public class TestJcmdDumpGeneratedFilename {
@@ -92,7 +93,7 @@ public class TestJcmdDumpGeneratedFilename {
 
     private static void verifyFile(String filename, Long id) throws Exception {
         String idText = id == null ? "" : "-id-" + Long.toString(id);
-        String expectedName = "hotspot-pid-" + ProcessHandle.current().pid() + idText;
+        String expectedName = "hotspot-pid-" + ProcessTools.getProcessId() + idText;
         if (!filename.contains(expectedName)) {
             throw new Exception("Expected filename to contain " + expectedName);
         }

@@ -41,7 +41,7 @@ import jdk.testlibrary.jfr.EventNames;
 /**
  * @test
  *
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  *
  * @run main jdk.jfr.event.gc.detailed.TestCMSConcurrentModeFailureEvent
  */
@@ -52,8 +52,8 @@ public class TestCMSConcurrentModeFailureEvent {
     private final static String JFR_FILE = "TestCMSConcurrentModeFailureEvent.jfr";
     private final static int BYTES_TO_ALLOCATE = 1024 * 512;
 
-    public static void main(String[] args) throws Exception {
-        String[] vmFlags = {"-Xmx128m", "-XX:MaxTenuringThreshold=0", "-Xlog:gc*=debug:testCMSGC.log",
+    public static void main(String[] args) throws Throwable {
+        String[] vmFlags = {"-Xmx128m", "-XX:MaxTenuringThreshold=0",
             "-XX:+UseConcMarkSweepGC", "-XX:+UnlockExperimentalVMOptions", "-XX:-UseFastUnorderedTimeStamps"};
 
         if (!ExecuteOOMApp.execute(EVENT_SETTINGS_FILE, JFR_FILE, vmFlags, BYTES_TO_ALLOCATE)) {

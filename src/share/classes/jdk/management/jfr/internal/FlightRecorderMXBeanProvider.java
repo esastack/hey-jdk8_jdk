@@ -47,33 +47,33 @@ public final class FlightRecorderMXBeanProvider {
             this.mbeanInterface = mbeanInterface;
         }
 
-        public Set<String> mbeanInterfaceNames() {
-            return Collections.singleton(mbeanInterface.getName());
-        }
-
-        public Map<String, FlightRecorderMXBean> nameToMBeanMap() {
-            FlightRecorderMXBean bean = getFlightRecorderMXBean();
-            if (bean != null) {
-                return Collections.singletonMap(objectName, bean);
-            } else {
-                return Collections.emptyMap();
-            }
-        }
-
-        public String getObjectNamePattern() {
-            return objectName;
-        }
-
-        public Set<Class<? extends FlightRecorderMXBean>> mbeanInterfaces() {
-            return Collections.singleton(mbeanInterface);
-        }
+//        public Set<String> mbeanInterfaceNames() {
+//            return Collections.singleton(mbeanInterface.getName());
+//        }
+//
+//        public Map<String, FlightRecorderMXBean> nameToMBeanMap() {
+//            FlightRecorderMXBean bean = getFlightRecorderMXBean();
+//            if (bean != null) {
+//                return Collections.singletonMap(objectName, bean);
+//            } else {
+//                return Collections.emptyMap();
+//            }
+//        }
+//
+//        public String getObjectNamePattern() {
+//            return objectName;
+//        }
+//
+//        public Set<Class<? extends FlightRecorderMXBean>> mbeanInterfaces() {
+//            return Collections.singleton(mbeanInterface);
+//        }
     }
 
     private static Callable<FlightRecorderMXBean> flightRecorderMXBeanFactory;
 
     private static volatile FlightRecorderMXBean flightRecorderMXBean;
 
-    private static FlightRecorderMXBean getFlightRecorderMXBean() {
+    public static FlightRecorderMXBean getFlightRecorderMXBean() {
         FlightRecorderMXBean bean = flightRecorderMXBean;
         if (bean == null) {
             SettingDescriptorInfo.from(null); // Sets flightRecorderMXBeanFactory under <clinit> lock
@@ -97,9 +97,9 @@ public final class FlightRecorderMXBeanProvider {
         flightRecorderMXBeanFactory = factory;
     }
 
-    public List<?> getPlatformComponentList() {
-        String objectName = FlightRecorderMXBean.MXBEAN_NAME;
-        Class<FlightRecorderMXBean> mbeanInterface = FlightRecorderMXBean.class;
-        return Collections.singletonList(new SingleMBeanComponent(objectName, mbeanInterface));
-    }
+//    public List<?> getPlatformComponentList() {
+//        String objectName = FlightRecorderMXBean.MXBEAN_NAME;
+//        Class<FlightRecorderMXBean> mbeanInterface = FlightRecorderMXBean.class;
+//        return Collections.singletonList(new SingleMBeanComponent(objectName, mbeanInterface));
+//    }
 }

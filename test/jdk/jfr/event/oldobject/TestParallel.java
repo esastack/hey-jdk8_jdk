@@ -37,7 +37,7 @@ import jdk.testlibrary.jfr.Events;
 /**
  * @test
  * @summary Test leak profiler with Parallel GC
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @modules jdk.jfr/jdk.jfr.internal.test
  * @run main/othervm  -XX:TLABSize=2k -XX:+UseParallelGC jdk.jfr.event.oldobject.TestParallel
  */

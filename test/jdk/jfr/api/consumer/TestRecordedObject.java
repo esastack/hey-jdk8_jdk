@@ -90,7 +90,7 @@ public class TestRecordedObject {
         long durationMillis = DURATION_VALUE.toMillis();
 
         @Timespan(Timespan.SECONDS)
-        long durationSeconds = DURATION_VALUE.toSeconds();
+        long durationSeconds = DURATION_VALUE.toMillis() / 1000;
 
         @Timestamp(Timestamp.MILLISECONDS_SINCE_EPOCH)
         long instantMillis = 1000;
@@ -180,6 +180,8 @@ public class TestRecordedObject {
         Asserts.assertEquals(event.getDuration("durationMillis"), DURATION_VALUE);
         Asserts.assertEquals(event.getDuration("durationSeconds"), DURATION_VALUE);
         Asserts.assertEquals(event.getInstant("instantMillis").toEpochMilli(), 1000L);
+        System.err.println("Current time: " + Instant.now());
+        System.err.println("instantTicks " + event.getInstant("instantTicks") + ", INSTANT_VALUE: " + INSTANT_VALUE);
         if (!event.getInstant("instantTicks").isBefore(INSTANT_VALUE)) {
             throw new AssertionError("Expected start time of JVM to before call to Instant.now()");
         }

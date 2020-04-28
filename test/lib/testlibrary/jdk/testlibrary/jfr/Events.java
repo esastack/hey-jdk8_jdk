@@ -52,6 +52,8 @@ import jdk.jfr.consumer.RecordedObject;
 import jdk.jfr.consumer.RecordedThread;
 import jdk.jfr.consumer.RecordedThreadGroup;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.RuntimeMXBean;
 
 /**
  * Helper class to verify RecordedEvent content
@@ -278,14 +280,19 @@ public class Events {
         return new RecordingFile(makeCopy(r));
     }
 
+    public static final int getProcessID() {  
+        RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
+        return Integer.valueOf(runtimeMXBean.getName().split("@")[0]).intValue();  
+    } 
+
     private static Path makeCopy(Recording recording) throws IOException {
         Path p = recording.getDestination();
         if (p == null) {
             File directory = new File(".");
             // FIXME: Must come up with a way to give human-readable name
             // this will at least not clash when running parallel.
-            ProcessHandle h = ProcessHandle.current();
-            p = new File(directory.getAbsolutePath(), "recording-" + recording.getId() + "-pid" + h.pid() + ".jfr").toPath();
+            
+            p = new File(directory.getAbsolutePath(), "recording-" + recording.getId() + "-pid" + getProcessID() + ".jfr").toPath();
             recording.dump(p);
         }
         return p;

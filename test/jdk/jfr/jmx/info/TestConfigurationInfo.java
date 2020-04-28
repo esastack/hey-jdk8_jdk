@@ -39,7 +39,7 @@ import jdk.testlibrary.Asserts;
 /**
  * @test
  * @summary Test for ConfigurationInfo. Compare infos from java API and jmx API.
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jmx.info.TestConfigurationInfo
  */
 public class TestConfigurationInfo {

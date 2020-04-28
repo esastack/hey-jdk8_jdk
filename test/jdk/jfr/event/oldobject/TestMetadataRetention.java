@@ -45,13 +45,13 @@ import jdk.testlibrary.jfr.TestClassLoader;
  * @test
  * @summary The test verifies that an old object sample maintains references to "stale" metadata
  * @modules jdk.jfr/jdk.jfr.internal.test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @build jdk.jfr.event.oldobject.TestMetadataObject
  * @run main/othervm -XX:TLABSize=2k -Xmx16m jdk.jfr.event.oldobject.TestMetadataRetention
  */
 public final class TestMetadataRetention {
     private final static String TEST_PACKAGE = TestMetadataRetention.class.getPackage().getName();
-    private final static String TEST_CLASS_LOADER_NAME = "JFR TestClassLoader";
+    private final static String TEST_CLASS_LOADER_NAME = "jdk/testlibrary/jfr/TestClassLoader"; // "JFR TestClassLoader";
     private final static String TEST_CLASS_NAME = TEST_PACKAGE + ".TestMetadataObject";
     private final static String ALLOCATOR_THREAD_NAME = "TestAllocationThread";
 
@@ -148,7 +148,7 @@ public final class TestMetadataRetention {
                 RecordedClass unloadedClass = event.getValue("unloadedClass");
                 if (TEST_CLASS_NAME.equals(unloadedClass.getName())) {
                     RecordedClassLoader definingClassLoader = unloadedClass.getClassLoader();
-                    Asserts.assertEquals(TEST_CLASS_LOADER_NAME, definingClassLoader.getName(), "Expected " + TEST_CLASS_LOADER_NAME + ", got " + definingClassLoader.getType().getName());
+                    Asserts.assertEquals(TEST_CLASS_LOADER_NAME, definingClassLoader.getName(), "Expected " + TEST_CLASS_LOADER_NAME + ", got " + definingClassLoader.getName());
                     return;
                 }
             }

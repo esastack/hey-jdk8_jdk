@@ -45,7 +45,7 @@ import jdk.testlibrary.thread.XRun;
 /**
  * @test
  * @summary Verify the event time stamp and thread name
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps jdk.jfr.event.io.TestRandomAccessFileThread
  */
 

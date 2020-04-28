@@ -26,16 +26,13 @@
 package jdk.jfr.startupargs;
 
 import jdk.testlibrary.Asserts;
-import jdk.testlibrary.process.OutputAnalyzer;
-import jdk.testlibrary.process.ProcessTools;
+import jdk.testlibrary.OutputAnalyzer;
+import jdk.testlibrary.ProcessTools;
 
 /**
  * @test
  *
- * @library /lib/testlibrary
- * @modules java.base/jdk.internal.misc
- *          java.management
- *          jdk.jfr
+ * @library /lib/testlibrary /
  *
  * @run main jdk.jfr.startupargs.TestBadOptionValues
  */

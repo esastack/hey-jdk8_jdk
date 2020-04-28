@@ -40,18 +40,14 @@ import jdk.internal.org.objectweb.asm.MethodVisitor;
 import jdk.internal.org.objectweb.asm.ClassWriter;
 import jdk.internal.org.objectweb.asm.Opcodes;
 import jdk.internal.org.objectweb.asm.Type;
-import jdk.testlibrary.process.OutputAnalyzer;
-import jdk.testlibrary.process.ProcessTools;
+import jdk.testlibrary.OutputAnalyzer;
+import jdk.testlibrary.ProcessTools;
 
 /*
  * @test
  * @summary Test that will instrument the same classes that JFR will also instrument.
  *
- * @library /lib/testlibrary
- * @modules java.base/jdk.internal.org.objectweb.asm
- *          java.instrument
- *          jdk.jartool/sun.tools.jar
- *          jdk.jfr
+ * @library /lib/testlibrary /lib /
  *
  * @run main/othervm jdk.jfr.event.io.TestInstrumentation
  */
@@ -103,14 +99,15 @@ public class TestInstrumentation implements ClassFileTransformer {
         "java/io/FileOutputStream::write::(I)V",
         "java/io/FileOutputStream::write::([B)V",
         "java/io/FileOutputStream::write::([BII)V",
-        "java/net/SocketInputStream::read::()I",
-        "java/net/SocketInputStream::read::([B)I",
-        "java/net/SocketInputStream::read::([BII)I",
-        "java/net/SocketInputStream::close::()V",
-        "java/net/SocketOutputStream::write::(I)V",
-        "java/net/SocketOutputStream::write::([B)V",
-        "java/net/SocketOutputStream::write::([BII)V",
-        "java/net/SocketOutputStream::close::()V",
+        // Can not dump socket api.
+//        "java/net/SocketInputStream::read::()I",
+//        "java/net/SocketInputStream::read::([B)I",
+//        "java/net/SocketInputStream::read::([BII)I",
+//        "java/net/SocketInputStream::close::()V",
+//        "java/net/SocketOutputStream::write::(I)V",
+//        "java/net/SocketOutputStream::write::([B)V",
+//        "java/net/SocketOutputStream::write::([BII)V",
+//        "java/net/SocketOutputStream::close::()V",
         "java/nio/channels/FileChannel::read::([Ljava/nio/ByteBuffer;)J",
         "java/nio/channels/FileChannel::write::([Ljava/nio/ByteBuffer;)J",
         "java/nio/channels/SocketChannel::open::()Ljava/nio/channels/SocketChannel;",
@@ -191,7 +188,8 @@ public class TestInstrumentation implements ClassFileTransformer {
             try {
                 String[] noArgs = new String[0];
                 TestRandomAccessFileEvents.main(noArgs);
-                TestSocketEvents.main(noArgs);
+                // Can not test write/read socket api.
+//                TestSocketEvents.main(noArgs);
                 TestSocketChannelEvents.main(noArgs);
                 TestFileChannelEvents.main(noArgs);
                 TestFileStreamEvents.main(noArgs);
@@ -281,7 +279,6 @@ public class TestInstrumentation implements ClassFileTransformer {
 
         String[] args = {
             "-Xbootclasspath/a:" + testClassDir + "InstrumentationCallback.jar",
-            "--add-exports", "java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED",
             "-classpath", classpath,
             "-javaagent:" + testClassDir + "TestInstrumentation.jar",
             "jdk.jfr.event.io.TestInstrumentation$TestMain" };

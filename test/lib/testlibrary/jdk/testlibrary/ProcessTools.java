@@ -234,7 +234,7 @@ public final class ProcessTools {
      *
      * @return Process id
      */
-    public static int getProcessId() throws Exception {
+    public static long getProcessId() throws Exception {
 
         // Get the current process id using a reflection hack
         RuntimeMXBean runtime = ManagementFactory.getRuntimeMXBean();
@@ -247,7 +247,7 @@ public final class ProcessTools {
 
         pid_method.setAccessible(true);
 
-        int pid = (Integer) pid_method.invoke(mgmt);
+        long pid = (Integer) pid_method.invoke(mgmt);
 
         return pid;
     }
@@ -397,6 +397,9 @@ public final class ProcessTools {
         return executeProcess(new ProcessBuilder(cmds));
     }
 
+    public static OutputAnalyzer executeTestJava(String... cmds) throws Throwable {
+        return executeTestJvm(cmds);
+    }
     /**
      * Used to log command line, stdout, stderr and exit code from an executed process.
      * @param pb The executed process.

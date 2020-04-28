@@ -39,12 +39,12 @@ import jdk.jfr.consumer.RecordingFile;
 import jdk.jfr.internal.Repository;
 import jdk.jfr.internal.SecuritySupport.SafePath;
 import jdk.testlibrary.Asserts;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 /**
  * @test
  * @summary Test jfr reconstruct
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @modules jdk.jfr/jdk.jfr.internal
  * @run main/othervm jdk.jfr.cmd.TestReconstruct
  */

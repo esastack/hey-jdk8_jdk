@@ -21,7 +21,7 @@
 # questions.
 #
 # @test TestGCHeapConfigurationEventWith32BitOops
-# @library /lib/testlibrary
+# @library /lib/testlibrary /lib /
 # @build jdk.jfr.event.gc.configuration.TestGCHeapConfigurationEventWith32BitOops sun.hotspot.WhiteBox
 # @run main ClassFileInstaller sun.hotspot.WhiteBox
 # @run shell TestGCHeapConfigurationEventWith32BitOops.sh

@@ -39,7 +39,7 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary / 
  * @modules jdk.jfr/jdk.jfr.internal.test
  * @run main/othervm  -XX:TLABSize=2k -XX:-FastTLABRefill jdk.jfr.event.oldobject.TestAllocationTime
  */

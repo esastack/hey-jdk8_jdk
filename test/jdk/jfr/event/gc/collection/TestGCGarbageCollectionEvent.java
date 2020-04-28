@@ -37,7 +37,7 @@ import jdk.testlibrary.jfr.GCHelper;
 /**
  * @test
  * @library /lib/testlibrary
- * @run main/othervm -Xlog:gc*=debug -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps jdk.jfr.event.gc.collection.TestGCGarbageCollectionEvent
+ * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps jdk.jfr.event.gc.collection.TestGCGarbageCollectionEvent
  */
 public class TestGCGarbageCollectionEvent {
 

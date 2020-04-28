@@ -44,7 +44,7 @@ import jdk.jfr.ValueDescriptor;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedObject;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
@@ -56,7 +56,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * @test
  * @summary Tests print --xml
  *
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @modules java.scripting
  *          java.xml
  *          jdk.jfr

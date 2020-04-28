@@ -40,7 +40,7 @@ import jdk.jfr.jmx.JmxHelper;
 /**
  * @test
  * @summary Test with minimal needed permissions. All functions should work.
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm/secure=java.lang.SecurityManager/java.security.policy=listener.policy jdk.jfr.jmx.security.TestNotificationListenerPermission
  */
 public class TestNotificationListenerPermission {

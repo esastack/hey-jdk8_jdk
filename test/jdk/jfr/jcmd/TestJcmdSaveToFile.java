@@ -28,12 +28,12 @@ package jdk.jfr.jcmd;
 import java.io.File;
 
 import jdk.testlibrary.jfr.FileHelper;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 /**
  * @test
  * @summary The test verifies that recording can be written to a file both with JFR.start and JFR.stop
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jcmd.TestJcmdSaveToFile
  */
 public class TestJcmdSaveToFile {

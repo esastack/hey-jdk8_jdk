@@ -41,7 +41,7 @@ import jdk.testlibrary.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.event.io.TestFileChannelEvents
  */
 public class TestFileChannelEvents {

@@ -29,11 +29,11 @@ import jdk.testlibrary.jfr.GCHelper;
 /**
  * @test
  *           & vm.opt.ExplicitGCInvokesConcurrent != true
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+UseG1GC -XX:MarkSweepDeadRatio=0 -XX:-UseCompressedOops -XX:+IgnoreUnrecognizedVMOptions jdk.jfr.event.gc.objectcount.TestObjectCountAfterGCEventWithG1FullCollection
  */
 public class TestObjectCountAfterGCEventWithG1FullCollection {
     public static void main(String[] args) throws Exception {
-        ObjectCountAfterGCEvent.test(GCHelper.gcG1Full);
+        ObjectCountAfterGCEvent.test(GCHelper.gcSerialOld);
     }
 }

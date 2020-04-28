@@ -38,7 +38,7 @@ import sun.hotspot.code.BlobType;
 /**
  * @test TestCodeCacheFull
  *
- * @library /lib/testlibrary
+ * @library /lib/testlibrary  /lib
  * @modules jdk.jfr
  *          jdk.management.jfr
  * @build sun.hotspot.WhiteBox
@@ -46,10 +46,10 @@ import sun.hotspot.code.BlobType;
  *
  * @run main/othervm -Xbootclasspath/a:.
  *     -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI
- *     -XX:+SegmentedCodeCache -XX:-UseLargePages jdk.jfr.event.compiler.TestCodeCacheFull
+ *     -XX:-UseLargePages jdk.jfr.event.compiler.TestCodeCacheFull
  * @run main/othervm -Xbootclasspath/a:.
  *     -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI
- *     -XX:-SegmentedCodeCache jdk.jfr.event.compiler.TestCodeCacheFull
+ *     jdk.jfr.event.compiler.TestCodeCacheFull
  */
 public class TestCodeCacheFull {
 
@@ -84,7 +84,7 @@ public class TestCodeCacheFull {
 
     private static BlobType blobTypeFromName(String codeBlobTypeName) throws Exception {
         for (BlobType t : BlobType.getAvailable()) {
-            if (t.beanName.equals(codeBlobTypeName)) {
+            if (t.name.equals(codeBlobTypeName)) {
                 return t;
             }
         }

@@ -40,7 +40,7 @@ import sun.hotspot.WhiteBox;
 
 /**
  * @test TestSafepointEvents
- * @library /lib/testlibrary
+ * @library /lib/testlibrary / /lib
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox
  *     sun.hotspot.WhiteBox$WhiteBoxPermission
@@ -52,7 +52,7 @@ public class TestSafepointEvents {
 
     static final String[] EVENT_NAMES = new String[] {
         EventNames.SafepointBegin,
-        EventNames.SafepointStateSyncronization,
+        EventNames.SafepointStateSynchronization,
         EventNames.SafepointWaitBlocked,
         EventNames.SafepointCleanup,
         EventNames.SafepointCleanupTask,

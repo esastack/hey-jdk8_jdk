@@ -27,16 +27,16 @@ package jdk.jfr.event.gc.configuration;
 
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.testlibrary.jfr.EventVerifier;
-import jdk.testlibrary.process.OutputAnalyzer;
-import jdk.testlibrary.process.ProcessTools;
+import jdk.testlibrary.OutputAnalyzer;
+import jdk.testlibrary.ProcessTools;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run driver jdk.jfr.event.gc.configuration.TestGCYoungGenerationConfigurationEventWithMinAndMaxSize
  */
 public class TestGCYoungGenerationConfigurationEventWithMinAndMaxSize {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Throwable {
         String[] jvm_args = {"-XX:+UnlockExperimentalVMOptions",
                              "-XX:-UseFastUnorderedTimeStamps",
                              "-XX:NewSize=12m",

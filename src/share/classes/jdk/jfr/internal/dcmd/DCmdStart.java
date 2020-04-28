@@ -83,7 +83,7 @@ final class DCmdStart extends AbstractDCmd {
     public String execute(String name, String[] settings, Long delay, Long duration, Boolean disk, String path, Long maxAge, Long maxSize, Boolean dumpOnExit, Boolean pathToGcRoots) throws DCmdException {
         if (Logger.shouldLog(LogTag.JFR_DCMD, LogLevel.DEBUG)) {
             Logger.log(LogTag.JFR_DCMD, LogLevel.DEBUG, "Executing DCmdStart: name=" + name +
-                    ", settings=" + Arrays.asList(settings) +
+                    ", settings=" + (settings != null ? Arrays.asList(settings) : "(none)") +
                     ", delay=" + delay +
                     ", duration=" + duration +
                     ", disk=" + disk+
@@ -106,6 +106,10 @@ final class DCmdStart extends AbstractDCmd {
             throw new DCmdException("Filename can only be set for a time bound recording or if dumponexit=true. Set duration/dumponexit or omit filename.");
         }
 
+        if (settings == null || settings.length == 0) {
+            settings = new String[] { "default" };
+        }
+        
         Map<String, String> s = new HashMap<>();
         for (String configName : settings) {
             try {

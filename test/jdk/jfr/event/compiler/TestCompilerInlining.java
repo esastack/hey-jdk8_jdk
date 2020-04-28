@@ -48,7 +48,7 @@ import java.util.stream.IntStream;
  * @bug 8073607
  * @summary Verifies that corresponding JFR events are emitted in case of inlining.
  *
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /lib /
  * @modules java.base/jdk.internal.org.objectweb.asm
  *          jdk.jfr
  *

@@ -29,8 +29,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import jdk.testlibrary.process.OutputAnalyzer;
-import jdk.testlibrary.process.ProcessTools;
+import jdk.testlibrary.OutputAnalyzer;
+import jdk.testlibrary.ProcessTools;
 
 
 /**
@@ -51,7 +51,7 @@ public class AppExecutorHelper {
      * @return output analyzer for executed application
      */
     public static OutputAnalyzer executeAndRecord(String settings, String jfrFilename, String[] additionalVmFlags,
-                                                  String className, String... classArguments) throws Exception {
+                                                  String className, String... classArguments) throws Throwable {
         List<String> arguments = new ArrayList<>();
         String baseStartFlightRecording = "-XX:StartFlightRecording";
         String additionalStartFlightRecording = "";

@@ -40,7 +40,7 @@ import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
 import jdk.testlibrary.jfr.AppExecutorHelper;
 import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 
 /**
@@ -62,7 +62,7 @@ public class GCGarbageCollectionUtil {
      * @throws Exception in case of any failure
      */
     public static void test(String testID, String[] testFlags,
-            String[] gcNames, String... gcCauses) throws Exception {
+            String[] gcNames, String... gcCauses) throws Throwable {
 
         String jfrFile = testID + ".jfr";
 
@@ -71,8 +71,6 @@ public class GCGarbageCollectionUtil {
         summaryFlags.add("-Xmx100m");
         summaryFlags.add("-XX:+UnlockExperimentalVMOptions");
         summaryFlags.add("-XX:-UseFastUnorderedTimeStamps");
-        summaryFlags.add("-Xlog:gc*=debug");
-
 
         String args[] = {};
         OutputAnalyzer analyzer = AppExecutorHelper.executeAndRecord(EVENT_SETTINGS_FILE, jfrFile,

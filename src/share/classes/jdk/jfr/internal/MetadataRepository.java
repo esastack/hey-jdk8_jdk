@@ -130,10 +130,10 @@ public final class MetadataRepository {
         Utils.checkRegisterPermission();
         EventHandler handler = getHandler(eventClass);
         if (handler == null) {
-            if (eventClass.getAnnotation(MirrorEvent.class) != null) {
-                // don't register mirrors
-                return null;
-            }
+//            if (eventClass.getAnnotation(MirrorEvent.class) != null) {
+//                // don't register mirrors
+//                return null;
+//            }
             handler = makeHandler(eventClass, dynamicAnnotations, dynamicFields);
         }
         handler.setRegistered(true);

@@ -42,7 +42,7 @@ public class TestConfigurationGetContents {
 
     private static final String SEP = System.getProperty("file.separator");
     private static final String JFR_DIR = System.getProperty("test.jdk")
-            + SEP + "lib" + SEP + "jfr" + SEP;
+            + SEP + "jre" + SEP + "lib" + SEP + "jfr" + SEP;
 
     public static void main(String[] args) throws Throwable {
         List<Configuration> predefinedConfigs = Configuration.getConfigurations();

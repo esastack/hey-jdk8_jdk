@@ -34,7 +34,7 @@ import jdk.testlibrary.jfr.Events;
 /**
  * @test
  * @summary Test getDefaultValues()
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.api.metadata.eventtype.TestGetDefaultValues
  */
 public class TestGetDefaultValues {

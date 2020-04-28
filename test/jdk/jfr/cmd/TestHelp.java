@@ -25,12 +25,12 @@
 
 package jdk.jfr.cmd;
 
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 /**
  * @test
  * @summary Test help
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.cmd.TestHelp
  */
 public class TestHelp {

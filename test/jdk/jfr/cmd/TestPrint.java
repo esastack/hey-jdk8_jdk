@@ -30,12 +30,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import jdk.testlibrary.Utils;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 /**
  * @test
  * @summary Test jfr print
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.cmd.TestPrint
  */
 public class TestPrint {

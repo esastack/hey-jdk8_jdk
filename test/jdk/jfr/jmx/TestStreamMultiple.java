@@ -34,7 +34,7 @@ import jdk.testlibrary.jfr.SimpleEventHelper;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jmx.TestStreamMultiple
  */
 public class TestStreamMultiple {

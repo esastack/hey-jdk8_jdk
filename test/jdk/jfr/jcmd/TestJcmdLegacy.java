@@ -36,12 +36,11 @@ import jdk.jfr.consumer.RecordingFile;
 import jdk.testlibrary.Utils;
 import jdk.testlibrary.jfr.EventNames;
 import jdk.testlibrary.jfr.FileHelper;
-import jdk.testlibrary.process.OutputAnalyzer;
+import jdk.testlibrary.OutputAnalyzer;
 
 /**
  * @test TestClassId
- * @library /lib/testlibrary
- * @modules jdk.jfr/jdk.jfr.internal
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jcmd.TestJcmdLegacy
  */
 public class TestJcmdLegacy {

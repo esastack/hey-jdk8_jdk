@@ -35,7 +35,7 @@ import jdk.testlibrary.jfr.VoidFunction;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jmx.TestRecordingStateInvalid
  */
 public class TestRecordingStateInvalid {

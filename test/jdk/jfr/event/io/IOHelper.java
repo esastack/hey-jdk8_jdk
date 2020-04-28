@@ -81,6 +81,8 @@ public class IOHelper {
                 msg += " - " + Events.assertField(event, "host").getValue();
                 msg += "." + Events.assertField(event, "address").getValue();
                 msg += "." + Events.assertField(event, "port").getValue();
+            } else {
+                System.out.println("Invalid IOEvent type: " + msg);
             }
             if (isSocket || isFileReadOrWrite) {
                 String field = isRead ? "bytesRead" : "bytesWritten";

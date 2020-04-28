@@ -33,7 +33,7 @@ import jdk.management.jfr.RecordingInfo;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.jmx.TestRecordingState
  */
 public class TestRecordingState {

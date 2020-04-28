@@ -31,7 +31,7 @@ import jdk.jfr.RecordingState;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main/othervm jdk.jfr.api.flightrecorder.TestAddListenerTwice
  */
 public class TestAddListenerTwice {

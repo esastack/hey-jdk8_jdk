@@ -41,7 +41,7 @@ import jdk.testlibrary.jfr.EventNames;
 /**
  * @test
  *
- * @library /lib/testlibrary
+ * @library /lib/testlibrary /
  * @run main jdk.jfr.event.gc.detailed.TestG1ConcurrentModeFailureEvent
  */
 
@@ -52,8 +52,8 @@ public class TestG1ConcurrentModeFailureEvent {
     private final static String JFR_FILE = "TestG1ConcurrentModeFailureEvent.jfr";
     private final static int BYTES_TO_ALLOCATE = 1024 * 512;
 
-    public static void main(String[] args) throws Exception {
-        String[] vmFlags = {"-Xmx512m", "-Xms512m", "-XX:MaxTenuringThreshold=0", "-Xlog:gc*=debug:testG1GC.log",
+    public static void main(String[] args) throws Throwable {
+        String[] vmFlags = {"-Xmx512m", "-Xms512m", "-XX:MaxTenuringThreshold=0",
             "-XX:+UseG1GC", "-XX:+UnlockExperimentalVMOptions", "-XX:-UseFastUnorderedTimeStamps"};
 
         if (!ExecuteOOMApp.execute(EVENT_SETTINGS_FILE, JFR_FILE, vmFlags, BYTES_TO_ALLOCATE)) {
