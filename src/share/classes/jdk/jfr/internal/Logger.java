@@ -62,11 +62,6 @@ public final class Logger {
     }
 
     public static boolean shouldLog(LogTag tag, LogLevel level) {
-//        return level.level >= tag.tagSetLevel;
-        // For debug jfr output.
-        if (level.level >= LogLevel.INFO.ordinal()) {
-            return true;
-        }
-        return false;
+        return true;
     }
 }

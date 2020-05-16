@@ -90,7 +90,7 @@ public class TestRetransformUsingLog {
 
     private static void startApp(boolean recording, boolean retransform, Consumer<OutputAnalyzer> verifier) throws Throwable {
         List<String> args = new ArrayList<>();
-        //args.add("-Xlog:jfr+system");
+        args.add("-XX:+PrintJFRLog");
         args.add("-XX:FlightRecorderOptions=retransform=" + retransform);
         if (recording) {
             args.add("-XX:StartFlightRecording");
