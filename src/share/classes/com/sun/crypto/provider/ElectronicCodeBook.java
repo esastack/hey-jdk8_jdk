@@ -27,7 +27,7 @@ package com.sun.crypto.provider;
 
 import java.security.InvalidKeyException;
 import java.security.ProviderException;
-import sun.security.util.ArrayUtil;
+//import sun.security.util.ArrayUtil;
 
 /**
  * This class represents ciphers in electronic codebook (ECB) mode.
@@ -113,10 +113,10 @@ final class ElectronicCodeBook extends FeedbackCipher {
      * @return the length of the encrypted data
      */
     int encrypt(byte[] in, int inOff, int len, byte[] out, int outOff) {
-        ArrayUtil.blockSizeCheck(len, blockSize);
-        ArrayUtil.nullAndBoundsCheck(in, inOff, len);
-        ArrayUtil.nullAndBoundsCheck(out, outOff, len);
-
+        System.err.println("ElectronicCodeBook encrypt interface.");
+        RangeUtil.blockSizeCheck(len, blockSize);
+        RangeUtil.nullAndBoundsCheck(in, inOff, len);
+        RangeUtil.nullAndBoundsCheck(out, outOff, len);
         for (int i = len; i >= blockSize; i -= blockSize) {
             embeddedCipher.encryptBlock(in, inOff, out, outOff);
             inOff += blockSize;
@@ -143,9 +143,10 @@ final class ElectronicCodeBook extends FeedbackCipher {
      * @return the length of the decrypted data
      */
     int decrypt(byte[] in, int inOff, int len, byte[] out, int outOff) {
-        ArrayUtil.blockSizeCheck(len, blockSize);
-        ArrayUtil.nullAndBoundsCheck(in, inOff, len);
-        ArrayUtil.nullAndBoundsCheck(out, outOff, len);
+        System.err.println("ElectronicCodeBook decrypt interface.");
+        RangeUtil.blockSizeCheck(len, blockSize);
+        RangeUtil.nullAndBoundsCheck(in, inOff, len);
+        RangeUtil.nullAndBoundsCheck(out, outOff, len);
 
         for (int i = len; i >= blockSize; i -= blockSize) {
             embeddedCipher.decryptBlock(in, inOff, out, outOff);
