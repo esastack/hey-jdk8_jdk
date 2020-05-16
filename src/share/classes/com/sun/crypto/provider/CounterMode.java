@@ -27,7 +27,7 @@ package com.sun.crypto.provider;
 
 import java.security.InvalidKeyException;
 
-import sun.security.util.ArrayUtil;
+//import sun.security.util.ArrayUtil;
 
 /**
  * This class represents ciphers in counter (CTR) mode.
@@ -175,8 +175,8 @@ final class CounterMode extends FeedbackCipher {
             return 0;
         }
 
-        ArrayUtil.nullAndBoundsCheck(in, inOff, len);
-        ArrayUtil.nullAndBoundsCheck(out, outOff, len);
+        RangeUtil.nullAndBoundsCheck(in, inOff, len);
+        RangeUtil.nullAndBoundsCheck(out, outOff, len);
 
         int result = len;
         while (len-- > 0) {

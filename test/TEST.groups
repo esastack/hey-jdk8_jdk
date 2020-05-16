@@ -195,6 +195,12 @@ jdk_jmx = \
 jdk_jdi = \
     com/sun/jdi
 
+# Can not create local shared c library.
+# Lack of Jfr stdout log, TODO add option.
+jdk_jfr = \
+    jdk/jfr \
+    -jdk/jfr/event/sampling/TestNative.java
+
 #
 # Tool (and tool API) tests are split into core and svc groups
 #
@@ -270,6 +276,7 @@ jdk_svc = \
     :jdk_instrument \
     :jdk_jmx \
     :jdk_jdi \
+    :jdk_jfr \
     :svc_tools
 
 #############################
