@@ -23,8 +23,12 @@
 
 package jdk.testlibrary;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.MalformedURLException;
@@ -39,9 +43,11 @@ import java.nio.file.attribute.FileAttribute;
 import java.nio.channels.SocketChannel;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
@@ -133,6 +139,9 @@ public final class Utils {
     */
     public static final long DEFAULT_TEST_TIMEOUT = TimeUnit.SECONDS.toMillis(120);
 
+    private static final int MAX_BUFFER_SIZE = Integer.MAX_VALUE - 8;
+    private static final int DEFAULT_BUFFER_SIZE = 8192;
+    
     private Utils() {
         // Private constructor to prevent class instantiation
     }
@@ -191,8 +200,8 @@ public final class Utils {
      * @return A copy of given opts with all GC options removed.
      */
     private static final Pattern useGcPattern = Pattern.compile(
-            "(?:\\-XX\\:[\\+\\-]Use.+GC)"
-            + "|(?:\\-Xconcgc)");
+            "(?:\\-XX\\:[\\+\\-]Use.+GC)");
+            // + "|(?:\\-Xconcgc)");
     public static List<String> removeGcOpts(List<String> opts) {
         List<String> optsWithoutGC = new ArrayList<String>();
         for (String opt : opts) {
@@ -370,6 +379,59 @@ public final class Utils {
         }
     }
 
+    /**
+     * Returns file content as a list of strings
+     *
+     * @param file File to operate on
+     * @return List of strings
+     * @throws IOException
+     */
+    public static List<String> fileAsList(File file) throws IOException {
+        assertTrue(file.exists() && file.isFile(),
+                file.getAbsolutePath() + " does not exist or not a file");
+        List<String> output = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(file.getAbsolutePath()))) {
+            while (reader.ready()) {
+                output.add(reader.readLine().replace(NEW_LINE, ""));
+            }
+        }
+        return output;
+    }
+    
+    /**
+     * Helper method to read all bytes from InputStream
+     *
+     * @param is InputStream to read from
+     * @return array of bytes
+     * @throws IOException
+     */
+    public static byte[] readAllBytes(InputStream is) throws IOException {
+        byte[] buf = new byte[DEFAULT_BUFFER_SIZE];
+        int capacity = buf.length;
+        int nread = 0;
+        int n;
+        for (;;) {
+            // read to EOF which may read more or less than initial buffer size
+            while ((n = is.read(buf, nread, capacity - nread)) > 0)
+                nread += n;
+
+            // if the last call to read returned -1, then we're done
+            if (n < 0)
+                break;
+
+            // need to allocate a larger buffer
+            if (capacity <= MAX_BUFFER_SIZE - capacity) {
+                capacity = capacity << 1;
+            } else {
+                if (capacity == MAX_BUFFER_SIZE)
+                    throw new OutOfMemoryError("Required array size too large");
+                capacity = MAX_BUFFER_SIZE;
+            }
+            buf = Arrays.copyOf(buf, capacity);
+        }
+        return (capacity == nread) ? buf : Arrays.copyOf(buf, nread);
+    }
+    
     /**
      * Adjusts the provided timeout value for the TIMEOUT_FACTOR
      * @param tOut the timeout value to be adjusted
@@ -569,7 +631,71 @@ public final class Utils {
         }
         return null;
     }
+    
+    private static final int BUFFER_SIZE = 1024;
+    
+    /**
+     * Reads all bytes from the input stream and writes the bytes to the
+     * given output stream in the order that they are read. On return, the
+     * input stream will be at end of stream. This method does not close either
+     * stream.
+     * <p>
+     * This method may block indefinitely reading from the input stream, or
+     * writing to the output stream. The behavior for the case where the input
+     * and/or output stream is <i>asynchronously closed</i>, or the thread
+     * interrupted during the transfer, is highly input and output stream
+     * specific, and therefore not specified.
+     * <p>
+     * If an I/O error occurs reading from the input stream or writing to the
+     * output stream, then it may do so after some bytes have been read or
+     * written. Consequently the input stream may not be at end of stream and
+     * one, or both, streams may be in an inconsistent state. It is strongly
+     * recommended that both streams be promptly closed if an I/O error occurs.
+     *
+     * @param  in the input stream, non-null
+     * @param  out the output stream, non-null
+     * @return the number of bytes transferred
+     * @throws IOException if an I/O error occurs when reading or writing
+     * @throws NullPointerException if {@code in} or {@code out} is {@code null}
+     *
+     */
+    public static long transferTo(InputStream in, OutputStream out)
+            throws IOException  {
+        long transferred = 0;
+        byte[] buffer = new byte[BUFFER_SIZE];
+        int read;
+        while ((read = in.read(buffer, 0, BUFFER_SIZE)) >= 0) {
+            out.write(buffer, 0, read);
+            transferred += read;
+        }
+        return transferred;
+    }
+    
+    // Parses the specified source file for "@{id} breakpoint" tags and returns
+    // list of the line numbers containing the tag.
+    // Example:
+    //   System.out.println("BP is here");  // @1 breakpoint
+    public static List<Integer> parseBreakpoints(String filePath, int id) {
+        final String pattern = "@" + id + " breakpoint";
+        int lineNum = 1;
+        List<Integer> result = new LinkedList<>();
+        try {
+            for (String line: Files.readAllLines(Paths.get(filePath))) {
+                if (line.contains(pattern)) {
+                    result.add(lineNum);
+                }
+                lineNum++;
+            }
+        } catch (IOException ex) {
+            throw new RuntimeException("failed to parse " + filePath, ex);
+        }
+        return result;
+    }
 
+    // gets full test source path for the given test filename
+    public static String getTestSourcePath(String fileName) {
+        return Paths.get(System.getProperty("test.src")).resolve(fileName).toString();
+    }
     /**
      * Ensures a requested class is loaded
      * @param aClass class to load

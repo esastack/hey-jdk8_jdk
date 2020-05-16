@@ -234,7 +234,7 @@ public final class ProcessTools {
      *
      * @return Process id
      */
-    public static long getProcessId() throws Exception {
+    public static int getProcessId() throws Exception {
 
         // Get the current process id using a reflection hack
         RuntimeMXBean runtime = ManagementFactory.getRuntimeMXBean();
@@ -247,7 +247,7 @@ public final class ProcessTools {
 
         pid_method.setAccessible(true);
 
-        long pid = (Integer) pid_method.invoke(mgmt);
+        int pid = (Integer) pid_method.invoke(mgmt);
 
         return pid;
     }
