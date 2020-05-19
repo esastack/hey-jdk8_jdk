@@ -120,6 +120,18 @@ void ThrowExceptionWithMessage(JNIEnv *env, const char *exceptionName,
 }
 
 /*
+ * Throws an arbitrary Java exception with the given message.
+ */
+void ThrowExceptionWithMessage(JNIEnv *env, const char *exceptionName,
+                               const char *szMessage)
+{
+    jclass exceptionClazz = env->FindClass(exceptionName);
+    if (exceptionClazz != NULL) {
+        env->ThrowNew(exceptionClazz, szMessage);
+    }
+}
+
+/*
  * Throws an arbitrary Java exception.
  * The exception message is a Windows system error message.
  */

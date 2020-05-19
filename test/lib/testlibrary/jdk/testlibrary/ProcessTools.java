@@ -397,6 +397,9 @@ public final class ProcessTools {
         return executeProcess(new ProcessBuilder(cmds));
     }
 
+    public static OutputAnalyzer executeTestJava(String... cmds) throws Throwable {
+        return executeTestJvm(cmds);
+    }
     /**
      * Used to log command line, stdout, stderr and exit code from an executed process.
      * @param pb The executed process.

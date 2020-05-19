@@ -222,7 +222,6 @@ public final class PKIXValidator extends Validator {
                 ("null or zero-length certificate chain");
         }
 
-
         // Use PKIXExtendedParameters for timestamp and variant additions
         PKIXBuilderParameters pkixParameters = null;
         try {

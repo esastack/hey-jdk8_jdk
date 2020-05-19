@@ -1025,7 +1025,7 @@ final class CipherSuite implements Comparable<CipherSuite> {
          * 0xC0,0xAD  TLS_ECDHE_ECDSA_WITH_AES_256_CCM              [RFC7251]
          * 0xC0,0xAE  TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8            [RFC7251]
          * 0xC0,0xAF  TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8            [RFC7251]
-         * 0xC0,0xB0-FF  Unassigned
+         * 0xC0,0xB0-FF  Unassigned98o
          * 0xC1-FD,*  Unassigned
          * 0xFE,0x00-FD Unassigned
          * 0xFE,0xFE-FF Reserved to avoid conflicts with widely

@@ -167,6 +167,14 @@ endif
 
 PROFILE_1_JRE_LIB_FILES += \
     calendars.properties \
+	  fontconfig.properties \
+	  fonts/fonts.dir \
+    fonts/OPPOSans-S-R-0802.ttf \
+    fonts/OPPOSans-S-B-0802.ttf \
+    fonts/OPPOSans-Bold.ttf \
+    fonts/OPPOSans-BoldItalic.ttf \
+    fonts/OPPOSans-Regular.ttf \
+    fonts/OPPOSans-RegularItalic.ttf \
     classlist \
     content-types.properties \
     currency.data \

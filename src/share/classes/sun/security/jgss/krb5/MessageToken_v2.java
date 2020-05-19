@@ -609,7 +609,7 @@ abstract class MessageToken_v2 extends Krb5Token {
             prop.setQOP(0);
 
             // sequence number
-            seqNumber = readBigEndian(bytes, 12, 4);
+            seqNumber = readBigEndian(bytes, 0, 8);
         }
 
         /**

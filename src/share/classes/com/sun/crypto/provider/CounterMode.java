@@ -27,6 +27,8 @@ package com.sun.crypto.provider;
 
 import java.security.InvalidKeyException;
 
+//import sun.security.util.ArrayUtil;
+
 /**
  * This class represents ciphers in counter (CTR) mode.
  *

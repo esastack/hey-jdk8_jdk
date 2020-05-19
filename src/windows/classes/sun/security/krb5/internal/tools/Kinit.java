@@ -36,6 +36,7 @@ import sun.security.krb5.internal.*;
 import sun.security.krb5.internal.ccache.*;
 import java.io.IOException;
 import java.util.Arrays;
+import javax.security.auth.kerberos.KerberosPrincipal;
 import sun.security.util.Password;
 import javax.security.auth.kerberos.KeyTab;
 

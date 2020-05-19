@@ -79,6 +79,7 @@ public abstract class RSAKeyPairGenerator extends KeyPairGeneratorSpi {
     // second initialize method. See JCA doc.
     public void initialize(AlgorithmParameterSpec params, SecureRandom random)
             throws InvalidAlgorithmParameterException {
+
         if (params instanceof RSAKeyGenParameterSpec == false) {
             throw new InvalidAlgorithmParameterException
                 ("Params must be instance of RSAKeyGenParameterSpec");

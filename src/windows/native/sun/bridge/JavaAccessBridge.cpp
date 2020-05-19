@@ -1012,7 +1012,7 @@ JavaAccessBridge::processPackage(char *buffer, int bufsize) {
             GetAccessibleHyperlinkPackage *pkg =
                 (GetAccessibleHyperlinkPackage *) (buffer + sizeof(PackageType));
             windowsThreadEntryPoints->getAccessibleHyperlink((jobject)pkg->hypertext, pkg->linkIndex,
-                                                             &(pkg->rAccessibleHyperlinkInfo));
+                                                            &(pkg->rAccessibleHyperlinkInfo));
             PrintDebugString("[INFO]:    ##### processing succeeded");
         } else {
             PrintDebugString("[ERROR]:    ##### processing FAILED!! -> bufsize = %d; expectation = %d",

@@ -882,7 +882,7 @@ BOOL
 AccessBridgeJavaEntryPoints::isJavaWindow(jint window) {
     jthrowable exception;
     BOOL returnVal;
-
+    
     PrintDebugString("[INFO]: Calling AccessBridgeJavaEntryPoints::isJavaWindow(%X):", window);
 
     if (isJavaWindowMethod != (jmethodID) 0) {
@@ -905,7 +905,7 @@ BOOL
 AccessBridgeJavaEntryPoints::isSameObject(jobject obj1, jobject obj2) {
     jthrowable exception;
     BOOL returnVal;
-
+    
     PrintDebugString("[INFO]: In AccessBridgeJavaEntryPoints::isSameObject(%p %p):", obj1, obj2);
 
     returnVal = (BOOL) jniEnv->IsSameObject((jobject)obj1, (jobject)obj2);
