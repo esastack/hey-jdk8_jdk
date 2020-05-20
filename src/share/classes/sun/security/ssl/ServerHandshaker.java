@@ -680,60 +680,6 @@ final class ServerHandshaker extends Handshaker {
                     }
                 }
 
-                if (resumingSession && useExtendedMasterSecret) {
-                    if (requestedToUseEMS &&
-                            !previous.getUseExtendedMasterSecret()) {
-                        // For abbreviated handshake request, If the original
-                        // session did not use the "extended_master_secret"
-                        // extension but the new ClientHello contains the
-                        // extension, then the server MUST NOT perform the
-                        // abbreviated handshake.  Instead, it SHOULD continue
-                        // with a full handshake.
-                        resumingSession = false;
-                    } else if (!requestedToUseEMS &&
-                            previous.getUseExtendedMasterSecret()) {
-                        // For abbreviated handshake request, if the original
-                        // session used the "extended_master_secret" extension
-                        // but the new ClientHello does not contain it, the
-                        // server MUST abort the abbreviated handshake.
-                        fatalSE(Alerts.alert_handshake_failure,
-                                "Missing Extended Master Secret extension " +
-                                "on session resumption");
-                    } else if (!requestedToUseEMS &&
-                            !previous.getUseExtendedMasterSecret()) {
-                        // For abbreviated handshake request, if neither the
-                        // original session nor the new ClientHello uses the
-                        // extension, the server SHOULD abort the handshake.
-                        if (!allowLegacyResumption) {
-                            fatalSE(Alerts.alert_handshake_failure,
-                                "Missing Extended Master Secret extension " +
-                                "on session resumption");
-                        } else {  // Otherwise, continue with a full handshake.
-                            resumingSession = false;
-                        }
-                    }
-                }
-
-                // cannot resume session with different server name indication
-                if (resumingSession) {
-                    List<SNIServerName> oldServerNames =
-                            previous.getRequestedServerNames();
-                    if (clientHelloSNIExt != null) {
-                        if (!clientHelloSNIExt.isIdentical(oldServerNames)) {
-                            resumingSession = false;
-                        }
-                    } else if (!oldServerNames.isEmpty()) {
-                        resumingSession = false;
-                    }
-
-                    if (!resumingSession &&
-                            debug != null && Debug.isOn("handshake")) {
-                        System.out.println(
-                            "The requested server name indication " +
-                            "is not identical to the previous one");
-                    }
-                }
-
                 if (resumingSession &&
                         (doClientAuth == SSLEngineImpl.clauth_required)) {
                     try {

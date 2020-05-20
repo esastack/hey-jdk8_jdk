@@ -293,27 +293,6 @@ public final class Utils {
         }
 
         return port;
-    
-    /**
-     * Returns the socket address of an endpoint that refuses connections. The
-     * endpoint is an InetSocketAddress where the address is the loopback address
-     * and the port is a system port (1-1023 range).
-     * This method is a better choice than getFreePort for tests that need
-     * an endpoint that refuses connections.
-     */
-    public static InetSocketAddress refusingEndpoint() {
-        InetAddress lb = InetAddress.getLoopbackAddress();
-        int port = 1;
-        while (port < 1024) {
-            InetSocketAddress sa = new InetSocketAddress(lb, port);
-            try {
-                SocketChannel.open(sa).close();
-            } catch (IOException ioe) {
-                return sa;
-            }
-            port++;
-        }
-        throw new RuntimeException("Unable to find system port that is refusing connections");
     }
 
     /**
