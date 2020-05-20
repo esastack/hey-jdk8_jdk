@@ -441,6 +441,7 @@ public class Asserts {
      * @param message for the failure
      * @throws RuntimeException always
      */
+    
     private static void error(String msg) {
         throw new RuntimeException(msg);
     }

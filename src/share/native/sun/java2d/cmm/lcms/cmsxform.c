@@ -370,7 +370,7 @@ void NullFloatXFORM(_cmsTRANSFORM* p,
 
 // 16 bit precision -----------------------------------------------------------------------------------------------------------
 
-// Null transformation, only applies formatters. No caché
+// Null transformation, only applies formatters. No cachï¿½
 static
 void NullXFORM(_cmsTRANSFORM* p,
                const void* in,
@@ -471,7 +471,7 @@ void TransformOnePixelWithGamutCheck(_cmsTRANSFORM* p,
         p ->Lut ->Eval16Fn(wIn, wOut, p -> Lut->Data);
 }
 
-// Gamut check, No caché, 16 bits.
+// Gamut check, No cachï¿½, 16 bits.
 static
 void PrecalculatedXFORMGamutCheck(_cmsTRANSFORM* p,
                                   const void* in,
@@ -510,7 +510,7 @@ void PrecalculatedXFORMGamutCheck(_cmsTRANSFORM* p,
 }
 
 
-// No gamut check, Caché, 16 bits,
+// No gamut check, Cachï¿½, 16 bits,
 static
 void CachedXFORM(_cmsTRANSFORM* p,
                  const void* in,
@@ -836,7 +836,7 @@ _cmsTRANSFORM* AllocEmptyTransform(cmsContext ContextID, cmsPipeline* lut,
 
                             // Save the day? (Ignore the warning)
                             if (Plugin->OldXform) {
-                                   p->OldXform = (_cmsTransformFn) p->xform;
+                                   p->OldXform = (_cmsTransformFn)(void*) p->xform;
                                    p->xform = _cmsTransform2toTransformAdaptor;
                             }
 
@@ -868,7 +868,7 @@ _cmsTRANSFORM* AllocEmptyTransform(cmsContext ContextID, cmsPipeline* lut,
             p ->xform = NullFloatXFORM;
         }
         else {
-            // Float transforms don't use caché, always are non-NULL
+            // Float transforms don't use cachï¿½, always are non-NULL
             p ->xform = FloatXFORM;
         }
 
@@ -907,16 +907,16 @@ _cmsTRANSFORM* AllocEmptyTransform(cmsContext ContextID, cmsPipeline* lut,
             if (*dwFlags & cmsFLAGS_NOCACHE) {
 
                 if (*dwFlags & cmsFLAGS_GAMUTCHECK)
-                    p ->xform = PrecalculatedXFORMGamutCheck;  // Gamut check, no caché
+                    p ->xform = PrecalculatedXFORMGamutCheck;  // Gamut check, no cachï¿½
                 else
-                    p ->xform = PrecalculatedXFORM;  // No caché, no gamut check
+                    p ->xform = PrecalculatedXFORM;  // No cachï¿½, no gamut check
             }
             else {
 
                 if (*dwFlags & cmsFLAGS_GAMUTCHECK)
-                    p ->xform = CachedXFORMGamutCheck;    // Gamut check, caché
+                    p ->xform = CachedXFORMGamutCheck;    // Gamut check, cachï¿½
                 else
-                    p ->xform = CachedXFORM;  // No gamut check, caché
+                    p ->xform = CachedXFORM;  // No gamut check, cachï¿½
 
             }
         }

@@ -29,8 +29,6 @@ import java.security.InvalidKeyException;
 import java.security.ProviderException;
 import java.util.Objects;
 
-//import sun.security.util.ArrayUtil;
-
 /**
  * This class represents ciphers in cipher block chaining (CBC) mode.
  *

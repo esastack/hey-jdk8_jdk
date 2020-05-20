@@ -141,7 +141,7 @@ public final class Utils {
 
     private static final int MAX_BUFFER_SIZE = Integer.MAX_VALUE - 8;
     private static final int DEFAULT_BUFFER_SIZE = 8192;
-    
+
     private Utils() {
         // Private constructor to prevent class instantiation
     }
@@ -199,9 +199,7 @@ public final class Utils {
      * GC specified by the framework must first be removed.
      * @return A copy of given opts with all GC options removed.
      */
-    private static final Pattern useGcPattern = Pattern.compile(
-            "(?:\\-XX\\:[\\+\\-]Use.+GC)");
-            // + "|(?:\\-Xconcgc)");
+    private static final Pattern useGcPattern = Pattern.compile("\\-XX\\:[\\+\\-]Use.+GC");
     public static List<String> removeGcOpts(List<String> opts) {
         List<String> optsWithoutGC = new ArrayList<String>();
         for (String opt : opts) {
@@ -272,38 +270,29 @@ public final class Utils {
     }
 
     /**
-     * Returns the socket address of an endpoint that refuses connections. The
-     * endpoint is an InetSocketAddress where the address is the loopback address
-     * and the port is a system port (1-1023 range).
-     * This method is a better choice than getFreePort for tests that need
-     * an endpoint that refuses connections.
-     */
-    public static InetSocketAddress refusingEndpoint() {
-        InetAddress lb = InetAddress.getLoopbackAddress();
-        int port = 1;
-        while (port < 1024) {
-            InetSocketAddress sa = new InetSocketAddress(lb, port);
-            try {
-                SocketChannel.open(sa).close();
-            } catch (IOException ioe) {
-                return sa;
-            }
-            port++;
-        }
-        throw new RuntimeException("Unable to find system port that is refusing connections");
-    }
-
-    /**
      * Returns the free port on the local host.
+     * The function will spin until a valid port number is found.
      *
      * @return The port number
+     * @throws InterruptedException if any thread has interrupted the current thread
      * @throws IOException if an I/O error occurs when opening the socket
      */
-    public static int getFreePort() throws IOException {
-        try (ServerSocket serverSocket =
-                new ServerSocket(0, 5, InetAddress.getLoopbackAddress());) {
-            return serverSocket.getLocalPort();
+    public static int getFreePort() throws InterruptedException, IOException {
+        int port = -1;
+
+        while (port <= 0) {
+            Thread.sleep(100);
+
+            ServerSocket serverSocket = null;
+            try {
+                serverSocket = new ServerSocket(0);
+                port = serverSocket.getLocalPort();
+            } finally {
+                serverSocket.close();
+            }
         }
+
+        return port;
     }
 
     /**
@@ -349,7 +338,7 @@ public final class Utils {
      * 12254 /tmp/jdk8/tl/jdk/JTwork/classes/com/sun/tools/attach/Application.jar
      *
      * @param key A regular expression to search for.
-     * @return The found pid, or -1 if not found.
+     * @return The found pid, or -1 if Enot found.
      * @throws Exception If multiple matching jvms are found.
      */
     public static int tryFindJvmPid(String key) throws Throwable {
@@ -631,9 +620,9 @@ public final class Utils {
         }
         return null;
     }
-    
+
     private static final int BUFFER_SIZE = 1024;
-    
+
     /**
      * Reads all bytes from the input stream and writes the bytes to the
      * given output stream in the order that they are read. On return, the
@@ -696,6 +685,7 @@ public final class Utils {
     public static String getTestSourcePath(String fileName) {
         return Paths.get(System.getProperty("test.src")).resolve(fileName).toString();
     }
+
     /**
      * Ensures a requested class is loaded
      * @param aClass class to load

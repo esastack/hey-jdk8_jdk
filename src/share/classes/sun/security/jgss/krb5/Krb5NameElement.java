@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -144,7 +144,7 @@ public class Krb5NameElement
         return new Krb5NameElement(principalName, gssNameStr, gssNameType);
     }
 
-    static Krb5NameElement getInstance(PrincipalName principalName) {
+    public static Krb5NameElement getInstance(PrincipalName principalName) {
         return new Krb5NameElement(principalName,
                                    principalName.getName(),
                                    Krb5MechFactory.NT_GSS_KRB5_PRINCIPAL);
@@ -214,7 +214,7 @@ public class Krb5NameElement
      * return false.
      *
      * @param other to be compared with
-     * @returns true if they both refer to the same entity, else false
+     * @return true if they both refer to the same entity, else false
      * @exception GSSException with major codes of BAD_NAMETYPE,
      *  BAD_NAME, FAILURE
      */
@@ -239,7 +239,7 @@ public class Krb5NameElement
      * situation where an error occurs.
      *
      * @param another the object to be compared to
-     * @returns true if they both refer to the same entity, else false
+     * @return true if they both refer to the same entity, else false
      * @see #equals(GSSNameSpi)
      */
     public boolean equals(Object another) {

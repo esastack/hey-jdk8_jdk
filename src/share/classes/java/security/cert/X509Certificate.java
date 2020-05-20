@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1997, 2013, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997, 2020, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -27,12 +27,14 @@ package java.security.cert;
 
 import java.math.BigInteger;
 import java.security.*;
+import java.security.spec.*;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import javax.security.auth.x500.X500Principal;
 
 import sun.security.x509.X509CertImpl;
+import sun.security.util.SignatureUtil;
 
 /**
  * <p>
@@ -63,7 +65,7 @@ import sun.security.x509.X509CertImpl;
  * CA such as a "root" CA.
  * <p>
  * More information can be found in
- * <a href="http://www.ietf.org/rfc/rfc3280.txt">RFC 3280: Internet X.509
+ * <a href="http://tools.ietf.org/html/rfc5280">RFC 5280: Internet X.509
  * Public Key Infrastructure Certificate and CRL Profile</a>.
  * <p>
  * The ASN.1 definition of {@code tbsCertificate} is:
@@ -408,7 +410,7 @@ implements X509Extension {
      * Gets the {@code issuerUniqueID} value from the certificate.
      * The issuer unique identifier is present in the certificate
      * to handle the possibility of reuse of issuer names over time.
-     * RFC 3280 recommends that names not be reused and that
+     * RFC 5280 recommends that names not be reused and that
      * conforming certificates not make use of unique identifiers.
      * Applications conforming to that profile should be capable of
      * parsing unique identifiers and making comparisons.
@@ -459,7 +461,7 @@ implements X509Extension {
      *     encipherOnly            (7),
      *     decipherOnly            (8) }
      * </pre>
-     * RFC 3280 recommends that when used, this be marked
+     * RFC 5280 recommends that when used, this be marked
      * as a critical extension.
      *
      * @return the KeyUsage extension of this certificate, represented as
@@ -572,7 +574,7 @@ implements X509Extension {
      * <a href="http://www.ietf.org/rfc/rfc822.txt">RFC 822</a>, DNS, and URI
      * names are returned as {@code String}s,
      * using the well-established string formats for those types (subject to
-     * the restrictions included in RFC 3280). IPv4 address names are
+     * the restrictions included in RFC 5280). IPv4 address names are
      * returned using dotted quad notation. IPv6 address names are returned
      * in the form "a1:a2:...:a8", where a1-a8 are hexadecimal values
      * representing the eight 16-bit pieces of the address. OID names are
@@ -647,7 +649,7 @@ implements X509Extension {
         return X509CertImpl.getIssuerAlternativeNames(this);
     }
 
-     /**
+    /**
      * Verifies that this certificate was signed using the
      * private key that corresponds to the specified public key.
      * This method uses the signature verification engine
@@ -673,6 +675,25 @@ implements X509Extension {
     public void verify(PublicKey key, Provider sigProvider)
         throws CertificateException, NoSuchAlgorithmException,
         InvalidKeyException, SignatureException {
-        X509CertImpl.verify(this, key, sigProvider);
+        String sigName = getSigAlgName();
+        Signature sig = (sigProvider == null)
+            ? Signature.getInstance(sigName)
+            : Signature.getInstance(sigName, sigProvider);
+
+        try {
+            SignatureUtil.initVerifyWithParam(sig, key,
+                SignatureUtil.getParamSpec(sigName, getSigAlgParams()));
+        } catch (ProviderException e) {
+            throw new CertificateException(e.getMessage(), e.getCause());
+        } catch (InvalidAlgorithmParameterException e) {
+            throw new CertificateException(e);
+        }
+
+        byte[] tbsCert = getTBSCertificate();
+        sig.update(tbsCert, 0, tbsCert.length);
+
+        if (sig.verify(getSignature()) == false) {
+            throw new SignatureException("Signature does not match.");
+        }
     }
 }

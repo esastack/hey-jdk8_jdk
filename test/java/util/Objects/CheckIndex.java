@@ -23,10 +23,9 @@
 
 /**
  * @test
- * @summary Objects.checkIndex/com.sun.crypto.provider.Preconditions.checkIndex tests
+ * @summary com.sun.crypto.provider.Preconditions.checkIndex tests
  * @run testng CheckIndex
  * @bug 8135248 8142493 8155794
- * @modules java.base/jdk.internal.util
  */
 
 import com.sun.crypto.provider.Preconditions;

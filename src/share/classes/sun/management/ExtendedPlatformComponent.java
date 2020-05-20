@@ -26,7 +26,6 @@
 package sun.management;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.lang.management.PlatformManagedObject;

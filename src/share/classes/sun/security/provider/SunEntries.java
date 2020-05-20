@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1996, 2017, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1996, 2020, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -65,7 +65,7 @@ import sun.security.action.GetPropertyAction;
  *   and CRLs. Aliases for X.509 are X509.
  *
  * - PKIX is the certification path validation algorithm described
- *   in RFC 3280. The ValidationAlgorithm attribute notes the
+ *   in RFC 5280. The ValidationAlgorithm attribute notes the
  *   specification that this provider implements.
  *
  * - LDAP is the CertStore type for LDAP repositories. The
@@ -106,6 +106,7 @@ final class SunEntries {
             map.put("SecureRandom.NativePRNG",
                 "sun.security.provider.NativePRNG");
         }
+
         map.put("SecureRandom.SHA1PRNG",
              "sun.security.provider.SecureRandom");
         if (nativeAvailable && !useNativePRNG) {
@@ -200,6 +201,14 @@ final class SunEntries {
         map.put("Alg.Alias.MessageDigest.2.16.840.1.101.3.4.2.3", "SHA-512");
         map.put("Alg.Alias.MessageDigest.OID.2.16.840.1.101.3.4.2.3",
                 "SHA-512");
+        map.put("MessageDigest.SHA-512/224", "sun.security.provider.SHA5$SHA512_224");
+        map.put("Alg.Alias.MessageDigest.2.16.840.1.101.3.4.2.5", "SHA-512/224");
+        map.put("Alg.Alias.MessageDigest.OID.2.16.840.1.101.3.4.2.5",
+                "SHA-512/224");
+        map.put("MessageDigest.SHA-512/256", "sun.security.provider.SHA5$SHA512_256");
+        map.put("Alg.Alias.MessageDigest.2.16.840.1.101.3.4.2.6", "SHA-512/256");
+        map.put("Alg.Alias.MessageDigest.OID.2.16.840.1.101.3.4.2.6",
+                "SHA-512/256");
 
         /*
          * Algorithm Parameter Generator engines
@@ -257,7 +266,7 @@ final class SunEntries {
         map.put("CertPathBuilder.PKIX",
             "sun.security.provider.certpath.SunCertPathBuilder");
         map.put("CertPathBuilder.PKIX ValidationAlgorithm",
-            "RFC3280");
+            "RFC5280");
 
         /*
          * CertPathValidator
@@ -265,7 +274,7 @@ final class SunEntries {
         map.put("CertPathValidator.PKIX",
             "sun.security.provider.certpath.PKIXCertPathValidator");
         map.put("CertPathValidator.PKIX ValidationAlgorithm",
-            "RFC3280");
+            "RFC5280");
 
         /*
          * CertStores

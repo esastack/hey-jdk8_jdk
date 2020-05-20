@@ -25,7 +25,6 @@
 
 package sun.security.util;
 
-
 /**
  * This class holds the various utility methods for array range checks.
  */

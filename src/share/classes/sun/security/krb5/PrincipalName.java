@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -45,14 +45,14 @@ import sun.security.krb5.internal.util.KerberosString;
 
 /**
  * Implements the ASN.1 PrincipalName type and its realm in a single class.
- * <xmp>
+ * <pre>{@code
  *    Realm           ::= KerberosString
  *
  *    PrincipalName   ::= SEQUENCE {
  *            name-type       [0] Int32,
  *            name-string     [1] SEQUENCE OF KerberosString
  *    }
- * </xmp>
+ * }</pre>
  * This class is immutable.
  * @see Realm
  */
@@ -89,6 +89,11 @@ public class PrincipalName implements Cloneable {
      * Unique ID
      */
     public static final int KRB_NT_UID = 5;
+
+    /**
+     * Enterprise name (alias)
+     */
+    public static final int KRB_NT_ENTERPRISE = 10;
 
     /**
      * TGS Name
@@ -214,14 +219,14 @@ public class PrincipalName implements Cloneable {
 
     /**
      * Returns the ASN.1 encoding of the
-     * <xmp>
+     * <pre>{@code
      * PrincipalName    ::= SEQUENCE {
      *          name-type       [0] Int32,
      *          name-string     [1] SEQUENCE OF KerberosString
      * }
      *
      * KerberosString   ::= GeneralString (IA5String)
-     * </xmp>
+     * }</pre>
      *
      * <p>
      * This definition reflects the Network Working Group RFC 4120
@@ -454,6 +459,7 @@ public class PrincipalName implements Cloneable {
         case KRB_NT_SRV_INST:
         case KRB_NT_SRV_XHST:
         case KRB_NT_UID:
+        case KRB_NT_ENTERPRISE:
             nameStrings = nameParts;
             nameType = type;
             if (realm != null) {
@@ -547,7 +553,9 @@ public class PrincipalName implements Cloneable {
         for (int i = 0; i < nameStrings.length; i++) {
             if (i > 0)
                 str.append("/");
-            str.append(nameStrings[i]);
+            String n = nameStrings[i];
+            n = n.replace("@", "\\@");
+            str.append(n);
         }
         str.append("@");
         str.append(nameRealm.toString());
@@ -649,7 +657,8 @@ public class PrincipalName implements Cloneable {
      * name, the second component is returned.
      * Null is returned if there are not two or more
      * components in the name.
-     * @returns instance component of a multi-component name.
+     *
+     * @return instance component of a multi-component name.
      */
     public String getInstanceComponent()
     {

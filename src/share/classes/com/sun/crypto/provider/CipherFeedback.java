@@ -27,7 +27,6 @@ package com.sun.crypto.provider;
 
 import java.security.InvalidKeyException;
 import java.security.ProviderException;
-//import sun.security.util.ArrayUtil;
 
 /**
  * This class represents ciphers in cipher-feedback (CFB) mode.

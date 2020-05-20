@@ -211,6 +211,8 @@ RT_JAR_EXCLUDES += \
     sun/util/cldr/CLDRLocaleDataMetaInfo.class \
     sun/util/resources/cldr \
     $(LOCALEDATA_INCLUDES) \
+    com/oracle/jrockit/jfr \
+    oracle/jrockit/jfr \
     jdk/management/jfr \
     jdk/jfr
 

@@ -30,7 +30,6 @@ import java.io.*;
 import java.security.*;
 import javax.crypto.*;
 import static com.sun.crypto.provider.AESConstants.AES_BLOCK_SIZE;
-//import sun.security.util.ArrayUtil;
 
 
 /**

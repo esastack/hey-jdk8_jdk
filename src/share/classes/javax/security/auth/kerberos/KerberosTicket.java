@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -29,11 +29,13 @@ import java.io.*;
 import java.util.Date;
 import java.util.Arrays;
 import java.net.InetAddress;
+import java.util.Objects;
 import javax.crypto.SecretKey;
 import javax.security.auth.Refreshable;
 import javax.security.auth.Destroyable;
 import javax.security.auth.RefreshFailedException;
 import javax.security.auth.DestroyFailedException;
+
 import sun.misc.HexDumpEncoder;
 import sun.security.krb5.EncryptionKey;
 import sun.security.krb5.Asn1Exception;
@@ -190,8 +192,17 @@ public class KerberosTicket implements Destroyable, Refreshable,
      * @serial
      */
 
-
     private InetAddress[] clientAddresses;
+
+    transient KerberosPrincipal clientAlias = null;
+
+    transient KerberosPrincipal serverAlias = null;
+
+    /**
+     * Evidence ticket if proxy_impersonator. This field can be accessed
+     * by KerberosSecrets. It's serialized.
+     */
+    KerberosTicket proxy = null;
 
     private transient boolean destroyed = false;
 
@@ -301,11 +312,7 @@ public class KerberosTicket implements Destroyable, Refreshable,
         } else
            this.flags = new boolean[NUM_FLAGS];
 
-        if (this.flags[RENEWABLE_TICKET_FLAG]) {
-           if (renewTill == null)
-                throw new IllegalArgumentException("The renewable period "
-                       + "end time cannot be null for renewable tickets.");
-
+        if (this.flags[RENEWABLE_TICKET_FLAG] && renewTill != null) {
            this.renewTill = new Date(renewTill.getTime());
         }
 
@@ -546,6 +553,11 @@ public class KerberosTicket implements Destroyable, Refreshable,
         if (!isRenewable())
             throw new RefreshFailedException("This ticket is not renewable");
 
+        if (getRenewTill() == null) {
+            // Renewable ticket without renew-till. Illegal and ignored.
+            return;
+        }
+
         if (System.currentTimeMillis() > getRenewTill().getTime())
             throw new RefreshFailedException("This ticket is past "
                                              + "its last renewal time.");
@@ -555,7 +567,11 @@ public class KerberosTicket implements Destroyable, Refreshable,
         try {
             krb5Creds = new sun.security.krb5.Credentials(asn1Encoding,
                                                     client.toString(),
+                                                    (clientAlias != null ?
+                                                            clientAlias.getName() : null),
                                                     server.toString(),
+                                                    (serverAlias != null ?
+                                                            serverAlias.getName() : null),
                                                     sessionKey.getEncoded(),
                                                     sessionKey.getKeyType(),
                                                     flags,
@@ -662,6 +678,7 @@ public class KerberosTicket implements Destroyable, Refreshable,
                 "Renew Till = " + String.valueOf(renewTill) + "\n" +
                 "Client Addresses " +
                 (clientAddresses == null ? " Null " : caddrBuf.toString() +
+                (proxy == null ? "" : "\nwith a proxy ticket") +
                 "\n"));
     }
 
@@ -699,6 +716,10 @@ public class KerberosTicket implements Destroyable, Refreshable,
 
         // clientAddress may be null, the array's hashCode is 0
         result = result * 37 + Arrays.hashCode(clientAddresses);
+
+        if (proxy != null) {
+            result = result * 37 + proxy.hashCode();
+        }
         return result * 37 + Arrays.hashCode(flags);
     }
 
@@ -762,6 +783,10 @@ public class KerberosTicket implements Destroyable, Refreshable,
         } else {
             if (!renewTill.equals(otherTicket.getRenewTill()))
                 return false;
+        }
+
+        if (!Objects.equals(proxy, otherTicket.proxy)) {
+            return false;
         }
 
         return true;
