@@ -27,13 +27,15 @@ package jdk.jfr.jmx;
 
 import jdk.jfr.Configuration;
 import jdk.management.jfr.FlightRecorderMXBean;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.CommonHelper;
-import jdk.testlibrary.jfr.VoidFunction;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.CommonHelper;
+import jdk.test.lib.jfr.VoidFunction;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestPredefinedConfigurationInvalid
  */
 public class TestPredefinedConfigurationInvalid {

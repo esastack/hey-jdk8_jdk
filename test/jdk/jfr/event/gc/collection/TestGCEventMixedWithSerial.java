@@ -27,8 +27,11 @@ package jdk.jfr.event.gc.collection;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary /
+ *
+ *
+ * @library /lib /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xmx32m -Xmn8m -XX:+UseSerialGC jdk.jfr.event.gc.collection.TestGCEventMixedWithSerial
  */
 public class TestGCEventMixedWithSerial {

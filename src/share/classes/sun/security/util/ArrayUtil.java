@@ -30,6 +30,7 @@ package sun.security.util;
  */
 
 public final class ArrayUtil {
+
     private static void swap(byte[] arr, int i, int j) {
         byte tmp = arr[i];
         arr[i] = arr[j];

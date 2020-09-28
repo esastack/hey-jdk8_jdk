@@ -29,12 +29,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jdk.jfr.Recording;
-import jdk.testlibrary.jfr.SimpleEventHelper;
+import jdk.test.lib.jfr.SimpleEventHelper;
 
 /**
  * @test
  * @summary Enable, disable, enable event during recording.
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.event.TestReEnableClass
  */
 public class TestReEnableClass {

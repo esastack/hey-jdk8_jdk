@@ -34,14 +34,16 @@ import java.util.List;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
 import jdk.management.jfr.FlightRecorderMXBean;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventField;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.SimpleEventHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventField;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.SimpleEventHelper;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestCloneRepeat
  */
 public class TestCloneRepeat {

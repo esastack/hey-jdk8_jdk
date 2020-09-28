@@ -30,14 +30,16 @@ import java.util.List;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedThread;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.SimpleEvent;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.SimpleEvent;
 
 /**
  * @test
  * @summary Tests that the RecordedEvent.getThread() returns th expected info
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.consumer.TestRecordedEventGetThread
  */
 public class TestRecordedEventGetThread {

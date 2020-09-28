@@ -418,30 +418,6 @@ public class Asserts {
         return o == null? "null" : o.toString();
     }
 
-    /**
-     * Fail reports a failure with message fail.
-     *
-     * @throws RuntimeException always
-     */
-    public static void fail() {
-        error("error");
-    }
-    
-    /**
-     * Fail reports a failure with message fail.
-     *
-     * @throws RuntimeException always
-     */
-    public static void fail(String msg) {
-        error(msg);
-    }
-    
-    /**
-     * Fail reports a failure with a message.
-     * @param message for the failure
-     * @throws RuntimeException always
-     */
-    
     private static void error(String msg) {
         throw new RuntimeException(msg);
     }

@@ -31,12 +31,14 @@ import java.util.List;
 import jdk.jfr.AnnotationElement;
 import jdk.jfr.Label;
 import jdk.jfr.ValueDescriptor;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary Test ValueDescriptor.getAnnotations()
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.valuedescriptor.TestConstructor
  */
 public class TestConstructor {

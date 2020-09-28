@@ -35,7 +35,9 @@ import jdk.management.jfr.FlightRecorderMXBean;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestNotificationListener
  */
 public class TestNotificationListener {

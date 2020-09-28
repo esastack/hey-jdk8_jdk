@@ -240,8 +240,20 @@ public final class SecuritySupport {
         return list;
     }
 
+    static void makeVisibleToJFR(Class<?> clazz) {
+        // nothing to do for JDK8
+    }
+
+    /**
+     * Adds a qualified export of the internal.jdk.jfr.internal.handlers package
+     * (for EventHandler)
+     */
+    static void addHandlerExport(Class<?> clazz) {
+        // nothing to do for JDK8
+    }
+
     public static void registerEvent(Class<? extends Event> eventClass) {
-        doPrivileged(() ->  FlightRecorder.register(eventClass), new FlightRecorderPermission(Utils.REGISTER_EVENT));
+        doPrivileged(() -> FlightRecorder.register(eventClass), new FlightRecorderPermission(Utils.REGISTER_EVENT));
     }
 
     static boolean getBooleanProperty(String propertyName) {

@@ -29,13 +29,15 @@ import java.util.List;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.SimpleEvent;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.SimpleEvent;
 
 /**
  * @test
  * @summary Test for RecordedEvent.getDuration()
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.event.TestBeginEnd
  */
 public class TestBeginEnd {

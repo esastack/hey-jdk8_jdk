@@ -29,12 +29,14 @@ import java.util.List;
 
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.management.jfr.FlightRecorderMXBean;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.SimpleEventHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.SimpleEventHelper;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestStreamMultiple
  */
 public class TestStreamMultiple {

@@ -37,7 +37,7 @@ import jdk.jfr.SettingDefinition;
 import jdk.jfr.SettingDescriptor;
 import jdk.jfr.Timespan;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.Events;
 
 final class CustomEvent extends BaseEvent {
 

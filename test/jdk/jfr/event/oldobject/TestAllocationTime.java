@@ -34,13 +34,16 @@ import jdk.jfr.consumer.RecordedClass;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedObject;
 import jdk.jfr.internal.test.WhiteBox;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary / 
- * @modules jdk.jfr/jdk.jfr.internal.test
+ * @key jfr
+ *
+ *
+ * @library /lib /
+ *
  * @run main/othervm  -XX:TLABSize=2k -XX:-FastTLABRefill jdk.jfr.event.oldobject.TestAllocationTime
  */
 public class TestAllocationTime {

@@ -26,14 +26,16 @@
 package jdk.jfr.api.recording.options;
 
 import jdk.jfr.Recording;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.CommonHelper;
-import jdk.testlibrary.jfr.VoidFunction;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.CommonHelper;
+import jdk.test.lib.jfr.VoidFunction;
 
 /**
  * @test
  * @summary Test setName().
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.options.TestName
  */
 public class TestName {

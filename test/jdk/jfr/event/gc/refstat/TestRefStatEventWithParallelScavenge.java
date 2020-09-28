@@ -24,12 +24,15 @@
  */
 
 package jdk.jfr.event.gc.refstat;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.jfr.GCHelper;
 
 /**
  * @test
- * @library /lib/testlibrary /
- * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xmx50m -Xmn2m -XX:-UseLargePages -XX:+UseParallelGC -XX:-UseAdaptiveSizePolicy jdk.jfr.event.gc.refstat.TestRefStatEventWithParallelScavenge
+ * @key jfr
+ *
+ *
+ * @library /lib /
+ * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+PrintGCDetails -XX:+PrintGC -Xmx50m -Xmn2m -XX:-UseLargePages -XX:+UseParallelGC -XX:-UseAdaptiveSizePolicy jdk.jfr.event.gc.refstat.TestRefStatEventWithParallelScavenge
  */
 public class TestRefStatEventWithParallelScavenge {
     public static void main(String[] args) throws Exception {

@@ -26,9 +26,13 @@ package jdk.jfr.event.gc.stacktrace;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary /
- * @run main/othervm -XX:+UseParallelGC -XX:MaxMetaspaceSize=64M jdk.jfr.event.gc.stacktrace.TestMetaspaceParallelGCAllocationPendingStackTrace
+ *
+ *
+ *
+ * @library /lib /
+ * @run main/othervm -XX:+UseParallelGC -XX:+PrintGCDetails -XX:+PrintGC -XX:MaxMetaspaceSize=64M jdk.jfr.event.gc.stacktrace.TestMetaspaceParallelGCAllocationPendingStackTrace
  */
 public class TestMetaspaceParallelGCAllocationPendingStackTrace {
 

@@ -24,17 +24,20 @@
  */
 
 package jdk.jfr.event.gc.collection;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.jfr.GCHelper;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary /
+ *
+ *
+ * @library /lib /
  *
  * @run driver jdk.jfr.event.gc.collection.TestGCCauseWithPSMarkSweep
  */
 public class TestGCCauseWithPSMarkSweep {
-    public static void main(String[] args) throws Throwable {
+    public static void main(String[] args) throws Exception {
         String testID = "PSMarkSweep";
         String[] vmFlags = {"-XX:+UseParallelGC", "-XX:-UseParallelOldGC"};
         String[] gcNames = {GCHelper.gcParallelScavenge, GCHelper.gcSerialOld};

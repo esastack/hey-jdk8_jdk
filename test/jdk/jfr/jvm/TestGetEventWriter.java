@@ -25,15 +25,17 @@
 
 package jdk.jfr.jvm;
 
-import static jdk.testlibrary.Asserts.assertNotNull;
+import static jdk.test.lib.Asserts.assertNotNull;
 
 import jdk.jfr.internal.EventWriter;
 import jdk.jfr.internal.JVM;
 
 /**
  * @test TestGetEventWriter
- * @library /lib/testlibrary /
- * @modules jdk.jfr/jdk.jfr.internal
+ * @key jfr
+ *
+ * @library /lib /
+ *
  *
  * @run main/othervm jdk.jfr.jvm.TestGetEventWriter
  */

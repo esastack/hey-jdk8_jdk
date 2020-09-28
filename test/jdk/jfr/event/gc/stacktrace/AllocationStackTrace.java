@@ -34,8 +34,8 @@ import jdk.jfr.consumer.RecordedStackTrace;
 import jdk.jfr.consumer.RecordedFrame;
 import jdk.jfr.consumer.RecordedMethod;
 import jdk.jfr.consumer.RecordedThread;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 import java.util.List;
 import java.util.ArrayList;

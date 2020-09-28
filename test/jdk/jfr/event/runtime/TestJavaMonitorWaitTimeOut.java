@@ -31,13 +31,15 @@ import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedClass;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedThread;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.event.runtime.TestJavaMonitorWaitTimeOut
  */
 public class TestJavaMonitorWaitTimeOut {

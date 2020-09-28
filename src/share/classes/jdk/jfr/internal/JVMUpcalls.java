@@ -26,9 +26,9 @@ package jdk.jfr.internal;
 
 import java.lang.reflect.Modifier;
 
+import jdk.jfr.Event;
 import jdk.jfr.internal.handlers.EventHandler;
 import jdk.jfr.internal.instrument.JDKEvents;
-import jdk.jfr.Event;
 
 /**
  * All upcalls from the JVM should go through this class.
@@ -139,5 +139,14 @@ final class JVMUpcalls {
      */
     static Thread createRecorderThread(ThreadGroup systemThreadGroup, ClassLoader contextClassLoader) {
         return SecuritySupport.createRecorderThread(systemThreadGroup, contextClassLoader);
+    }
+
+    /**
+     * Called by the JVM to initialize the EventHandlerProxy class.
+     *
+     * @return the EventHandlerProxy class
+     */
+    static Class<? extends EventHandler> getEventHandlerProxyClass() {
+        return EventHandlerProxyCreator.proxyClass;
     }
 }

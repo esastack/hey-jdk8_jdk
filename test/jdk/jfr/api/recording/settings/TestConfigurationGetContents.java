@@ -30,12 +30,14 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import jdk.jfr.Configuration;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary Verifies Configuration.getContents() for every configuration
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.settings.TestConfigurationGetContents
  */
 public class TestConfigurationGetContents {

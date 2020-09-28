@@ -33,13 +33,15 @@ import jdk.jfr.Event;
 import jdk.jfr.EventType;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Test enable/disable event and verify recording has expected events.
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.event.TestEnableDisable
  */
 

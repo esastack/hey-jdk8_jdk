@@ -32,11 +32,13 @@ import jdk.jfr.FlightRecorder;
 import jdk.jfr.Recording;
 import jdk.management.jfr.FlightRecorderMXBean;
 import jdk.management.jfr.RecordingInfo;
-import jdk.testlibrary.jfr.SimpleEvent;
+import jdk.test.lib.jfr.SimpleEvent;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestSnapshot
  */
 public class TestSnapshot {

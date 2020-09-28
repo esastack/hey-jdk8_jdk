@@ -668,10 +668,10 @@ public final class Connection implements Runnable {
                 LdapRequest ldr = pendingRequests;
                 while (ldr != null) {
                     ldr.close();
-                    ldr = ldr.next;
+                        ldr = ldr.next;
+                    }
                 }
             }
-        }
         if (nparent) {
             parent.processConnectionClosure();
         }

@@ -29,11 +29,13 @@ import jdk.jfr.AnnotationElement;
 import jdk.jfr.Label;
 import jdk.jfr.MetadataDefinition;
 import jdk.jfr.Timestamp;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.annotations.TestHasValue
  */
 

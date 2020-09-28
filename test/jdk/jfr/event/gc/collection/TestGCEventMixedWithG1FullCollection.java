@@ -27,11 +27,13 @@ package jdk.jfr.event.gc.collection;
 
 /**
  * @test
+ * @key jfr
  *
- *           & vm.opt.ExplicitGCInvokesConcurrent != true
- * @library /lib/testlibrary /
+ *
+ *
+ * @library /lib /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xmx32m -Xmn8m -XX:+UseG1GC -XX:-ExplicitGCInvokesConcurrent jdk.jfr.event.gc.collection.TestGCEventMixedWithG1FullCollection
- * good debug flags: -Xlog:gc*=debug
+ * good debug flags: -XX:+PrintGCDetails -XX:+PrintGC
  */
 public class TestGCEventMixedWithG1FullCollection {
     public static void main(String[] args) throws Throwable {

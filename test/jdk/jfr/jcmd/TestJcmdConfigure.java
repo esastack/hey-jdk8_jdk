@@ -30,12 +30,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jdk.jfr.internal.Options;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary The test verifies JFR.configure command
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
+ *
  * @run main/othervm jdk.jfr.jcmd.TestJcmdConfigure
  */
 public class TestJcmdConfigure {

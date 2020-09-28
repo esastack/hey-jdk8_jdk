@@ -35,12 +35,14 @@ import jdk.jfr.EventType;
 import jdk.jfr.Label;
 import jdk.jfr.Name;
 import jdk.jfr.ValueDescriptor;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary Test ValueDescriptor.getAnnotations()
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.valuedescriptor.TestGetAnnotations
  */
 public class TestGetAnnotations {

@@ -24,12 +24,14 @@
  */
 
 package jdk.jfr.event.gc.objectcount;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.jfr.GCHelper;
 
 /**
  * @test
- *           & vm.opt.ExplicitGCInvokesConcurrent != false
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ *
+ * @library /lib /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+UseConcMarkSweepGC -XX:+ExplicitGCInvokesConcurrent -XX:MarkSweepDeadRatio=0 -XX:-UseCompressedOops -XX:+IgnoreUnrecognizedVMOptions jdk.jfr.event.gc.objectcount.TestObjectCountAfterGCEventWithCMSConcurrent
  */
 public class TestObjectCountAfterGCEventWithCMSConcurrent {

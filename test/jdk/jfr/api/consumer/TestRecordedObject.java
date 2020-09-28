@@ -44,13 +44,15 @@ import jdk.jfr.consumer.RecordedClass;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedObject;
 import jdk.jfr.consumer.RecordedThread;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Verifies the methods of the RecordedObject
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.consumer.TestRecordedObject
  */
 public class TestRecordedObject {
@@ -90,6 +92,7 @@ public class TestRecordedObject {
         long durationMillis = DURATION_VALUE.toMillis();
 
         @Timespan(Timespan.SECONDS)
+        //long durationSeconds = (DURATION_VALUE.toMinutes() * 60);
         long durationSeconds = DURATION_VALUE.toMillis() / 1000;
 
         @Timestamp(Timestamp.MILLISECONDS_SINCE_EPOCH)
@@ -180,8 +183,6 @@ public class TestRecordedObject {
         Asserts.assertEquals(event.getDuration("durationMillis"), DURATION_VALUE);
         Asserts.assertEquals(event.getDuration("durationSeconds"), DURATION_VALUE);
         Asserts.assertEquals(event.getInstant("instantMillis").toEpochMilli(), 1000L);
-        System.err.println("Current time: " + Instant.now());
-        System.err.println("instantTicks " + event.getInstant("instantTicks") + ", INSTANT_VALUE: " + INSTANT_VALUE);
         if (!event.getInstant("instantTicks").isBefore(INSTANT_VALUE)) {
             throw new AssertionError("Expected start time of JVM to before call to Instant.now()");
         }

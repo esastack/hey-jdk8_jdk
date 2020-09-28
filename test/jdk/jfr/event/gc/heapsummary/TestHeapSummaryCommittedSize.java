@@ -29,16 +29,19 @@ import java.time.Duration;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.EventVerifier;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.EventVerifier;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.GCHelper;
 import sun.hotspot.WhiteBox;
 
 /**
  * @test
- * @library /lib/testlibrary /lib /
+ * @key jfr
+ *
+ *
+ * @library /lib /
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox
  * @run main/othervm -XX:+UnlockExperimentalVMOptions

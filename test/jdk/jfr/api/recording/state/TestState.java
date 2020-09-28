@@ -29,12 +29,14 @@ import java.time.Duration;
 
 import jdk.jfr.Recording;
 import jdk.jfr.RecordingState;
-import jdk.testlibrary.jfr.CommonHelper;
+import jdk.test.lib.jfr.CommonHelper;
 
 /**
  * @test
  * @summary Test Recording state
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.state.TestState
  */
 public class TestState {

@@ -30,13 +30,15 @@ import java.util.Map;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.event.runtime.TestSystemPropertyEvent
  */
 public class TestSystemPropertyEvent {

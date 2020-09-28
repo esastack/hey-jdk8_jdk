@@ -27,15 +27,16 @@ package jdk.jfr.event.runtime;
 
 import sun.hotspot.WhiteBox;
 import java.util.Objects;
-import jdk.testlibrary.Platform;
+import jdk.test.lib.Platform;
 
 /**
  * @test
  * @bug 8153324
  * @summary Verify instrumented Throwable bytecode by compiling it with C1.
- * @library /lib/testlibrary /lib /
- * @modules java.base/jdk.internal.misc
- *          java.management
+ *
+ * @library /lib /
+ *
+ *
  * @build  sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox
  * @run main/othervm -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI

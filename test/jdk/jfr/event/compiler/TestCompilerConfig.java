@@ -29,16 +29,18 @@ import java.util.List;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.event.compiler.TestCompilerConfig
  */
 public class TestCompilerConfig {
-    private final static String EVENT_NAME = EventNames.CompilerConfig;
+    private final static String EVENT_NAME = EventNames.CompilerConfiguration;
 
     public static void main(String[] args) throws Exception {
         Recording recording = new Recording();

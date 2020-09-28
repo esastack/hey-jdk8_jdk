@@ -33,13 +33,15 @@ import java.util.List;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.SimpleEventHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.SimpleEventHelper;
 
 /**
  * @test
  * @summary Call setDestination() when recording in different states
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.destination.TestDestState
  */
 public class TestDestState {

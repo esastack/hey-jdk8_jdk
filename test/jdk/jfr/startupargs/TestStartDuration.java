@@ -29,15 +29,17 @@ import java.time.Duration;
 
 import jdk.jfr.Recording;
 import jdk.jfr.RecordingState;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.CommonHelper;
-import jdk.testlibrary.OutputAnalyzer;
-import jdk.testlibrary.ProcessTools;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.CommonHelper;
+import jdk.test.lib.process.OutputAnalyzer;
+import jdk.test.lib.process.ProcessTools;
 
 /**
  * @test
  * @summary Start a recording with duration. Verify recording stops.
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main jdk.jfr.startupargs.TestStartDuration
  */
 public class TestStartDuration {
@@ -52,7 +54,7 @@ public class TestStartDuration {
         }
     }
 
-    private static void testDurationInRange(String duration, Duration durationString, boolean wait) throws Throwable {
+    private static void testDurationInRange(String duration, Duration durationString, boolean wait) throws Exception {
         ProcessBuilder pb = ProcessTools.createJavaProcessBuilder(true,
             "-XX:StartFlightRecording=name=TestStartDuration,duration=" + duration, TestValues.class.getName(),
             durationString.toString(), wait ? "wait" : "");
@@ -62,7 +64,7 @@ public class TestStartDuration {
     }
 
 
-    private static void testDurationJavaVersion(String duration, boolean inRange) throws Throwable {
+    private static void testDurationJavaVersion(String duration, boolean inRange) throws Exception {
         ProcessBuilder pb = ProcessTools.createJavaProcessBuilder(true,
             "-XX:StartFlightRecording=name=TestStartDuration,duration=" + duration, "-version");
         OutputAnalyzer out = ProcessTools.executeProcess(pb);
@@ -75,15 +77,15 @@ public class TestStartDuration {
         }
     }
 
-    private static void testDurationInRangeAccept(String duration) throws Throwable {
+    private static void testDurationInRangeAccept(String duration) throws Exception {
         testDurationJavaVersion(duration, true);
     }
 
-    private static void testDurationOutOfRange(String duration) throws Throwable {
+    private static void testDurationOutOfRange(String duration) throws Exception {
         testDurationJavaVersion(duration, false);
     }
 
-    public static void main(String[] args) throws Throwable {
+    public static void main(String[] args) throws Exception {
         testDurationInRange("1s", Duration.ofSeconds(1), true);
         testDurationInRange("1234003005ns", Duration.ofNanos(1234003005L), true);
         testDurationInRange("1034ms", Duration.ofMillis(1034), false);

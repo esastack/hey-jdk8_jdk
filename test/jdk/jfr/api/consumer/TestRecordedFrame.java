@@ -32,15 +32,17 @@ import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedFrame;
 import jdk.jfr.consumer.RecordedMethod;
 import jdk.jfr.consumer.RecordedStackTrace;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.SimpleEvent;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.SimpleEvent;
 
 
 /**
  * @test
  * @summary Simple test for RecordedFrame APIs
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm -Xint  -XX:+UseInterpreter -Dinterpreted=true  jdk.jfr.api.consumer.TestRecordedFrame
  * @run main/othervm -Xcomp -XX:-UseInterpreter -Dinterpreted=false jdk.jfr.api.consumer.TestRecordedFrame
  */

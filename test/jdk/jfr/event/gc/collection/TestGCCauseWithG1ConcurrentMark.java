@@ -24,20 +24,24 @@
  */
 
 package jdk.jfr.event.gc.collection;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.jfr.GCHelper;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary /
+ *
+ *
+ *
+ * @library /lib /
  *
  * @run driver jdk.jfr.event.gc.collection.TestGCCauseWithG1ConcurrentMark
  */
 public class TestGCCauseWithG1ConcurrentMark {
-    public static void main(String[] args) throws Throwable {
+    public static void main(String[] args) throws Exception {
         String testID = "G1ConcurrentMark";
         String[] vmFlags = {"-XX:+UseG1GC", "-XX:+ExplicitGCInvokesConcurrent"};
-        String[] gcNames = {GCHelper.gcSerialOld, GCHelper.gcG1New, GCHelper.gcG1Old, GCHelper.gcG1Full};
+        String[] gcNames = {GCHelper.gcG1New, GCHelper.gcG1Old, GCHelper.gcG1Full, GCHelper.gcSerialOld};
         String[] gcCauses = {"G1 Evacuation Pause", "Allocation Failure", "System.gc()"};
         GCGarbageCollectionUtil.test(testID, vmFlags, gcNames, gcCauses);
     }

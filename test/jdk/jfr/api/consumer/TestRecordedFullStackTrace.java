@@ -34,16 +34,17 @@ import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedFrame;
 import jdk.jfr.consumer.RecordedStackTrace;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.Utils;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.RecurseThread;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.Utils;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.RecurseThread;
 
 /**
  * @test
- * @summary
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.consumer.TestRecordedFullStackTrace
  */
 public class TestRecordedFullStackTrace {

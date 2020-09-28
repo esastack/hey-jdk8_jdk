@@ -26,14 +26,16 @@
 package jdk.jfr.api.metadata.annotations;
 
 import jdk.jfr.Registered;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 import jdk.jfr.Event;
 import jdk.jfr.EventType;
 import jdk.jfr.FlightRecorder;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.annotations.TestRegistered
  */
 public class TestRegistered {

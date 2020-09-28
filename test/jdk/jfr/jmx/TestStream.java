@@ -33,11 +33,13 @@ import java.util.Map;
 
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.management.jfr.FlightRecorderMXBean;
-import jdk.testlibrary.jfr.SimpleEventHelper;
+import jdk.test.lib.jfr.SimpleEventHelper;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestStream
  */
 public class TestStream {

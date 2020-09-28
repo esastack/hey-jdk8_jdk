@@ -31,13 +31,15 @@ import java.util.List;
 import jdk.jfr.Event;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Sanity checks that RecordedEvent#toString returns something valid
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.consumer.TestToString
  */
 public class TestToString {

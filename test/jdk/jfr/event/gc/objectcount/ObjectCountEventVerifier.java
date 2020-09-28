@@ -29,8 +29,8 @@ import java.util.List;
 import java.util.HashMap;
 
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 class Foo {
 }

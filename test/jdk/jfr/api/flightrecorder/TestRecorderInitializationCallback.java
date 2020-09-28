@@ -25,7 +25,7 @@
 
 package jdk.jfr.api.flightrecorder;
 
-import static jdk.testlibrary.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertEquals;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -35,7 +35,9 @@ import jdk.jfr.FlightRecorderListener;
 /**
  * @test
  * @summary Test Flight Recorder initialization callback is only called once
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.flightrecorder.TestRecorderInitializationCallback
  */
 public class TestRecorderInitializationCallback {

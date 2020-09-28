@@ -25,8 +25,8 @@
 
 package jdk.jfr.event.io;
 
-import static jdk.testlibrary.Asserts.assertEquals;
-import static jdk.testlibrary.Asserts.assertNotEquals;
+import static jdk.test.lib.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertNotEquals;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -37,12 +37,14 @@ import java.nio.channels.FileChannel;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Test with FlightRecorder enabled but with the events disabled.
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.event.io.TestDisabledEvents
  */
 

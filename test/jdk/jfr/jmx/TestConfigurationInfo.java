@@ -30,11 +30,13 @@ import java.util.Map;
 
 import jdk.jfr.Configuration;
 import jdk.management.jfr.ConfigurationInfo;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestConfigurationInfo
  */
 public class TestConfigurationInfo {

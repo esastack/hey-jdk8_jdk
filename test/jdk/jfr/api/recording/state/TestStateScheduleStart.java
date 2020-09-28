@@ -30,13 +30,15 @@ import java.time.Instant;
 
 import jdk.jfr.Recording;
 import jdk.jfr.RecordingState;
-import jdk.testlibrary.jfr.CommonHelper;
-import jdk.testlibrary.jfr.VoidFunction;
+import jdk.test.lib.jfr.CommonHelper;
+import jdk.test.lib.jfr.VoidFunction;
 
 /**
  * @test
  * @summary Test Recording state
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.state.TestStateScheduleStart
  */
 public class TestStateScheduleStart {

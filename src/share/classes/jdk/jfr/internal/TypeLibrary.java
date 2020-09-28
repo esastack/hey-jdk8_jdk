@@ -49,10 +49,10 @@ import java.util.stream.Stream;
 
 import jdk.jfr.AnnotationElement;
 import jdk.jfr.Description;
+import jdk.jfr.Event;
 import jdk.jfr.Label;
 import jdk.jfr.MetadataDefinition;
 import jdk.jfr.Name;
-import jdk.jfr.Event;
 import jdk.jfr.SettingDescriptor;
 import jdk.jfr.Timespan;
 import jdk.jfr.Timestamp;
@@ -128,6 +128,7 @@ public final class TypeLibrary {
         if (shouldPersist(a)) {
             Type type = defineType(a, Type.SUPER_TYPE_ANNOTATION, false);
             if (type != null) {
+                SecuritySupport.makeVisibleToJFR(a);
                 for (Method method : a.getDeclaredMethods()) {
                     type.add(PrivateAccess.getInstance().newValueDescriptor(method.getReturnType(), method.getName()));
                 }
@@ -487,9 +488,5 @@ public final class TypeLibrary {
             }
             aQ.addAll(ae.getAnnotationElements());
         }
-    }
-
-    public void removeType(long id) {
-        types.remove(id);
     }
 }

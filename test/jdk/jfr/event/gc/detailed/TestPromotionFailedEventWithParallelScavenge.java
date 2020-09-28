@@ -27,8 +27,11 @@ package jdk.jfr.event.gc.detailed;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary /
+ *
+ *
+ * @library /lib /
  * @run main jdk.jfr.event.gc.detailed.TestPromotionFailedEventWithParallelScavenge
  */
 public class TestPromotionFailedEventWithParallelScavenge {
@@ -36,6 +39,6 @@ public class TestPromotionFailedEventWithParallelScavenge {
         PromotionFailedEvent.test("TestPromotionFailedEventWithParallelScavenge",
             new String[] {"-XX:+UnlockExperimentalVMOptions", "-XX:-UseFastUnorderedTimeStamps",
             "-Xmx32m", "-Xmn30m", "-XX:-UseDynamicNumberOfGCThreads", "-XX:ParallelGCThreads=3",
-            "-XX:MaxTenuringThreshold=0", "-XX:+UseParallelGC"});
+            "-XX:MaxTenuringThreshold=0", "-verbose:gc", "-XX:+UseParallelGC"});
     }
 }

@@ -36,22 +36,25 @@ import jdk.jfr.consumer.RecordedFrame;
 import jdk.jfr.consumer.RecordedStackTrace;
 import jdk.jfr.consumer.RecordedThread;
 import jdk.jfr.internal.test.WhiteBox;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.TestClassLoader;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.TestClassLoader;
 
 /**
  * @test
  * @summary The test verifies that an old object sample maintains references to "stale" metadata
- * @modules jdk.jfr/jdk.jfr.internal.test
- * @library /lib/testlibrary /
+ *
+ *
+ * @key jfr
+ *
+ * @library /lib /
  * @build jdk.jfr.event.oldobject.TestMetadataObject
  * @run main/othervm -XX:TLABSize=2k -Xmx16m jdk.jfr.event.oldobject.TestMetadataRetention
  */
 public final class TestMetadataRetention {
     private final static String TEST_PACKAGE = TestMetadataRetention.class.getPackage().getName();
-    private final static String TEST_CLASS_LOADER_NAME = "jdk/testlibrary/jfr/TestClassLoader"; // "JFR TestClassLoader";
+    private final static String TEST_CLASS_LOADER_NAME = "jdk/test/lib/jfr/TestClassLoader"; // see TestClassLoader.java, was "JFR TestClassLoader";
     private final static String TEST_CLASS_NAME = TEST_PACKAGE + ".TestMetadataObject";
     private final static String ALLOCATOR_THREAD_NAME = "TestAllocationThread";
 
@@ -65,8 +68,8 @@ public final class TestMetadataRetention {
 
     public static void main(String[] args) throws Throwable {
         WhiteBox.setWriteAllObjectSamples(true);
+        int failedAttempts = 0;
         while (true) {
-            int failedAttempts = 0;
             try (Recording recording = new Recording()) {
                 recording.enable(EventNames.OldObjectSample).withStackTrace();
                 recording.enable(EventNames.ClassUnload);
@@ -108,7 +111,7 @@ public final class TestMetadataRetention {
                     validateOldObjectEvent(events, chunkRotation.getStartTime());
                 } catch (Throwable t) {
                     t.printStackTrace();
-                    System.out.println("Number of failed attempts " + ++failedAttempts);
+                    System.err.println("Number of failed attempts " + ++failedAttempts);
                     continue;
                 }
                 break;
@@ -148,7 +151,7 @@ public final class TestMetadataRetention {
                 RecordedClass unloadedClass = event.getValue("unloadedClass");
                 if (TEST_CLASS_NAME.equals(unloadedClass.getName())) {
                     RecordedClassLoader definingClassLoader = unloadedClass.getClassLoader();
-                    Asserts.assertEquals(TEST_CLASS_LOADER_NAME, definingClassLoader.getName(), "Expected " + TEST_CLASS_LOADER_NAME + ", got " + definingClassLoader.getName());
+                    Asserts.assertEquals(TEST_CLASS_LOADER_NAME, definingClassLoader.getName(), "Expected " + TEST_CLASS_LOADER_NAME + ", got " + definingClassLoader.getType().getName());
                     return;
                 }
             }

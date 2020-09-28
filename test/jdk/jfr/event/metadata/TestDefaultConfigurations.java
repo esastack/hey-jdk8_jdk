@@ -43,7 +43,7 @@ import jdk.jfr.Configuration;
 import jdk.jfr.EventType;
 import jdk.jfr.FlightRecorder;
 import jdk.jfr.SettingDescriptor;
-import jdk.testlibrary.jfr.EventNames;
+import jdk.test.lib.jfr.EventNames;
 
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -55,8 +55,12 @@ import org.xml.sax.SAXException;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary
+ *
+ * @library /lib /
+ *
+
  *
  * @run main/othervm jdk.jfr.event.metadata.TestDefaultConfigurations
  */

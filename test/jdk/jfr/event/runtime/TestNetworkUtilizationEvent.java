@@ -34,14 +34,16 @@ import java.util.Set;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.Platform;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.Platform;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  *
  * @run main/othervm jdk.jfr.event.runtime.TestNetworkUtilizationEvent
  */
@@ -69,12 +71,12 @@ public class TestNetworkUtilizationEvent {
         for (int i = 0; i < packetSendCount; ++i) {
             socket.send(packet);
         }
+
         forceEndChunk();
         socket.close();
         // Now there should have been traffic on at least two different
         // interfaces
         recording.stop();
-
         Set<String> networkInterfaces = new HashSet<>();
         List<RecordedEvent> events = Events.fromRecording(recording);
         Events.hasEvents(events);
@@ -98,9 +100,9 @@ public class TestNetworkUtilizationEvent {
     }
 
     private static void forceEndChunk() {
-       try(Recording r = new Recording()) {
-           r.start();
-           r.stop();
-       }
+        try(Recording r = new Recording()) {
+            r.start();
+            r.stop();
+        }
     }
 }

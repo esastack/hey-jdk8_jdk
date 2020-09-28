@@ -35,12 +35,14 @@ import jdk.jfr.Event;
 import jdk.jfr.EventType;
 import jdk.jfr.Label;
 import jdk.jfr.Period;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary Test getAnnotations()
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.eventtype.TestGetAnnotations
  */
 public class TestGetAnnotations {

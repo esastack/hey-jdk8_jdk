@@ -31,8 +31,8 @@ import java.util.List;
 
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 public class PromotionFailedEvent {
 

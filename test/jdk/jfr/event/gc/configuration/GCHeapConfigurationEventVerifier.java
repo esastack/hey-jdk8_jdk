@@ -26,7 +26,7 @@
 package jdk.jfr.event.gc.configuration;
 
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventVerifier;
+import jdk.test.lib.jfr.EventVerifier;
 
 public abstract class GCHeapConfigurationEventVerifier extends EventVerifier {
     public GCHeapConfigurationEventVerifier(RecordedEvent e) {

@@ -26,32 +26,18 @@
 package jdk.jfr.internal;
 
 import java.nio.ByteOrder;
-import java.security.AccessController;
+
 import sun.misc.Unsafe;
 
 final class Bits {                            // package-private
 
     private static final Unsafe unsafe = Unsafe.getUnsafe();
-    private static final boolean unalignedAccess = false; // unaligned();
-    private static final boolean bigEndian =  (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN);
+    // XXX TODO proper value (e.g. copy from java.nio.Bits)
+    private static final boolean unalignedAccess = false/*unsafe.unalignedAccess()*/;
+    private static final boolean bigEndian = ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN;
 
     private Bits() { }
 
-    private static boolean unaligned;
-    private static boolean unalignedKnown = false;
-
-    private static boolean unaligned() {
-        if (unalignedKnown)
-            return unaligned;
-        String arch = AccessController.doPrivileged(
-            new sun.security.action.GetPropertyAction("os.arch"));
-        unaligned = arch.equals("i386") || arch.equals("x86")
-            || arch.equals("amd64") || arch.equals("x86_64")
-            || arch.equals("ppc64") || arch.equals("ppc64le");
-        unalignedKnown = true;
-        return unaligned;
-    }
-    
     // -- Swapping --
 
     private static short swap(short x) {

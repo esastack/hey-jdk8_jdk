@@ -28,13 +28,15 @@ package jdk.jfr.api.metadata.eventtype;
 import jdk.jfr.Event;
 import jdk.jfr.EventType;
 import jdk.jfr.FlightRecorder;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Test getDefaultValues()
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.eventtype.TestGetDefaultValues
  */
 public class TestGetDefaultValues {

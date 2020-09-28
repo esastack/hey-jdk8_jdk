@@ -26,9 +26,12 @@ package jdk.jfr.event.gc.stacktrace;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary /
- * @run main/othervm -XX:+UseParallelGC -XX:+FlightRecorder jdk.jfr.event.gc.stacktrace.TestParallelScavengeAllocationPendingStackTrace
+ *
+ *
+ * @library /lib /
+ * @run main/othervm -XX:+UseParallelGC -XX:+PrintGCDetails -XX:+PrintGC -XX:+FlightRecorder jdk.jfr.event.gc.stacktrace.TestParallelScavengeAllocationPendingStackTrace
  */
 public class TestParallelScavengeAllocationPendingStackTrace {
 

@@ -32,7 +32,7 @@ import jdk.jfr.Period;
 import jdk.jfr.SettingDefinition;
 import jdk.jfr.StackTrace;
 import jdk.jfr.Threshold;
-import jdk.testlibrary.jfr.SimpleSetting;
+import jdk.test.lib.jfr.SimpleSetting;
 
 @Period("10 s")
 @Threshold("100 ms")

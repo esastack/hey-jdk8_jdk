@@ -30,15 +30,17 @@ import java.util.List;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.GCHelper;
 
 /**
  * @test
- *           & vm.opt.ExplicitGCInvokesConcurrent != false
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ *
+ * @library /lib /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+UseConcMarkSweepGC -XX:+ExplicitGCInvokesConcurrent jdk.jfr.event.gc.heapsummary.TestHeapSummaryEventConcurrentCMS
  */
 public class TestHeapSummaryEventConcurrentCMS {

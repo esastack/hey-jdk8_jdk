@@ -25,8 +25,8 @@
 
 package jdk.jfr.api.flightrecorder;
 
-import static jdk.testlibrary.Asserts.assertEquals;
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.time.Duration;
 import java.util.Map;
@@ -37,7 +37,9 @@ import jdk.jfr.Recording;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.flightrecorder.TestGetSettings
  */
 public class TestGetSettings {

@@ -32,12 +32,14 @@ import java.nio.file.Path;
 
 import jdk.jfr.Configuration;
 import jdk.jfr.Recording;
-import jdk.testlibrary.Utils;
+import jdk.test.lib.Utils;
 
 /**
  * @test TestStartStopRecording
  *
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recorder.TestStartStopRecording
  */
 public class TestStartStopRecording {

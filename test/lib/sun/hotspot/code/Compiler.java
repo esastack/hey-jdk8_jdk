@@ -23,7 +23,6 @@
 
 package sun.hotspot.code;
 
-import java.lang.reflect.Executable;
 import sun.hotspot.WhiteBox;
 
 /**
@@ -133,21 +132,5 @@ public class Compiler {
             return false;
         }
         return true;
-    }
-
-    /*
-     * Determine if the compiler corresponding to the compilation level 'compLevel'
-     * provides an intrinsic for 'class'.'method'.
-     */
-    public static boolean isIntrinsicAvailable(int compLevel, String klass, String method, Class<?>... parameterTypes) {
-        Executable intrinsicMethod;
-        try {
-            intrinsicMethod = Class.forName(klass).getDeclaredMethod(method, parameterTypes);
-        } catch (NoSuchMethodException e) {
-            throw new RuntimeException("Test bug, '" + method + "' method unavailable. " + e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException("Test bug, '" + klass + "' class unavailable. " + e);
-        }
-        return WB.isIntrinsicAvailable(intrinsicMethod, compLevel);
     }
 }

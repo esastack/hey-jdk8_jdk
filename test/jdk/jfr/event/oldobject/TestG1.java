@@ -31,14 +31,18 @@ import java.util.List;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.internal.test.WhiteBox;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
+ * @key jfr
+ *
+ *
  * @summary Test leak profiler with G1 GC
- * @library /lib/testlibrary /
- * @run main/othervm -XX:TLABSize=2k -XX:+UseG1GC jdk.jfr.event.oldobject.TestG1
+ * @library /lib /
+ *
+ * @run main/othervm  -XX:TLABSize=2k -XX:+UseG1GC jdk.jfr.event.oldobject.TestG1
  */
 public class TestG1 {
 

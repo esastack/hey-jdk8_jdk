@@ -36,17 +36,18 @@ import jdk.jfr.FlightRecorder;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordingFile;
 import jdk.jfr.internal.JVM;
-import jdk.testlibrary.Utils;
+import jdk.test.lib.Utils;
 
 /**
  * @test
+ * @key jfr
  * @summary Test that verifies event metadata is removed when an event class is unloaded.
  *
- * @library /lib/testlibrary
- * @modules jdk.jfr/jdk.jfr.internal
- *          java.base/jdk.internal.misc
  *
- * @run main/othervm -XX:+PrintGC -XX:+PrintGCDetails jdk.jfr.api.metadata.eventtype.TestUnloadingEventClass
+ * @library /lib /
+ *
+ *
+ * @run main/othervm -XX:+PrintGCDetails -XX:+PrintGC  -verbose:class jdk.jfr.api.metadata.eventtype.TestUnloadingEventClass
  */
 public class TestUnloadingEventClass {
 
@@ -57,6 +58,7 @@ public class TestUnloadingEventClass {
 
     static public class MyClassLoader extends ClassLoader {
         public MyClassLoader() {
+            super(null);
         }
 
         public final Class<?> defineClass(String name, byte[] b) {
@@ -82,7 +84,7 @@ public class TestUnloadingEventClass {
         try (Recording r1 = new Recording(); Recording r2 = new Recording(); Recording r3 = new Recording()) {
             r1.start();
             r2.start();
-            System.out.println("Class loader with name " + myClassLoader.getClass().getSimpleName() + " is on the heap");
+            //System.out.println("Class loader with name " + myClassLoader.getName() + " is on the heap");
             unLoadEventClass();
             r3.start();
 
@@ -148,7 +150,7 @@ public class TestUnloadingEventClass {
         System.out.println("Event class unloaded!");
         System.out.println("Event classes currently on the heap:");
         for (Class<?> eventClass : JVM.getJVM().getAllEventClasses()) {
-            System.out.println(eventClass + " " + (eventClass.getClassLoader() != null ? eventClass.getClassLoader().getClass().getSimpleName() : null));
+            //System.out.println(eventClass + " " + (eventClass.getClassLoader() != null ? eventClass.getClassLoader().getName() : null));
         }
 
     }

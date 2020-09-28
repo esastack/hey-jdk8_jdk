@@ -32,14 +32,16 @@ import java.util.Random;
 
 import jdk.jfr.EventType;
 import jdk.jfr.Recording;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.SimpleEvent;
-import jdk.testlibrary.jfr.SimpleEventHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.SimpleEvent;
+import jdk.test.lib.jfr.SimpleEventHelper;
 
 /**
  * @test
  * @summary Enable, disable, enable event during recording.
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.event.TestRecordingEnableDisable
  */
 public class TestRecordingEnableDisable {

@@ -34,40 +34,46 @@ import java.util.Iterator;
 import java.util.function.Supplier;
 
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.OutputAnalyzer;
-import jdk.testlibrary.ProcessTools;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.process.OutputAnalyzer;
+import jdk.test.lib.process.ProcessTools;
 
 /**
  * @test
  * @summary Start a FlightRecording with dumponexit. Verify dump exists.
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.startupargs.TestDumpOnExit
  */
 public class TestDumpOnExit {
 
-    public static void main(String[] args) throws Throwable {
+    public static void main(String[] args) throws Exception {
         Path dumpPath = Paths.get(".", "dumped.jfr");
 
         // Test without security manager and a file name relative to current directory
         testDumponExit(() -> dumpPath,
+                "-XX:+LogJFR",
                 "-XX:StartFlightRecording=filename=./dumped.jfr,dumponexit=true,settings=profile",
                 "jdk.jfr.startupargs.TestDumpOnExit$TestMain"
         );
         // Test a memory recording without a security manager
         testDumponExit(() -> findJFRFileInCurrentDirectory(),
+                "-XX:+LogJFR",
                 "-XX:StartFlightRecording=dumponexit=true,disk=false",
                 "jdk.jfr.startupargs.TestDumpOnExit$TestMain"
         );
 
         // Test with security manager and a file name relative to current directory
         testDumponExit(() -> dumpPath,
+                "-XX:+LogJFR",
                 "-XX:StartFlightRecording=filename=./dumped.jfr,dumponexit=true,settings=profile",
                 "-Djava.security.manager",
                 "jdk.jfr.startupargs.TestDumpOnExit$TestMain"
         );
         // Test with security manager but without a name
         testDumponExit(() -> findJFRFileInCurrentDirectory(),
+                "-XX:+LogJFR",
                 "-XX:StartFlightRecording=dumponexit=true,settings=profile",
                 "-Djava.security.manager",
                 "jdk.jfr.startupargs.TestDumpOnExit$TestMain"
@@ -87,7 +93,7 @@ public class TestDumpOnExit {
         }
     }
 
-    private static void testDumponExit(Supplier<Path> p,String... args) throws Throwable, IOException {
+    private static void testDumponExit(Supplier<Path> p,String... args) throws Exception, IOException {
         ProcessBuilder pb = ProcessTools.createJavaProcessBuilder(true, args);
         OutputAnalyzer output = ProcessTools.executeProcess(pb);
         System.out.println(output.getOutput());

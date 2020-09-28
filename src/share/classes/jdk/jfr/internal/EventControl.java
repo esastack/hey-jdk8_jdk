@@ -175,6 +175,7 @@ public final class EventControl {
     }
 
     private SettingControl instantiateSettingControl(Class<? extends SettingControl> settingControlClass) throws IllegalAccessException, InstantiationException {
+        SecuritySupport.makeVisibleToJFR(settingControlClass);
         final Constructor<?> cc;
         try {
             cc = settingControlClass.getDeclaredConstructors()[0];

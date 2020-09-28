@@ -33,7 +33,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -130,10 +129,6 @@ public final class MetadataRepository {
         Utils.checkRegisterPermission();
         EventHandler handler = getHandler(eventClass);
         if (handler == null) {
-//            if (eventClass.getAnnotation(MirrorEvent.class) != null) {
-//                // don't register mirrors
-//                return null;
-//            }
             handler = makeHandler(eventClass, dynamicAnnotations, dynamicFields);
         }
         handler.setRegistered(true);
@@ -150,11 +145,13 @@ public final class MetadataRepository {
 
     private EventHandler getHandler(Class<? extends Event> eventClass) {
         Utils.ensureValidEventSubclass(eventClass);
+        SecuritySupport.makeVisibleToJFR(eventClass);
         Utils.ensureInitialized(eventClass);
         return Utils.getHandler(eventClass);
     }
 
     private EventHandler makeHandler(Class<? extends Event> eventClass, List<AnnotationElement> dynamicAnnotations, List<ValueDescriptor> dynamicFields) throws InternalError {
+        SecuritySupport.addHandlerExport(eventClass);
         PlatformEventType pEventType = (PlatformEventType) TypeLibrary.createType(eventClass, dynamicAnnotations, dynamicFields);
         EventType eventType = PrivateAccess.getInstance().newEventType(pEventType);
         EventControl ec = new EventControl(pEventType, eventClass);
@@ -273,7 +270,8 @@ public final class MetadataRepository {
         }
     }
 
-    synchronized void setUnregistered() {
+    synchronized public void setUnregistered() {
        unregistered = true;
     }
+
 }

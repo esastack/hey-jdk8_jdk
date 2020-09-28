@@ -545,50 +545,6 @@ public final class Utils {
         return eventName;
     }
 
-    public static void verifyMirror(Class<?> mirror, Class<?> real) {
-        Class<?> cMirror = Objects.requireNonNull(mirror);
-        Class<?> cReal = Objects.requireNonNull(real);
-
-        while (cReal != null) {
-            Map<String, Field> mirrorFields = new HashMap<>();
-            if (cMirror != null) {
-                for (Field f : cMirror.getDeclaredFields()) {
-                    if (isSupportedType(f.getType())) {
-                        mirrorFields.put(f.getName(), f);
-                    }
-                }
-            }
-            for (Field realField : cReal.getDeclaredFields()) {
-                if (isSupportedType(realField.getType())) {
-                    String fieldName = realField.getName();
-                    Field mirrorField = mirrorFields.get(fieldName);
-                    if (mirrorField == null) {
-                        throw new InternalError("Missing mirror field for " + cReal.getName() + "#" + fieldName);
-                    }
-                    if (realField.getModifiers() != mirrorField.getModifiers()) {
-                        throw new InternalError("Incorrect modifier for mirror field "+ cMirror.getName() + "#" + fieldName);
-                    }
-                    mirrorFields.remove(fieldName);
-                }
-            }
-            if (!mirrorFields.isEmpty()) {
-                throw new InternalError(
-                        "Found additional fields in mirror class " + cMirror.getName() + " " + mirrorFields.keySet());
-            }
-            if (cMirror != null) {
-                cMirror = cMirror.getSuperclass();
-            }
-            cReal = cReal.getSuperclass();
-        }
-    }
-
-    private static boolean isSupportedType(Class<?> type) {
-        if (Modifier.isTransient(type.getModifiers()) || Modifier.isStatic(type.getModifiers())) {
-            return false;
-        }
-        return Type.isValidJavaFieldType(type.getName());
-    }
-
     public static String makeFilename(Recording recording) {
         String pid = JVM.getJVM().getPid();
         String date = Repository.REPO_DATE_FORMAT.format(LocalDateTime.now());

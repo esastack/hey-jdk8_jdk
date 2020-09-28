@@ -26,12 +26,14 @@
 package jdk.jfr.api.recording.event;
 
 import jdk.jfr.Recording;
-import jdk.testlibrary.jfr.SimpleEventHelper;
+import jdk.test.lib.jfr.SimpleEventHelper;
 
 /**
  * @test
  * @summary Simple enable Event class.
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.event.TestEnableClass
  */
 public class TestEnableClass {

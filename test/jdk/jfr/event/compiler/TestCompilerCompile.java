@@ -25,7 +25,7 @@
 
 package jdk.jfr.event.compiler;
 
-import static jdk.testlibrary.Asserts.assertFalse;
+import static jdk.test.lib.Asserts.assertFalse;
 
 import java.lang.reflect.Method;
 import java.util.HashSet;
@@ -34,14 +34,17 @@ import java.util.Set;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Utils;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Utils;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 import sun.hotspot.WhiteBox;
 
 /**
  * @test
- * @library /lib/testlibrary /lib /
+ * @key jfr
+ *
+ *
+ * @library /lib /
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox
  *     sun.hotspot.WhiteBox$WhiteBoxPermission
@@ -76,9 +79,6 @@ public class TestCompilerCompile {
         // compile dummyMethod()
         Method mtd = TestCompilerCompile.class.getDeclaredMethod(METHOD_NAME, new Class[0]);
         WhiteBox WB = WhiteBox.getWhiteBox();
-//        String directive = "[{ match: \"" + TestCompilerCompile.class.getName().replace('.', '/')
-//                + "." + METHOD_NAME + "\", " + "BackgroundCompilation: false }]";
-//        WB.addCompilerDirective(directive);
         if (!WB.enqueueMethodForCompilation(mtd, 4 /* CompLevel_full_optimization */)) {
             WB.enqueueMethodForCompilation(mtd, 1 /* CompLevel_simple */);
         }

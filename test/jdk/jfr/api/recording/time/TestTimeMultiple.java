@@ -28,12 +28,14 @@ package jdk.jfr.api.recording.time;
 import java.time.Instant;
 
 import jdk.jfr.Recording;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
+ * @key jfr
  * @summary Test recording times with concurrent recordings
- * @library /lib/testlibrary
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.time.TestTimeMultiple
  */
 

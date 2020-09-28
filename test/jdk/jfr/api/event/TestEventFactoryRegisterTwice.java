@@ -30,13 +30,15 @@ import java.util.Collections;
 import jdk.jfr.EventFactory;
 import jdk.jfr.EventType;
 import jdk.jfr.FlightRecorder;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 
 /**
  * @test
  * @summary Verifies that EventFactory can register the same event twice
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.event.TestEventFactoryRegisterTwice
  */
 public class TestEventFactoryRegisterTwice {

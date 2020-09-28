@@ -25,9 +25,9 @@
 
 package jdk.jfr.api.flightrecorder;
 
-import static jdk.testlibrary.Asserts.assertEquals;
-import static jdk.testlibrary.Asserts.assertFalse;
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertFalse;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.util.List;
 
@@ -36,7 +36,9 @@ import jdk.jfr.Recording;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.flightrecorder.TestGetRecordings
  */
 public class TestGetRecordings {

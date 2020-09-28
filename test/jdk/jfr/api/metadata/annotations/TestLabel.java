@@ -38,13 +38,15 @@ import jdk.jfr.MetadataDefinition;
 import jdk.jfr.SettingDefinition;
 import jdk.jfr.SettingDescriptor;
 import jdk.jfr.ValueDescriptor;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.SimpleSetting;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.SimpleSetting;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.annotations.TestLabel
  */
 public class TestLabel {

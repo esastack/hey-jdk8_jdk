@@ -527,13 +527,13 @@ else # OpenJDK
     SHARED_FONTS_SRC_DIR := $(JDK_TOPDIR)/src/share/lib/fonts
   	SHARED_FONTS_DST_DIR := $(JDK_OUTPUTDIR)/lib/fonts
   	SHARED_FONTS_FILES := \
-  	  fonts.dir \
+      fonts.dir \
       OPPOSans-S-R-0802.ttf \
-	  OPPOSans-S-B-0802.ttf \
-	  OPPOSans-Bold.ttf \
-	  OPPOSans-BoldItalic.ttf \
+      OPPOSans-S-B-0802.ttf \
+      OPPOSans-Bold.ttf \
+      OPPOSans-BoldItalic.ttf \
       OPPOSans-Regular.ttf \
-      OPPOSans-RegularItalic.ttf \
+      OPPOSans-RegularItalic.ttf
 
   	SHARED_FONTS_SRC := $(foreach F, $(SHARED_FONTS_FILES), $(SHARED_FONTS_SRC_DIR)/$(F))
   	SHARED_FONTS_DST := $(foreach F, $(SHARED_FONTS_FILES), $(SHARED_FONTS_DST_DIR)/$(F))
@@ -546,7 +546,7 @@ else # OpenJDK
 
   	COPY_FILES += $(SHARED_FONTS_DST)
 
-endif
+endif # OPENJDK
 
 ##########################################################################################
 
@@ -632,17 +632,15 @@ COPY_FILES += $(JDK_OUTPUTDIR)/lib/sound.properties
 
 ##########################################################################################
 
-# copy jfr configuration files
-
-JFR_CONFIGURATION_DIR_SRC := $(JDK_TOPDIR)/src/share/lib/jfr
-JFR_CONFIGURATION_DIR_DST := $(JDK_OUTPUTDIR)/lib/jfr
-
-COPY_FILES += $(JFR_CONFIGURATION_DIR_DST)/default.jfc \
-    $(JFR_CONFIGURATION_DIR_DST)/profile.jfc
-
-$(JFR_CONFIGURATION_DIR_DST)/%.jfc: $(JFR_CONFIGURATION_DIR_SRC)/%.jfc
+$(JDK_OUTPUTDIR)/lib/jfr/%: $(JDK_TOPDIR)/src/share/classes/jdk/jfr/conf/%
 	$(call install-file)
-	
+
+ifeq ($(ENABLE_JFR), true)
+  COPY_FILES += $(subst $(JDK_TOPDIR)/src/share/classes/jdk/jfr/conf, \
+          $(JDK_OUTPUTDIR)/lib/jfr, \
+          $(wildcard $(JDK_TOPDIR)/src/share/classes/jdk/jfr/conf/*))
+endif
+
 ##########################################################################################
 
 -include $(CUSTOM_MAKE_DIR)/CopyFiles.gmk

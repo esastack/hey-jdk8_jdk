@@ -34,14 +34,16 @@ import jdk.jfr.Event;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.Utils;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.Utils;
 
 
 /**
  * @test
  * @summary Reads the recorded file two times and verifies that both reads are the same
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.consumer.TestReadTwice
  */
 public class TestReadTwice {

@@ -25,7 +25,7 @@
 
 package jdk.jfr.api.recording.state;
 
-import static jdk.testlibrary.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertEquals;
 
 import jdk.jfr.FlightRecorder;
 import jdk.jfr.FlightRecorderListener;
@@ -34,7 +34,9 @@ import jdk.jfr.Recording;
 /**
  * @test
  * @summary Test Recording state with concurrent recordings
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.state.TestStateIdenticalListeners
  */
 public class TestStateIdenticalListeners {

@@ -21,7 +21,10 @@
 # questions.
 #
 # @test TestGCHeapConfigurationEventWithHeapBasedOops
-# @library /lib/testlibrary /
+# @key jfr
+#
+#
+# @library /lib /
 # @build jdk.jfr.event.gc.configuration.TestGCHeapConfigurationEventWithHeapBasedOops
 # @run shell TestGCHeapConfigurationEventWithHeapBasedOops.sh
 

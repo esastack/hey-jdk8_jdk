@@ -31,13 +31,16 @@ import java.util.List;
 
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
+ *
  *
  * @run main jdk.jfr.event.gc.detailed.TestEvacuationFailedEvent
  */
@@ -47,10 +50,10 @@ public class TestEvacuationFailedEvent {
     private final static String JFR_FILE = "TestEvacuationFailedEvent.jfr";
     private final static int BYTES_TO_ALLOCATE = 1024 * 512;
 
-    public static void main(String[] args) throws Throwable {
+    public static void main(String[] args) throws Exception {
         String[] vmFlags = {"-XX:+UnlockExperimentalVMOptions", "-XX:-UseFastUnorderedTimeStamps",
             "-Xmx64m", "-Xmn60m", "-XX:-UseDynamicNumberOfGCThreads", "-XX:ParallelGCThreads=3",
-            "-XX:MaxTenuringThreshold=0", "-XX:+UseG1GC"};
+            "-XX:MaxTenuringThreshold=0", "-verbose:gc", "-XX:+UseG1GC"};
 
         if (!ExecuteOOMApp.execute(EVENT_SETTINGS_FILE, JFR_FILE, vmFlags, BYTES_TO_ALLOCATE)) {
             System.out.println("OOM happened in the other thread(not test thread). Skip test.");

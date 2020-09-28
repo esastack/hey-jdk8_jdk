@@ -24,17 +24,20 @@
  */
 
 package jdk.jfr.event.gc.collection;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.jfr.GCHelper;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary /
+ *
+ *
+ * @library /lib /
  *
  * @run driver jdk.jfr.event.gc.collection.TestGCCauseWithSerial
  */
 public class TestGCCauseWithSerial {
-    public static void main(String[] args) throws Throwable {
+    public static void main(String[] args) throws Exception {
         String testID = "Serial";
         String[] vmFlags = {"-XX:+UseSerialGC"};
         String[] gcNames = {GCHelper.gcDefNew, GCHelper.gcSerialOld};

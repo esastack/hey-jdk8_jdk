@@ -32,8 +32,10 @@ import jdk.jfr.internal.LogLevel;
 
 /**
  * @test TestLogImplementation
- * @library /lib/testlibrary /
- * @modules jdk.jfr/jdk.jfr.internal
+ * @key jfr
+ *
+ * @library /lib /
+ *
  * @run main/othervm jdk.jfr.jvm.TestLogImplementation
  */
 public class TestLogImplementation {

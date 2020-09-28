@@ -36,12 +36,14 @@ import jdk.jfr.Label;
 import jdk.jfr.Name;
 import jdk.jfr.Percentage;
 import jdk.jfr.ValueDescriptor;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary Test all basic types in ValueDescriptor.
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.valuedescriptor.TestSimpleTypes
  */
 public class TestSimpleTypes {

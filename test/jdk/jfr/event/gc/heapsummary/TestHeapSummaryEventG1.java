@@ -24,12 +24,14 @@
  */
 
 package jdk.jfr.event.gc.heapsummary;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.jfr.GCHelper;
 
 /**
  * @test
- *           & vm.opt.ExplicitGCInvokesConcurrent != true
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ *
+ * @library /lib /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+UseG1GC jdk.jfr.event.gc.heapsummary.TestHeapSummaryEventG1
  */
 public class TestHeapSummaryEventG1 {

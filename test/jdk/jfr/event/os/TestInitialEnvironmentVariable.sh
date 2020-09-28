@@ -21,7 +21,9 @@
 # questions.
 #
 # @test
-# @library /lib/testlibrary
+# @key jfr
+#
+# @library /lib /
 # @build jdk.jfr.event.os.TestInitialEnvironmentVariable
 # @run shell TestInitialEnvironmentVariable.sh
 

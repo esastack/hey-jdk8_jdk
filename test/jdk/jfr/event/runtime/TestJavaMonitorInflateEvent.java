@@ -25,7 +25,7 @@
 
 package jdk.jfr.event.runtime;
 
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.nio.file.Paths;
 import java.time.Duration;
@@ -33,14 +33,16 @@ import java.util.concurrent.CountDownLatch;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.thread.TestThread;
-import jdk.testlibrary.thread.XRun;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.thread.TestThread;
+import jdk.test.lib.thread.XRun;
 
 /**
  * @test TestJavaMonitorInflateEvent
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.event.runtime.TestJavaMonitorInflateEvent
  */
 public class TestJavaMonitorInflateEvent {
@@ -100,7 +102,6 @@ public class TestJavaMonitorInflateEvent {
                     continue;
                 }
                 Events.assertField(event, FIELD_ADDRESS).notEqual(0L);
-                Events.assertField(event, FIELD_CAUSE).notNull();
                 isAnyFound = true;
                 break;
             }

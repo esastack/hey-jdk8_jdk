@@ -25,8 +25,8 @@
 
 package jdk.jfr.api.flightrecorder;
 
-import static jdk.testlibrary.Asserts.assertFalse;
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertFalse;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
@@ -38,7 +38,9 @@ import jdk.jfr.Recording;
 /**
  * @test
  * @summary
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.flightrecorder.TestAddPeriodicEvent
  */
 public class TestAddPeriodicEvent {

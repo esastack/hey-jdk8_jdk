@@ -29,12 +29,14 @@ import java.io.IOException;
 import java.nio.file.Paths;
 
 import jdk.management.jfr.FlightRecorderMXBean;
-import jdk.testlibrary.jfr.CommonHelper;
-import jdk.testlibrary.jfr.SimpleEventHelper;
+import jdk.test.lib.jfr.CommonHelper;
+import jdk.test.lib.jfr.SimpleEventHelper;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestCopyToInvalidPath
  */
 public class TestCopyToInvalidPath {

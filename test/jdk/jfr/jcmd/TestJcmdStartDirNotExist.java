@@ -28,12 +28,14 @@ package jdk.jfr.jcmd;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import jdk.testlibrary.OutputAnalyzer;
+import jdk.test.lib.process.OutputAnalyzer;
 
 /**
  * @test
  * @summary Verify error when starting with a dir that does not exist.
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jcmd.TestJcmdStartDirNotExist
  */
 public class TestJcmdStartDirNotExist {

@@ -36,14 +36,16 @@ import jdk.jfr.Recording;
 import jdk.jfr.Registered;
 import jdk.jfr.SettingDescriptor;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Tests that active setting are available in the ActiveSettingevent
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.event.runtime.TestActiveSettingEvent
  */
 public final class TestActiveSettingEvent {

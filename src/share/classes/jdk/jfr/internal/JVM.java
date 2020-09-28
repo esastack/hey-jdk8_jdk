@@ -27,6 +27,7 @@ package jdk.jfr.internal;
 
 import java.io.IOException;
 import java.util.List;
+
 import jdk.jfr.Event;
 
 /**
@@ -48,10 +49,12 @@ public final class JVM {
 
     static {
         registerNatives();
-        for (LogTag tag : LogTag.values()) {
-            subscribeLogLevel(tag, tag.id);
-        }
+        // XXX
+        // for (LogTag tag : LogTag.values()) {
+        //     subscribeLogLevel(tag, tag.id);
+        // }
         Options.ensureInitialized();
+        EventHandlerProxyCreator.ensureInitialized();
     }
 
     /**
@@ -79,6 +82,7 @@ public final class JVM {
      * @return the time, in ticks
      *
      */
+//    @HotSpotIntrinsicCandidate
     public static native long counterTime();
 
 
@@ -103,7 +107,7 @@ public final class JVM {
     public native void endRecording();
 
     /**
-     * Return a list of all classes deriving from {@link jdk.internal.event.Event}
+     * Return a list of all classes deriving from {@link Event}
      *
      * @return list of event classes.
      */
@@ -124,6 +128,7 @@ public final class JVM {
      *
      * @return a unique class identifier
      */
+//   @HotSpotIntrinsicCandidate
     public static native long getClassId(Class<?> clazz);
 
     // temporary workaround until we solve intrinsics supporting epoch shift tagging
@@ -172,13 +177,13 @@ public final class JVM {
      */
     public static native void log(int tagSetId, int level, String message);
 
-    /**
-     * Subscribe to LogLevel updates for LogTag
-     *
-     * @param lt the log tag to subscribe
-     * @param tagSetId the tagset id
-     */
-    public static native void subscribeLogLevel(LogTag lt, int tagSetId);
+     /**
+      * Subscribe to LogLevel updates for LogTag
+      *
+      * @param lt the log tag to subscribe
+      * @param tagSetId the tagset id
+      */
+     public static native void subscribeLogLevel(LogTag lt, int tagSetId);
 
     /**
      * Call to invoke event tagging and retransformation of the passed classes
@@ -440,6 +445,7 @@ public final class JVM {
      *
      * @return thread local EventWriter
      */
+//    @HotSpotIntrinsicCandidate
     public static native Object getEventWriter();
 
     /**

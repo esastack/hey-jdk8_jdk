@@ -29,12 +29,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jdk.jfr.Recording;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary Verify that each recording get unique a id
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm  jdk.jfr.api.recording.misc.TestGetId
  */
 public class TestGetId {

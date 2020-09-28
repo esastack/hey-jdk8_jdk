@@ -28,12 +28,14 @@ package jdk.jfr.api.metadata.eventtype;
 import jdk.jfr.Event;
 import jdk.jfr.EventType;
 import jdk.jfr.ValueDescriptor;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary Test getField()
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.eventtype.TestGetField
  */
 public class TestGetField {

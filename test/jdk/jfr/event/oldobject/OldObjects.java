@@ -35,7 +35,7 @@ import jdk.jfr.consumer.RecordedFrame;
 import jdk.jfr.consumer.RecordedMethod;
 import jdk.jfr.consumer.RecordedObject;
 import jdk.jfr.consumer.RecordedStackTrace;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.Events;
 
 /**
  * Utility class to perform Old Object provocation/detection and

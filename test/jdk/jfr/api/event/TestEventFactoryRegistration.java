@@ -34,14 +34,17 @@ import jdk.jfr.EventFactory;
 import jdk.jfr.EventType;
 import jdk.jfr.FlightRecorder;
 import jdk.jfr.Registered;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 
 /**
  * @test
  * @summary EventFactory register/unregister API test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.event.TestEventFactoryRegistration
+ * @run main/othervm -XX:+AllowParallelDefineClass jdk.jfr.api.event.TestEventFactoryRegistration
  */
 public class TestEventFactoryRegistration {
 

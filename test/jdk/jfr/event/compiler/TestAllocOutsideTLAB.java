@@ -26,20 +26,22 @@
 package jdk.jfr.event.compiler;
 
 import static java.lang.Math.floor;
-import static jdk.testlibrary.Asserts.assertGreaterThanOrEqual;
-import static jdk.testlibrary.Asserts.assertLessThanOrEqual;
+import static jdk.test.lib.Asserts.assertGreaterThanOrEqual;
+import static jdk.test.lib.Asserts.assertLessThanOrEqual;
 
 import java.time.Duration;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Test that when an object is allocated outside a TLAB an event will be triggered.
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm -XX:+UseTLAB -XX:-FastTLABRefill -XX:TLABSize=90k -XX:-ResizeTLAB -XX:TLABRefillWasteFraction=256 jdk.jfr.event.compiler.TestAllocOutsideTLAB
  * @run main/othervm -XX:+UseTLAB -XX:-FastTLABRefill -XX:TLABSize=90k -XX:-ResizeTLAB -XX:TLABRefillWasteFraction=256 jdk.jfr.event.compiler.TestAllocOutsideTLAB
  * @run main/othervm -XX:+UseTLAB -XX:-FastTLABRefill -XX:TLABSize=90k -XX:-ResizeTLAB -XX:TLABRefillWasteFraction=256 -Xint jdk.jfr.event.compiler.TestAllocOutsideTLAB

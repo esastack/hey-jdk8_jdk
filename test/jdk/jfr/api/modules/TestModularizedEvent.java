@@ -27,7 +27,7 @@ package jdk.jfr.api.modules;
 
 import java.nio.file.Paths;
 
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -41,8 +41,8 @@ import javax.tools.StandardJavaFileManager;
 import javax.tools.StandardLocation;
 import javax.tools.ToolProvider;
 
-import jdk.testlibrary.process.OutputAnalyzer;
-import jdk.testlibrary.process.ProcessTools;
+import jdk.test.lib.process.OutputAnalyzer;
+import jdk.test.lib.process.ProcessTools;
 
 public class TestModularizedEvent {
 

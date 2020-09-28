@@ -35,17 +35,19 @@ import java.util.List;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.CommonHelper;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.SimpleEvent;
-import jdk.testlibrary.jfr.SimpleEventHelper;
-import jdk.testlibrary.jfr.VoidFunction;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.CommonHelper;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.SimpleEvent;
+import jdk.test.lib.jfr.SimpleEventHelper;
+import jdk.test.lib.jfr.VoidFunction;
 
 /**
  * @test
  * @summary call copyTo() with recording in all states.
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.dump.TestDumpState
  */
 public class TestDumpState {

@@ -30,12 +30,15 @@ import java.util.List;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ *
+ * @library /lib /
  * @summary Purpose of this test is to run leak profiler without command line tweaks or WhiteBox hacks until we succeed
  * @run main/othervm jdk.jfr.event.oldobject.TestSanityDefault
  */

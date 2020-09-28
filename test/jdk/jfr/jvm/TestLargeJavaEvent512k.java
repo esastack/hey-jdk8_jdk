@@ -38,16 +38,17 @@ import jdk.jfr.EventFactory;
 import jdk.jfr.Recording;
 import jdk.jfr.ValueDescriptor;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventTypePrototype;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.Stressor;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventTypePrototype;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.Stressor;
 
 /**
  * @test TestLargeJavaEvent512k
- * @library /lib/testlibrary /
- * @modules jdk.jfr/jdk.jfr.internal
- *    java.base/jdk.internal.org.objectweb.asm
+ * @key jfr
+ *
+ * @library /lib /
+ *
  * @run main/othervm jdk.jfr.jvm.TestLargeJavaEvent512k
  */
 public class TestLargeJavaEvent512k {

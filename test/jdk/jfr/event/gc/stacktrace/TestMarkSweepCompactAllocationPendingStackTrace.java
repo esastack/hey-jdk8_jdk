@@ -26,9 +26,12 @@ package jdk.jfr.event.gc.stacktrace;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary /
- * @run main/othervm -XX:MaxNewSize=10M -Xmx64M -XX:+UseSerialGC jdk.jfr.event.gc.stacktrace.TestMarkSweepCompactAllocationPendingStackTrace
+ *
+ *
+ * @library /lib /
+ * @run main/othervm -XX:MaxNewSize=10M -Xmx64M -XX:+UseSerialGC -XX:+PrintGCDetails -XX:+PrintGC jdk.jfr.event.gc.stacktrace.TestMarkSweepCompactAllocationPendingStackTrace
  */
 public class TestMarkSweepCompactAllocationPendingStackTrace {
 

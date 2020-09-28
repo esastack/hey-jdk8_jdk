@@ -33,10 +33,10 @@ import java.util.stream.Collectors;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.GCHelper;
 
 
 public class RefStatEvent {

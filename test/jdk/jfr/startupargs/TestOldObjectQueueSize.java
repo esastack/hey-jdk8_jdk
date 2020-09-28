@@ -31,18 +31,20 @@ import java.util.List;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.internal.test.WhiteBox;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Test -XX:FlightRecorderOptions=old-object-queue-size
- * @modules jdk.jfr/jdk.jfr.internal.test
- * @library /lib/testlibrary /
+ *
+ *
+ * @library /lib /
+ * @key jfr
  *
  * @run main/othervm -XX:TLABSize=2k -XX:-FastTLABRefill -XX:FlightRecorderOptions=old-object-queue-size=0 jdk.jfr.startupargs.TestOldObjectQueueSize off
- * @run main/othervm -XX:TLABSize=2k -XX:-FastTLABRefill -XX:FlightRecorderOptions=old-object-queue-size=10000 jdk.jfr.startupargs.TestOldObjectQueueSize many
- * @run main/othervm -XX:TLABSize=2k -XX:-FastTLABRefill -XX:FlightRecorderOptions=old-object-queue-size=1000000 jdk.jfr.startupargs.TestOldObjectQueueSize many
+ * @run main/othervm -XX:TLABSize=2k -XX:+PrintGCDetails -XX:+PrintGC -XX:-FastTLABRefill -XX:FlightRecorderOptions=old-object-queue-size=10000 jdk.jfr.startupargs.TestOldObjectQueueSize many
+ * @run main/othervm -XX:TLABSize=2k -XX:+PrintGCDetails -XX:+PrintGC -XX:-FastTLABRefill -XX:FlightRecorderOptions=old-object-queue-size=1000000 jdk.jfr.startupargs.TestOldObjectQueueSize many
  */
 public class TestOldObjectQueueSize {
 

@@ -36,12 +36,14 @@ import jdk.jfr.EventType;
 import jdk.jfr.FlightRecorder;
 import jdk.management.jfr.EventTypeInfo;
 import jdk.management.jfr.FlightRecorderMXBean;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
+ * @key jfr
  * @summary Test for EventTypeInfo
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.info.TestEventTypeInfo
  */
 public class TestEventTypeInfo {

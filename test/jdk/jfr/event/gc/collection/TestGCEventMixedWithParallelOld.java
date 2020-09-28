@@ -27,10 +27,13 @@ package jdk.jfr.event.gc.collection;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary /
+ *
+ *
+ * @library /lib /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xmx32m -Xmn8m -XX:+UseParallelGC -XX:+UseParallelOldGC jdk.jfr.event.gc.collection.TestGCEventMixedWithParallelOld
- * good debug flags: -Xlog:gc*=debug
+ * good debug flags: -XX:+PrintGCDetails -XX:+PrintGC  -verbose:class
  */
 public class TestGCEventMixedWithParallelOld {
     public static void main(String[] args) throws Throwable {

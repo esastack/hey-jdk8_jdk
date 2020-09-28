@@ -28,13 +28,15 @@ package jdk.jfr.jcmd;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import jdk.testlibrary.jfr.FileHelper;
-import jdk.testlibrary.OutputAnalyzer;
+import jdk.test.lib.jfr.FileHelper;
+import jdk.test.lib.process.OutputAnalyzer;
 
 /**
  * @test
  * @summary Verify error when starting with read-only file.
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jcmd.TestJcmdStartReadOnlyFile
  */
 public class TestJcmdStartReadOnlyFile {

@@ -32,15 +32,17 @@ import java.nio.file.Paths;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.CommonHelper;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.VoidFunction;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.CommonHelper;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.VoidFunction;
 
 /**
  * @test
  * @summary Test copyTo and parse file
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.dump.TestDumpInvalid
  */
 public class TestDumpInvalid {

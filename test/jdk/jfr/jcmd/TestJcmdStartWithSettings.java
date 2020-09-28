@@ -30,15 +30,17 @@ import java.io.File;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedThread;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.OutputAnalyzer;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.process.OutputAnalyzer;
 
 /**
  * @test
  * @summary The test verifies that recording can be started with setting file(s)
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jcmd.TestJcmdStartWithSettings
  */
 public class TestJcmdStartWithSettings {

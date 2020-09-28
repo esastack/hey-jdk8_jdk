@@ -32,13 +32,15 @@ import jdk.jfr.FlightRecorder;
 import jdk.jfr.Recording;
 import jdk.jfr.Registered;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Tests that a cloned event can be successfully committed.
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.event.TestClonedEvent
  */
 

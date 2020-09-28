@@ -24,12 +24,15 @@
  */
 
 package jdk.jfr.event.gc.refstat;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.jfr.GCHelper;
 
 /**
  * @test
- * @library /lib/testlibrary /
- * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+UseParallelGC -XX:+UseParallelOldGC jdk.jfr.event.gc.refstat.TestRefStatEventWithParallelOld
+ * @key jfr
+ *
+ *
+ * @library /lib /
+ * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+PrintGCDetails -XX:+PrintGC -XX:+UseParallelGC -XX:+UseParallelOldGC jdk.jfr.event.gc.refstat.TestRefStatEventWithParallelOld
  */
 public class TestRefStatEventWithParallelOld {
     public static void main(String[] args) throws Exception {

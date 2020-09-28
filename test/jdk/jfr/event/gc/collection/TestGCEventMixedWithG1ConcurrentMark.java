@@ -27,11 +27,14 @@ package jdk.jfr.event.gc.collection;
 
 /**
  * @test
+ * @key jfr
  *
- *           & vm.opt.ExplicitGCInvokesConcurrent != false
- * @library /lib/testlibrary /
+ *
+ *
+ * @library /lib /
  *
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -Xmx32m -Xmn8m -XX:+UseG1GC -XX:+ExplicitGCInvokesConcurrent jdk.jfr.event.gc.collection.TestGCEventMixedWithG1ConcurrentMark
+ * good debug flags: -XX:+PrintGCDetails -XX:+PrintGC
  */
 // TODO: Try to run without: -XX:+UnlockExperimentalVMOptions XX:-UseFastUnorderedTimeStamps
 public class TestGCEventMixedWithG1ConcurrentMark {

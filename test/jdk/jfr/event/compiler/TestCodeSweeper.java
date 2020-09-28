@@ -33,9 +33,9 @@ import java.util.List;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 import sun.hotspot.WhiteBox;
 import sun.hotspot.code.BlobType;
 import sun.hotspot.code.CodeBlob;
@@ -53,7 +53,9 @@ import sun.hotspot.code.CodeBlob;
  */
 /**
  * @test TestCodeSweeper
- * @library /lib/testlibrary  /lib /
+ * @key jfr
+ *
+ * @library /lib /
  * @build sun.hotspot.WhiteBox
  * @run driver ClassFileInstaller sun.hotspot.WhiteBox
  *                                sun.hotspot.WhiteBox$WhiteBoxPermission
@@ -156,15 +158,17 @@ public class TestCodeSweeper {
         }
 
         // Trigger the vm/code_cache/full event by compiling one more
+        // method. This also triggers the vm/compiler/failure event.
         if (!WHITE_BOX.enqueueMethodForCompilation(method, COMP_LEVEL_FULL_OPTIMIZATION)) {
             WHITE_BOX.enqueueMethodForCompilation(method, COMP_LEVEL_SIMPLE);
         }
+
+        Thread.sleep(5000);
 
         // Free memory
         for (Long blob : blobs) {
             WHITE_BOX.freeCodeBlob(blob);
         }
-        Thread.sleep(5000);
     }
 
     private static void verifyFullEvent(RecordedEvent event) throws Throwable {

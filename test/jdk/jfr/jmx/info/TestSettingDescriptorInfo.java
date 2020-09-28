@@ -35,12 +35,14 @@ import jdk.jfr.jmx.JmxHelper;
 import jdk.jfr.EventType;
 import jdk.jfr.FlightRecorder;
 import jdk.management.jfr.EventTypeInfo;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
+ * @key jfr
  * @summary Test for SettingDescriptorInfo. Compare infos from java API and jmx API.
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.info.TestSettingDescriptorInfo
  */
 public class TestSettingDescriptorInfo {

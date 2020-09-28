@@ -39,13 +39,15 @@ import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedObject;
 import jdk.jfr.consumer.RecordingFile;
 import jdk.jfr.internal.test.WhiteBox;
-import jdk.testlibrary.jfr.EventNames;
+import jdk.test.lib.jfr.EventNames;
 
 /**
  * @test
  * @summary Start a recording with or without path-to-gc-roots
- * @modules jdk.jfr/jdk.jfr.internal.test
- * @library /lib/testlibrary /
+ *
+ *
+ * @library /lib /
+ * @key jfr
  *
  * @run main/othervm -XX:TLABSize=2k jdk.jfr.jcmd.TestJcmdDumpPathToGCRoots
  */

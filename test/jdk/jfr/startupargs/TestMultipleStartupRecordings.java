@@ -25,14 +25,16 @@
 
 package jdk.jfr.startupargs;
 
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.OutputAnalyzer;
-import jdk.testlibrary.ProcessTools;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.process.OutputAnalyzer;
+import jdk.test.lib.process.ProcessTools;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
  *
  * @run main jdk.jfr.startupargs.TestMultipleStartupRecordings
  */

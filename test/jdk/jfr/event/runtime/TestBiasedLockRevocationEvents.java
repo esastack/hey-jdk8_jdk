@@ -27,11 +27,11 @@ package jdk.jfr.event.runtime;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.*;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.dcmd.PidJcmdExecutor;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.OutputAnalyzer;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.dcmd.PidJcmdExecutor;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.process.OutputAnalyzer;
 
 import java.util.*;
 import java.util.concurrent.FutureTask;
@@ -39,7 +39,9 @@ import java.util.stream.Collectors;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  *
  * @run main/othervm -XX:BiasedLockingStartupDelay=0 jdk.jfr.event.runtime.TestBiasedLockRevocationEvents
  */

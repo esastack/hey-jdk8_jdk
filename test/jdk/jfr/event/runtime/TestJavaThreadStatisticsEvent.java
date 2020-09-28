@@ -25,7 +25,7 @@
 
 package jdk.jfr.event.runtime;
 
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -34,12 +34,14 @@ import java.util.Random;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.event.runtime.TestJavaThreadStatisticsEvent
  */
 public class TestJavaThreadStatisticsEvent {

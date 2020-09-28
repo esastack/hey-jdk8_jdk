@@ -25,7 +25,7 @@
 
 package jdk.jfr.api.flightrecorder;
 
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.util.Set;
 
@@ -36,7 +36,9 @@ import jdk.jfr.SettingDefinition;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.flightrecorder.TestSettingsControl
  */
 public class TestSettingsControl {

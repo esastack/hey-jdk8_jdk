@@ -25,19 +25,21 @@
 
 package jdk.jfr.event.gc.collection;
 
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.time.Duration;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.GCHelper;
 
 /**
  * @test
- * @library /lib/testlibrary
- * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps jdk.jfr.event.gc.collection.TestGCGarbageCollectionEvent
+ * @key jfr
+ *
+ * @library /lib /
+ * @run main/othervm -XX:+PrintGCDetails -XX:+PrintGC -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps jdk.jfr.event.gc.collection.TestGCGarbageCollectionEvent
  */
 public class TestGCGarbageCollectionEvent {
 

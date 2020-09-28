@@ -29,14 +29,16 @@ import java.util.List;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedThreadGroup;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.SimpleEvent;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.SimpleEvent;
 
 /**
  * @test
  * @summary Tests getParent method in RecordedThreadGroup
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.consumer.TestRecordedThreadGroupParent
  */
 public class TestRecordedThreadGroupParent {

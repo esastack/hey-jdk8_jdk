@@ -31,12 +31,15 @@ import java.util.List;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedThread;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary
+ *
+ *
+ * @key jfr
+ * @library /lib /
  * @run main/othervm -XX:+UseParallelGC jdk.jfr.event.runtime.TestVMOperation
  */
 public class TestVMOperation {

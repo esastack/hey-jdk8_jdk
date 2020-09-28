@@ -30,14 +30,16 @@ import jdk.jfr.Event;
 import jdk.jfr.Label;
 import jdk.jfr.Recording;
 import jdk.jfr.SettingDefinition;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.Events;
 
-import static jdk.testlibrary.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertEquals;
 
 /**
  * @test
  * @summary The test uses SettingControl
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.settings.TestFilterEvents
  */
 public class TestFilterEvents {

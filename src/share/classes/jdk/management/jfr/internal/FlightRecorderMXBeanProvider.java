@@ -34,10 +34,13 @@ import java.util.concurrent.Callable;
 import jdk.jfr.internal.management.ManagementSupport;
 import jdk.management.jfr.FlightRecorderMXBean;
 import jdk.management.jfr.SettingDescriptorInfo;
+// XXX TODO
+//import sun.management.spi.PlatformMBeanProvider;
 
-public final class FlightRecorderMXBeanProvider {
+public final class FlightRecorderMXBeanProvider /*extends PlatformMBeanProvider */{
 
-    private final static class SingleMBeanComponent {
+    private final static class SingleMBeanComponent
+            /*implements PlatformComponent<FlightRecorderMXBean>*/ {
         private final String objectName;
         private final Class<FlightRecorderMXBean> mbeanInterface;
 
@@ -47,10 +50,12 @@ public final class FlightRecorderMXBeanProvider {
             this.mbeanInterface = mbeanInterface;
         }
 
+//        @Override
 //        public Set<String> mbeanInterfaceNames() {
 //            return Collections.singleton(mbeanInterface.getName());
 //        }
 //
+//        @Override
 //        public Map<String, FlightRecorderMXBean> nameToMBeanMap() {
 //            FlightRecorderMXBean bean = getFlightRecorderMXBean();
 //            if (bean != null) {
@@ -60,10 +65,12 @@ public final class FlightRecorderMXBeanProvider {
 //            }
 //        }
 //
+//        @Override
 //        public String getObjectNamePattern() {
 //            return objectName;
 //        }
 //
+//        @Override
 //        public Set<Class<? extends FlightRecorderMXBean>> mbeanInterfaces() {
 //            return Collections.singleton(mbeanInterface);
 //        }
@@ -97,7 +104,8 @@ public final class FlightRecorderMXBeanProvider {
         flightRecorderMXBeanFactory = factory;
     }
 
-//    public List<?> getPlatformComponentList() {
+//    @Override
+//    public List<PlatformComponent<?>> getPlatformComponentList() {
 //        String objectName = FlightRecorderMXBean.MXBEAN_NAME;
 //        Class<FlightRecorderMXBean> mbeanInterface = FlightRecorderMXBean.class;
 //        return Collections.singletonList(new SingleMBeanComponent(objectName, mbeanInterface));

@@ -33,14 +33,16 @@ import javax.management.NotificationListener;
 import javax.management.ObjectName;
 
 import jdk.management.jfr.FlightRecorderMXBean;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 import jdk.jfr.jmx.JmxHelper;
 
 /**
  * @test
+ * @key jfr
  * @summary Test with minimal needed permissions. All functions should work.
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
  * @run main/othervm/secure=java.lang.SecurityManager/java.security.policy=listener.policy jdk.jfr.jmx.security.TestNotificationListenerPermission
  */
 public class TestNotificationListenerPermission {

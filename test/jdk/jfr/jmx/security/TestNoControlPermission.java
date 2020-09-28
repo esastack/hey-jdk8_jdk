@@ -28,13 +28,15 @@ package jdk.jfr.jmx.security;
 import jdk.jfr.jmx.JmxHelper;
 
 import jdk.management.jfr.FlightRecorderMXBean;
-import jdk.testlibrary.jfr.CommonHelper;
-import jdk.testlibrary.jfr.VoidFunction;
+import jdk.test.lib.jfr.CommonHelper;
+import jdk.test.lib.jfr.VoidFunction;
 
 /**
  * @test
+ * @key jfr
  * @summary Verify we get SecurityExceptions when missing management permission "control".
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
  * @run main/othervm/secure=java.lang.SecurityManager/java.security.policy=nocontrol.policy jdk.jfr.jmx.security.TestNoControlPermission
  */
 public class TestNoControlPermission {

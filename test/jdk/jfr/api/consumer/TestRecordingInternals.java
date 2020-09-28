@@ -28,14 +28,16 @@ package jdk.jfr.api.consumer;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedThread;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.SimpleEvent;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.SimpleEvent;
 
 /**
  * @test
  * @summary Tests that chunks are read in order and constant pools from multiple chunks can be read
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.consumer.TestRecordingInternals
  */
 public class TestRecordingInternals {

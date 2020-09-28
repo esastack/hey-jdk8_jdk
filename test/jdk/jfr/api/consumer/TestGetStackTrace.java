@@ -25,10 +25,10 @@
 
 package jdk.jfr.api.consumer;
 
-import static jdk.testlibrary.Asserts.assertEquals;
-import static jdk.testlibrary.Asserts.assertNotNull;
-import static jdk.testlibrary.Asserts.assertNull;
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertNotNull;
+import static jdk.test.lib.Asserts.assertNull;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -38,14 +38,16 @@ import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedFrame;
 import jdk.jfr.consumer.RecordedMethod;
 import jdk.jfr.consumer.RecordedStackTrace;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.SimpleEvent;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.SimpleEvent;
 
 /**
  * @test
  * @summary Verifies that a recorded JFR event has the correct stack trace info
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.consumer.TestGetStackTrace
  */
 public class TestGetStackTrace {

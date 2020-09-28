@@ -28,14 +28,16 @@ package jdk.jfr.jmx;
 import java.util.HashMap;
 
 import jdk.management.jfr.FlightRecorderMXBean;
-import jdk.testlibrary.jfr.CommonHelper;
-import jdk.testlibrary.jfr.VoidFunction;
+import jdk.test.lib.jfr.CommonHelper;
+import jdk.test.lib.jfr.VoidFunction;
 
 
 /**
  * @test
+ * @key jfr
  * @summary Call functions with invalid argument id. Verify Exception.
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestWrongId
  */
 public class TestWrongId {

@@ -30,12 +30,14 @@ import java.util.List;
 import jdk.jfr.RecordingState;
 import jdk.management.jfr.FlightRecorderMXBean;
 import jdk.management.jfr.RecordingInfo;
-import jdk.testlibrary.jfr.CommonHelper;
-import jdk.testlibrary.jfr.VoidFunction;
+import jdk.test.lib.jfr.CommonHelper;
+import jdk.test.lib.jfr.VoidFunction;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestRecordingStateInvalid
  */
 public class TestRecordingStateInvalid {

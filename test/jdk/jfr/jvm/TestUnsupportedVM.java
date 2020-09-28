@@ -62,15 +62,16 @@ import jdk.management.jfr.EventTypeInfo;
 import jdk.management.jfr.FlightRecorderMXBean;
 import jdk.management.jfr.RecordingInfo;
 import jdk.management.jfr.SettingDescriptorInfo;
-import jdk.testlibrary.Utils;
+import jdk.test.lib.Utils;
 
 /**
  * @test TestUnsupportedVM
+ * @key jfr
  *
- * @modules jdk.jfr
- *          jdk.management.jfr
  *
- * @library /lib/testlibrary  /
+ *
+ *
+ * @library /lib /
  * @run main/othervm -Dprepare-recording=true jdk.jfr.jvm.TestUnsupportedVM
  * @run main/othervm -Djfr.unsupported.vm=true jdk.jfr.jvm.TestUnsupportedVM
  */

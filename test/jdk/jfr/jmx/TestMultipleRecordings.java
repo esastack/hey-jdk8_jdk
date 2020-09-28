@@ -33,7 +33,9 @@ import jdk.management.jfr.RecordingInfo;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestMultipleRecordings
  */
 public class TestMultipleRecordings {

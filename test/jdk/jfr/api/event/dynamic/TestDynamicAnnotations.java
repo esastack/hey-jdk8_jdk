@@ -49,11 +49,13 @@ import jdk.jfr.Recording;
 import jdk.jfr.Relational;
 import jdk.jfr.ValueDescriptor;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.event.dynamic.TestDynamicAnnotations
  */
 public class TestDynamicAnnotations {

@@ -30,14 +30,17 @@ import java.util.List;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Utils;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Utils;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 import sun.hotspot.WhiteBox;
 
 /**
  * @test
- * @library /lib/testlibrary /lib /
+ * @key jfr
+ *
+ *
+ * @library /lib /
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox
  *     sun.hotspot.WhiteBox$WhiteBoxPermission

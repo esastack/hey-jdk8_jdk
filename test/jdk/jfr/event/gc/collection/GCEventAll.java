@@ -40,10 +40,10 @@ import jdk.jfr.EventType;
 import jdk.jfr.FlightRecorder;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.GCHelper;
 
 /**
  * Tests for event garbage_collection.
@@ -309,8 +309,9 @@ public class GCEventAll {
                     if (event.getEventType().getName().contains("AllocationRequiringGC")) {
                         // Unlike other events, these are sent *before* a GC.
                         Asserts.assertLessThanOrEqual(event.getStartTime(), batchStartTime, "Timestamp in event after start event, should be sent before GC start");
-                    } else {
-                        Asserts.assertGreaterThanOrEqual(event.getStartTime(), batchStartTime, "startTime in event before batch start event, should be sent after GC start");
+                    } else if (!event.getEventType().getName().contains("G1MMU")){
+                        // G1MMU event on JDK8 G1 can be out-of-order; don't check it here
+                        Asserts.assertGreaterThanOrEqual(event.getStartTime(), batchStartTime, "startTime in event before batch start event, should be sent after GC start [" + event.getEventType().getName() + "]");
                     }
                     Asserts.assertLessThanOrEqual(event.getEndTime(), batchEndTime, "endTime in event after batch end event, should be sent before GC end");
                 }

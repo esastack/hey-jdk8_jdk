@@ -25,7 +25,7 @@
 
 package jdk.jfr.api.flightrecorder;
 
-import static jdk.testlibrary.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertEquals;
 
 import jdk.jfr.FlightRecorderListener;
 import jdk.jfr.Recording;

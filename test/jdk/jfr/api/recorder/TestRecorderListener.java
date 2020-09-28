@@ -34,6 +34,8 @@ import jdk.jfr.RecordingState;
 /**
  * @test TestRecorderListener
  *
+ * @key jfr
+ *
  * @run main/othervm jdk.jfr.api.recorder.TestRecorderListener
  */
 public class TestRecorderListener {

@@ -97,12 +97,12 @@ public final class EventInstrumentation {
     static final String FIELD_EVENT_HANDLER = "eventHandler";
     static final String FIELD_START_TIME = "startTime";
 
+    private static final Class<? extends EventHandler> eventHandlerProxy = EventHandlerProxyCreator.proxyClass;
     private static final Type ANNOTATION_TYPE_NAME = Type.getType(Name.class);
     private static final Type ANNOTATION_TYPE_REGISTERED = Type.getType(Registered.class);
     private static final Type ANNOTATION_TYPE_ENABLED = Type.getType(Enabled.class);
-    private static final Type TYPE_EVENT_HANDLER = Type.getType(EventHandler.class);
+    private static final Type TYPE_EVENT_HANDLER = Type.getType(eventHandlerProxy);
     private static final Type TYPE_SETTING_CONTROL = Type.getType(SettingControl.class);
-    private static final Type TYPE_OBJECT  = Type.getType(Object.class);
     private static final Method METHOD_COMMIT = new Method("commit", Type.VOID_TYPE, new Type[0]);
     private static final Method METHOD_BEGIN = new Method("begin", Type.VOID_TYPE, new Type[0]);
     private static final Method METHOD_END = new Method("end", Type.VOID_TYPE, new Type[0]);
@@ -118,7 +118,6 @@ public final class EventInstrumentation {
     private final Method writeMethod;
     private final String eventHandlerXInternalName;
     private final String eventName;
-    private final boolean untypedEventHandler;
     private boolean guardHandlerReference;
     private Class<?> superClass;
 
@@ -127,20 +126,11 @@ public final class EventInstrumentation {
         this.classNode = createClassNode(bytes);
         this.settingInfos = buildSettingInfos(superClass, classNode);
         this.fieldInfos = buildFieldInfos(superClass, classNode);
-        this.untypedEventHandler = hasUntypedHandler();
         this.writeMethod = makeWriteMethod(fieldInfos);
         this.eventHandlerXInternalName = ASMToolkit.getInternalName(EventHandlerCreator.makeEventHandlerName(id));
         String n =  annotationValue(classNode, ANNOTATION_TYPE_NAME.getDescriptor(), String.class);
         this.eventName = n == null ? classNode.name.replace("/", ".") : n;
-    }
 
-    private boolean hasUntypedHandler() {
-        for (FieldNode field : classNode.fields) {
-            if (FIELD_EVENT_HANDLER.equals(field.name)) {
-                return field.desc.equals(TYPE_OBJECT.getDescriptor());
-            }
-        }
-        throw new InternalError("Class missing handler field");
     }
 
     public String getClassName() {
@@ -260,6 +250,7 @@ public final class EventInstrumentation {
             }
         }
         return settingInfos;
+
     }
 
     private static List<FieldInfo> buildFieldInfos(Class<?> superClass, ClassNode classNode) {
@@ -274,7 +265,8 @@ public final class EventInstrumentation {
         fieldInfos.add(new FieldInfo("startTime", Type.LONG_TYPE.getDescriptor(), classNode.name));
         fieldInfos.add(new FieldInfo("duration", Type.LONG_TYPE.getDescriptor(), classNode.name));
         for (FieldNode field : classNode.fields) {
-            if (!fieldSet.contains(field.name) && isValidField(field.access, Type.getType(field.desc).getClassName())) {
+            String className = Type.getType(field.desc).getClassName();
+            if (!fieldSet.contains(field.name) && isValidField(field.access, className)) {
                 FieldInfo fi = new FieldInfo(field.name, field.desc, classNode.name);
                 fieldInfos.add(fi);
                 fieldSet.add(field.name);
@@ -330,10 +322,10 @@ public final class EventInstrumentation {
         updateMethod(METHOD_IS_ENABLED, methodVisitor -> {
             Label nullLabel = new Label();
             if (guardHandlerReference) {
-                getEventHandler(methodVisitor);
+                methodVisitor.visitFieldInsn(Opcodes.GETSTATIC, getInternalClassName(), FIELD_EVENT_HANDLER, TYPE_EVENT_HANDLER.getDescriptor());
                 methodVisitor.visitJumpInsn(Opcodes.IFNULL, nullLabel);
             }
-            getEventHandler(methodVisitor);
+            methodVisitor.visitFieldInsn(Opcodes.GETSTATIC, getInternalClassName(), FIELD_EVENT_HANDLER, TYPE_EVENT_HANDLER.getDescriptor());
             ASMToolkit.invokeVirtual(methodVisitor, TYPE_EVENT_HANDLER.getInternalName(), METHOD_IS_ENABLED);
             methodVisitor.visitInsn(Opcodes.IRETURN);
             if (guardHandlerReference) {
@@ -417,7 +409,7 @@ public final class EventInstrumentation {
                 // eventHandler.write(...);
                 // }
                 methodVisitor.visitJumpInsn(Opcodes.IFEQ, end);
-                getEventHandler(methodVisitor);
+                methodVisitor.visitFieldInsn(Opcodes.GETSTATIC, getInternalClassName(), FIELD_EVENT_HANDLER, Type.getDescriptor(eventHandlerProxy));
 
                 methodVisitor.visitTypeInsn(Opcodes.CHECKCAST, eventHandlerXInternalName);
                 for (FieldInfo fi : fieldInfos) {
@@ -435,12 +427,8 @@ public final class EventInstrumentation {
         // MyEvent#shouldCommit()
         updateMethod(METHOD_EVENT_SHOULD_COMMIT, methodVisitor -> {
             Label fail = new Label();
-            if (guardHandlerReference) {
-                getEventHandler(methodVisitor);
-                methodVisitor.visitJumpInsn(Opcodes.IFNULL, fail);
-            }
-            // if (!eventHandler.shouldCommit(duration) goto fail;
-            getEventHandler(methodVisitor);
+            // if (!eventHandler.shoouldCommit(duration) goto fail;
+            methodVisitor.visitFieldInsn(Opcodes.GETSTATIC, getInternalClassName(), FIELD_EVENT_HANDLER, Type.getDescriptor(eventHandlerProxy));
             methodVisitor.visitVarInsn(Opcodes.ALOAD, 0);
             methodVisitor.visitFieldInsn(Opcodes.GETFIELD, getInternalClassName(), FIELD_DURATION, "J");
             ASMToolkit.invokeVirtual(methodVisitor, TYPE_EVENT_HANDLER.getInternalName(), METHOD_EVENT_HANDLER_SHOULD_COMMIT);
@@ -448,11 +436,7 @@ public final class EventInstrumentation {
             for (SettingInfo si : settingInfos) {
                 // if (!settingsMethod(eventHandler.settingX)) goto fail;
                 methodVisitor.visitIntInsn(Opcodes.ALOAD, 0);
-                if (untypedEventHandler) {
-                    methodVisitor.visitFieldInsn(Opcodes.GETSTATIC, getInternalClassName(), FIELD_EVENT_HANDLER, TYPE_OBJECT.getDescriptor());
-                } else {
-                    methodVisitor.visitFieldInsn(Opcodes.GETSTATIC, getInternalClassName(), FIELD_EVENT_HANDLER, Type.getDescriptor(EventHandler.class));
-                }
+                methodVisitor.visitFieldInsn(Opcodes.GETSTATIC, getInternalClassName(), FIELD_EVENT_HANDLER, Type.getDescriptor(eventHandlerProxy));
                 methodVisitor.visitTypeInsn(Opcodes.CHECKCAST, eventHandlerXInternalName);
                 methodVisitor.visitFieldInsn(Opcodes.GETFIELD, eventHandlerXInternalName, si.fieldName, TYPE_SETTING_CONTROL.getDescriptor());
                 methodVisitor.visitTypeInsn(Opcodes.CHECKCAST, si.internalSettingName);
@@ -467,15 +451,6 @@ public final class EventInstrumentation {
             methodVisitor.visitInsn(Opcodes.ICONST_0);
             methodVisitor.visitInsn(Opcodes.IRETURN);
         });
-    }
-
-    private void getEventHandler(MethodVisitor methodVisitor) {
-        if (untypedEventHandler) {
-            methodVisitor.visitFieldInsn(Opcodes.GETSTATIC, getInternalClassName(), FIELD_EVENT_HANDLER, TYPE_OBJECT.getDescriptor());
-            methodVisitor.visitTypeInsn(Opcodes.CHECKCAST, TYPE_EVENT_HANDLER.getInternalName());
-        } else {
-            methodVisitor.visitFieldInsn(Opcodes.GETSTATIC, getInternalClassName(), FIELD_EVENT_HANDLER, Type.getDescriptor(EventHandler.class));
-        }
     }
 
     private void makeUninstrumented() {

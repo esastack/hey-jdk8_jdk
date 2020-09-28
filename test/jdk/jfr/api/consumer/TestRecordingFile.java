@@ -46,13 +46,15 @@ import jdk.jfr.Recording;
 import jdk.jfr.Registered;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.Utils;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.Utils;
 
 /**
  * @test
  * @summary Verifies that all methods in RecordingFIle are working
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.consumer.TestRecordingFile
  */
 public class TestRecordingFile {

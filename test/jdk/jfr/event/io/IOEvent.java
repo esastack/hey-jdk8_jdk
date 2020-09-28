@@ -31,9 +31,9 @@ import java.net.Socket;
 
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedThread;
-import jdk.testlibrary.jfr.EventField;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventField;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 // Contains data from a JFR IO event.
 public class IOEvent {

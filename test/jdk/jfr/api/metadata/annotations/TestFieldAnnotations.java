@@ -37,11 +37,13 @@ import jdk.jfr.TransitionFrom;
 import jdk.jfr.TransitionTo;
 import jdk.jfr.Unsigned;
 import jdk.jfr.ValueDescriptor;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.annotations.TestFieldAnnotations
  */
 public class TestFieldAnnotations {

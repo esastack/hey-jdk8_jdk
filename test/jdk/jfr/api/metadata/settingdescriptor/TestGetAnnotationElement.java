@@ -33,13 +33,15 @@ import jdk.jfr.Label;
 import jdk.jfr.Name;
 import jdk.jfr.SettingDescriptor;
 import jdk.jfr.Timespan;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Test SettingDescriptor.getAnnotationElements()
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.settingdescriptor.TestGetAnnotationElement
  */
 public class TestGetAnnotationElement {

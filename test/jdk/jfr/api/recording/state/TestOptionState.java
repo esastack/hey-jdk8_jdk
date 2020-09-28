@@ -29,12 +29,14 @@ import java.time.Duration;
 import java.util.function.Consumer;
 
 import jdk.jfr.Recording;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
+ * @key jfr
  * @summary Test options in different states
- * @library /lib/testlibrary
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.state.TestOptionState
  */
 public class TestOptionState {

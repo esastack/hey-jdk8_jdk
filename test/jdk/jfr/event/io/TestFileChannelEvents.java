@@ -25,7 +25,7 @@
 
 package jdk.jfr.event.io;
 
-import static jdk.testlibrary.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertEquals;
 
 import java.io.File;
 import java.io.RandomAccessFile;
@@ -37,11 +37,13 @@ import java.util.List;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.event.io.TestFileChannelEvents
  */
 public class TestFileChannelEvents {

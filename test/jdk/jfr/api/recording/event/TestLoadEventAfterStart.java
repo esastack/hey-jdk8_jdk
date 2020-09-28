@@ -33,14 +33,16 @@ import java.util.List;
 import jdk.jfr.Event;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Load event class after recording started.
- * @library /lib/testlibrary
- * @build jdk.testlibrary.jfr.SimpleEvent
+ * @key jfr
+ *
+ * @library /lib /
+ * @build jdk.test.lib.jfr.SimpleEvent
  * @run main/othervm jdk.jfr.api.recording.event.TestLoadEventAfterStart
  */
 public class TestLoadEventAfterStart {
@@ -51,7 +53,7 @@ public class TestLoadEventAfterStart {
 
         ClassLoader classLoader = TestLoadEventAfterStart.class.getClassLoader();
         Class<? extends Event> eventClass =
-            classLoader.loadClass("jdk.testlibrary.jfr.SimpleEvent").asSubclass(Event.class);
+            classLoader.loadClass("jdk.test.lib.jfr.SimpleEvent").asSubclass(Event.class);
 
         r.enable(eventClass).withThreshold(Duration.ofMillis(0)).withoutStackTrace();
         createEvent(eventClass, 1);

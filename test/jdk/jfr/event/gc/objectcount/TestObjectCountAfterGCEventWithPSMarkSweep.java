@@ -24,11 +24,14 @@
  */
 
 package jdk.jfr.event.gc.objectcount;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.jfr.GCHelper;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ *
+ * @library /lib /
  * @run main/othervm -XX:+UseParallelGC -XX:-UseParallelOldGC -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:MarkSweepDeadRatio=0 -XX:-UseCompressedOops -XX:+IgnoreUnrecognizedVMOptions jdk.jfr.event.gc.objectcount.TestObjectCountAfterGCEventWithPSMarkSweep
  */
 public class TestObjectCountAfterGCEventWithPSMarkSweep {

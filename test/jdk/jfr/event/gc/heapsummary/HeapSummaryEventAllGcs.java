@@ -30,10 +30,10 @@ import java.util.List;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.GCHelper;
 
 public class HeapSummaryEventAllGcs {
 
@@ -41,9 +41,9 @@ public class HeapSummaryEventAllGcs {
         Recording recording = new Recording();
         recording.enable(EventNames.GCConfiguration);
         recording.enable(EventNames.GCHeapSummary);
+        recording.enable(EventNames.G1HeapSummary);
         recording.enable(EventNames.PSHeapSummary);
         recording.enable(EventNames.MetaspaceSummary).withThreshold(Duration.ofMillis(0));
-        recording.enable(EventNames.G1HeapSummary);
 
         recording.start();
         // To eliminate the risk of being in the middle of a GC when the recording starts/stops,
@@ -63,9 +63,9 @@ public class HeapSummaryEventAllGcs {
         Asserts.assertEquals(events.size() % 2, 0, "Events should come in pairs");
 
         int lastHeapGcId = -1;
+        int lastG1GcId = -1;
         int lastPSGcId = -1;
         int lastMetaspaceGcId = -1;
-        int lastG1GcId = -1;
 
         for (RecordedEvent event : events) {
             final String eventName = event.getEventType().getName();
@@ -73,6 +73,10 @@ public class HeapSummaryEventAllGcs {
                 case EventNames.GCHeapSummary:
                     lastHeapGcId = checkGcId(event, lastHeapGcId);
                     checkHeapEventContent(event);
+                    break;
+                case EventNames.G1HeapSummary:
+                    lastG1GcId = checkGcId(event, lastG1GcId);
+                    checkG1EventContent(event);
                     break;
                 case EventNames.PSHeapSummary:
                     lastPSGcId = checkGcId(event, lastPSGcId);
@@ -82,11 +86,6 @@ public class HeapSummaryEventAllGcs {
                     lastMetaspaceGcId = checkGcId(event, lastMetaspaceGcId);
                     checkMetaspaceEventContent(event);
                     break;
-                case EventNames.G1HeapSummary:
-                    lastG1GcId = checkGcId(event, lastG1GcId);
-                    checkG1EventContent(event);
-                    break;
-
                 default:
                     System.out.println("Failed event: " + event);
                     Asserts.fail("Unknown event type: " + eventName);
@@ -97,15 +96,6 @@ public class HeapSummaryEventAllGcs {
         Asserts.assertEquals(lastHeapGcId, lastMetaspaceGcId, "Should have gotten perm gen events for all GCs");
     }
 
-    private static void checkG1EventContent(RecordedEvent event) {                                                                     
-        long edenUsedSize = Events.assertField(event, "edenUsedSize").atLeast(0L).getValue();
-        long edenTotalSize = Events.assertField(event, "edenTotalSize").atLeast(0L).getValue();
-        Asserts.assertLessThanOrEqual(edenUsedSize, edenTotalSize, "used can not exceed size");
-        Events.assertField(event, "survivorUsedSize").atLeast(0L);
-        Events.assertField(event, "numberOfRegions").atLeast(0);
-    }
-
-    
     private static void checkMetaspaceEventContent(RecordedEvent event) {
         long totalUsed = Events.assertField(event, "metaspace.used").atLeast(0L).getValue();
         long totalCommitted = Events.assertField(event, "metaspace.committed").atLeast(totalUsed).getValue();
@@ -141,6 +131,14 @@ public class HeapSummaryEventAllGcs {
         long start = Events.assertField(event, "heapSpace.start").atLeast(0L).getValue();
         long committedEnd = Events.assertField(event, "heapSpace.committedEnd").above(start).getValue();
         Asserts.assertLessThanOrEqual(heapUsed, committedEnd- start, "used can not exceed size");
+    }
+
+    private static void checkG1EventContent(RecordedEvent event) {
+        long edenUsedSize = Events.assertField(event, "edenUsedSize").atLeast(0L).getValue();
+        long edenTotalSize = Events.assertField(event, "edenTotalSize").atLeast(0L).getValue();
+        Asserts.assertLessThanOrEqual(edenUsedSize, edenTotalSize, "used can not exceed size");
+        Events.assertField(event, "survivorUsedSize").atLeast(0L);
+        Events.assertField(event, "numberOfRegions").atLeast(0);
     }
 
     private static void checkPSEventContent(RecordedEvent event) {

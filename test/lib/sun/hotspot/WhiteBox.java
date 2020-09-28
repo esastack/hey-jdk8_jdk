@@ -43,7 +43,7 @@ public class WhiteBox {
     }
   }
 
-  private WhiteBox() {}  
+  private WhiteBox() {}
   private static final WhiteBox instance = new WhiteBox();
   private static native void registerNatives();
 
@@ -76,17 +76,18 @@ public class WhiteBox {
   public native long getObjectAddress(Object o);
   public native int  getHeapOopSize();
   public native int  getVMPageSize();
+  public native long getVMAllocationGranularity();
   public native long getVMLargePageSize();
   public native long getHeapSpaceAlignment();
   public native long getHeapAlignment();
 
   public native boolean isObjectInOldGen(Object o);
   public native long getObjectSize(Object o);
-  
+
   public native boolean classKnownToNotExist(ClassLoader loader, String name);
   public native URL[] getLookupCacheURLs(ClassLoader loader);
-  public native int[] getLookupCacheMatches(ClassLoader loader, String name); 
-  
+  public native int[] getLookupCacheMatches(ClassLoader loader, String name);
+
   // Runtime
   // Make sure class name is in the correct format
   public boolean isClassAlive(String name) {
@@ -139,9 +140,8 @@ public class WhiteBox {
   public native long    g1NumFreeRegions();
   public native int     g1RegionSize();
   public native MemoryUsage g1AuxiliaryMemoryUsage();
-
   public native Object[]    parseCommandLine(String commandline, DiagnosticCommand[] args);
-  
+
   // Parallel GC
   public native long psVirtualSpaceAlignment();
   public native long psHeapGenerationAlignment();
@@ -266,7 +266,6 @@ public class WhiteBox {
       return allocateCodeBlob( intSize, type);
   }
   public native void    freeCodeBlob(long addr);
-  public native Object[] getCodeBlob(long addr);
   public native Object[] getCodeHeapEntries(int type);
   public native int     getCompilationActivityMode();
   private native long getMethodData0(Executable method);
@@ -434,8 +433,7 @@ public class WhiteBox {
   public native boolean isJavaHeapArchiveSupported();
   public native Object  getResolvedReferences(Class<?> c);
   public native boolean areOpenArchiveHeapObjectsMapped();
-  public native boolean isSharingEnabled();
-  
+
   // Handshakes
   public native int handshakeWalkStack(Thread t, boolean all_threads);
 

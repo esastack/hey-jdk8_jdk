@@ -31,14 +31,15 @@ import jdk.jfr.Frequency;
 import jdk.jfr.Recording;
 import jdk.jfr.StackTrace;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
+ * @key jfr
  * @summary Check that event values are properly formatted and sanity check
  *              that extreme values don't throws exceptions
- * @library /lib/testlibrary
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.annotations.TestFormatMissingValue
  */
 public class TestFormatMissingValue {
@@ -94,25 +95,12 @@ public class TestFormatMissingValue {
             r.stop();
             for (RecordedEvent e : Events.fromRecording(r)) {
                 String t = e.toString();
-
-                // jdk11u shows different output compared to jdk12 or higher
-                // because PrettyWriter is of an older version.
-                // Should JDK-8205516 ever get integrated to jdk11u,
-                // this test will have to be updated.
-
-                // assertContains(t, "a = N/A");
-                // assertContains(t, "c = N/A");
-                // assertContains(t, "e = N/A");
-                // assertContains(t, "g = N/A");
-                // assertContains(t, "h = N/A");
-                // assertContains(t, "j = N/A");
-
-                assertContains(t, "a = -9223372036854775808");
-                assertContains(t, "c = -2147483648");
-                assertContains(t, "e = -Infinity");
-                assertContains(t, "g = NaN");
-                assertContains(t, "h = -Infinity");
-                assertContains(t, "j = NaN");
+                assertContains(t, "a = N/A");
+                assertContains(t, "c = N/A");
+                assertContains(t, "e = N/A");
+                assertContains(t, "g = N/A");
+                assertContains(t, "h = N/A");
+                assertContains(t, "j = N/A");
 
                 assertNotContains(t, "b = N/A");
                 assertNotContains(t, "d = N/A");

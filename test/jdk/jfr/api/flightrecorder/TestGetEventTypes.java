@@ -25,8 +25,8 @@
 
 package jdk.jfr.api.flightrecorder;
 
-import static jdk.testlibrary.Asserts.assertFalse;
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertFalse;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -36,11 +36,13 @@ import jdk.jfr.EventType;
 import jdk.jfr.FlightRecorder;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm/timeout=600 jdk.jfr.api.flightrecorder.TestGetEventTypes
  */
 public class TestGetEventTypes {

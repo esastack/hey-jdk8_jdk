@@ -31,13 +31,15 @@ import java.util.Map;
 import jdk.jfr.Recording;
 import jdk.management.jfr.FlightRecorderMXBean;
 import jdk.management.jfr.RecordingInfo;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
 
 /**
  * @test
+ * @key jfr
  * @summary Verify Exception when setting invalid config.
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestSetConfigurationInvalid
  */
 public class TestSetConfigurationInvalid {

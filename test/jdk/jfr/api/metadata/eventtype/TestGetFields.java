@@ -31,12 +31,14 @@ import java.util.List;
 import jdk.jfr.Event;
 import jdk.jfr.EventType;
 import jdk.jfr.ValueDescriptor;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary Test getFields()
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.eventtype.TestGetFields
  */
 public class TestGetFields {

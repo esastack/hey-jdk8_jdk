@@ -33,18 +33,19 @@ import java.util.List;
 import sun.misc.Unsafe;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.OutputAnalyzer;
-import jdk.testlibrary.ProcessTools;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.process.OutputAnalyzer;
+import jdk.test.lib.process.ProcessTools;
 
 /**
  * @test
+ * @key jfr
  * @summary Verifies that data associated with a running recording can be evacuated to an hs_err_pidXXX.jfr when the VM crashes
  *
- * @library /lib/testlibrary /
- * @modules java.base/jdk.internal.misc
- *          java.management
- *          jdk.jfr
+ *
+ * @library /lib /
+ *
+
  *
  * @run main/othervm jdk.jfr.jvm.TestDumpOnCrash
  */
@@ -59,11 +60,10 @@ public class TestDumpOnCrash {
             Field theUnsafeRefLocation = Unsafe.class.getDeclaredField("theUnsafe");
             theUnsafeRefLocation.setAccessible(true);
             ((Unsafe)theUnsafeRefLocation.get(null)).putInt(0L, 0);
-           }
+          }
           catch(Exception ex) {
             Asserts.fail("cannot execute");
           }
-
         }
     }
 
@@ -78,13 +78,13 @@ public class TestDumpOnCrash {
                 "-Xint",
                 "-XX:-TransmitErrorReport",
                 "-XX:-CreateMinidumpOnCrash",
-//                "--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED",
+                /*"--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED",*/
                 "-XX:StartFlightRecording=dumponexit=true",
                 Crasher.class.getName()).start());
     }
 
     private static void processOutput(OutputAnalyzer output) throws Exception {
-//        output.shouldContain("CreateCoredumpOnCrash turned off, no core file dumped");
+        //output.shouldContain("CreateCoredumpOnCrash turned off, no core file dumped");
 
         final Path jfrEmergencyFilePath = getHsErrJfrPath(output);
         Asserts.assertTrue(Files.exists(jfrEmergencyFilePath), "No emergency jfr recording file " + jfrEmergencyFilePath + " exists");
@@ -107,3 +107,4 @@ public class TestDumpOnCrash {
         return Paths.get(hs_err_pid_jfr_file);
     }
 }
+

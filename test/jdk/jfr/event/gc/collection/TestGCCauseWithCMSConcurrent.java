@@ -24,15 +24,19 @@
  */
 
 package jdk.jfr.event.gc.collection;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.jfr.GCHelper;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ *
+ *
+ * @library /lib /
  * @run driver jdk.jfr.event.gc.collection.TestGCCauseWithCMSConcurrent
  */
 public class TestGCCauseWithCMSConcurrent {
-    public static void main(String[] args) throws Throwable {
+    public static void main(String[] args) throws Exception {
         String testID = "CMSConcurrent";
         String[] vmFlags = {"-XX:+UseConcMarkSweepGC", "-XX:+ExplicitGCInvokesConcurrent"};
         String[] gcNames = {GCHelper.gcConcurrentMarkSweep, GCHelper.gcParNew, GCHelper.gcSerialOld};

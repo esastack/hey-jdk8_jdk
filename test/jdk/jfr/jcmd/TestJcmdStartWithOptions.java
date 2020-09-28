@@ -30,12 +30,14 @@ import java.io.File;
 import jdk.jfr.FlightRecorder;
 import jdk.jfr.Recording;
 import jdk.jfr.RecordingState;
-import jdk.testlibrary.OutputAnalyzer;
+import jdk.test.lib.process.OutputAnalyzer;
 
 /**
  * @test
  * @summary The test verifies that recording can be started with options delay|duration|maxage|maxsize
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm -XX:+FlightRecorder -XX:FlightRecorderOptions=maxchunksize=2097152 jdk.jfr.jcmd.TestJcmdStartWithOptions
  */
 public class TestJcmdStartWithOptions {

@@ -25,14 +25,16 @@
 
 package jdk.jfr.jvm;
 
-import static jdk.testlibrary.Asserts.assertGreaterThan;
+import static jdk.test.lib.Asserts.assertGreaterThan;
 
 import jdk.jfr.internal.JVM;
 
 /**
  * @test TestCounterTime
- * @library /lib/testlibrary /
- * @modules jdk.jfr/jdk.jfr.internal
+ * @key jfr
+ *
+ * @library /lib /
+ *
  * @run main/othervm jdk.jfr.jvm.TestCounterTime
  */
 public class TestCounterTime {

@@ -37,12 +37,14 @@ import jdk.jfr.FlightRecorder;
 import jdk.jfr.Recording;
 import jdk.jfr.SettingDescriptor;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.jfr.EventNames;
+import jdk.test.lib.jfr.EventNames;
 
 /**
  * @test
  * @summary Verifies that event types has the correct type of settings
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.settings.TestSettingsAvailability
  */
 public class TestSettingsAvailability {

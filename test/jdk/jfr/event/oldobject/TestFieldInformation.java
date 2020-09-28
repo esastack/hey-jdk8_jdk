@@ -34,15 +34,18 @@ import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedObject;
 import jdk.jfr.internal.test.WhiteBox;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary /
- * @modules jdk.jfr/jdk.jfr.internal.test
- * @run main/othervm -XX:TLABSize=2k jdk.jfr.event.oldobject.TestFieldInformation
+ * @key jfr
+ *
+ *
+ * @library /lib /
+ *
+ * @run main/othervm -XX:TLABSize=2k -XX:+PrintGCDetails -XX:+PrintGC  -verbose:class jdk.jfr.event.oldobject.TestFieldInformation
  */
 public class TestFieldInformation {
 

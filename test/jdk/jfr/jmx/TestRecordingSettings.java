@@ -31,11 +31,13 @@ import java.util.Map;
 import jdk.jfr.FlightRecorder;
 import jdk.jfr.Recording;
 import jdk.management.jfr.FlightRecorderMXBean;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestRecordingSettings
  */
 public class TestRecordingSettings {

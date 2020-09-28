@@ -205,7 +205,6 @@ class SocketAdaptor
                     return sc.read(bb);
 
                 sc.configureBlocking(false);
-
                 try {
                     int n;
                     if ((n = sc.read(bb)) != 0)

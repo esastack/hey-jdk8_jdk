@@ -25,7 +25,7 @@
 
 package jdk.jfr.api.recording.destination;
 
-import static jdk.testlibrary.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertEquals;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -35,13 +35,15 @@ import java.util.List;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
 
 /**
  * @test
  * @summary Basic test for setDestination with disk=true
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.destination.TestDestToDiskTrue
  */
 public class TestDestToDiskTrue {

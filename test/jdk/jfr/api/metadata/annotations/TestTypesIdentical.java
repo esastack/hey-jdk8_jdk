@@ -49,11 +49,13 @@ import jdk.jfr.Timestamp;
 import jdk.jfr.TransitionFrom;
 import jdk.jfr.TransitionTo;
 import jdk.jfr.Unsigned;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.annotations.TestTypesIdentical
  */
 public class TestTypesIdentical {

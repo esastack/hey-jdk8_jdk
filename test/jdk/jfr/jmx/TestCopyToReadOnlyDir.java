@@ -30,13 +30,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import jdk.management.jfr.FlightRecorderMXBean;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.FileHelper;
-import jdk.testlibrary.jfr.SimpleEventHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.FileHelper;
+import jdk.test.lib.jfr.SimpleEventHelper;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestCopyToReadOnlyDir
  */
 public class TestCopyToReadOnlyDir {

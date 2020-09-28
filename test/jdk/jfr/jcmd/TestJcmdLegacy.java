@@ -33,14 +33,17 @@ import java.nio.file.Paths;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Utils;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.FileHelper;
-import jdk.testlibrary.OutputAnalyzer;
+import jdk.test.lib.Utils;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.FileHelper;
+import jdk.test.lib.process.OutputAnalyzer;
 
 /**
  * @test TestClassId
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
+ *
  * @run main/othervm jdk.jfr.jcmd.TestJcmdLegacy
  */
 public class TestJcmdLegacy {

@@ -30,12 +30,15 @@ import java.util.List;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.GCHelper;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+  *
+ * @library /lib /
  * @run main/othervm -XX:+UseParallelGC -XX:+UseParallelOldGC jdk.jfr.event.gc.collection.TestGCWithFasttime
  */
 public class TestGCWithFasttime {

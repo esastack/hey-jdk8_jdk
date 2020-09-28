@@ -29,13 +29,15 @@ import java.time.Duration;
 
 import jdk.jfr.Recording;
 import jdk.jfr.RecordingState;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.CommonHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.CommonHelper;
 
 /**
  * @test
  * @summary Start a recording with delay. Verify recording starts later.
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm -XX:StartFlightRecording=name=TestStartMaxAgeSize,maxage=10s,maxsize=1000000 jdk.jfr.startupargs.TestStartMaxAgeSize
  */
 public class TestStartMaxAgeSize {

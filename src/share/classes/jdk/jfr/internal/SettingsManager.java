@@ -37,8 +37,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.StringJoiner;
 
-import jdk.jfr.internal.handlers.EventHandler;
 import jdk.jfr.Event;
+import jdk.jfr.internal.handlers.EventHandler;
 
 final class SettingsManager {
 

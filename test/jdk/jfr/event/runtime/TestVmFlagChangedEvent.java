@@ -25,8 +25,8 @@
 
 package jdk.jfr.event.runtime;
 
-import static jdk.testlibrary.Asserts.assertEquals;
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.lang.management.ManagementFactory;
 
@@ -34,14 +34,15 @@ import com.sun.management.HotSpotDiagnosticMXBean;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test TestVmFlagChangedEvent
- * @library /lib/testlibrary
- * @modules jdk.jfr
- *          jdk.management
+ * @key jfr
+ *
+ * @library /lib /
+ *
  *
  * @run main/othervm jdk.jfr.event.runtime.TestVmFlagChangedEvent
  */

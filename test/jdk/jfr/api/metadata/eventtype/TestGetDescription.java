@@ -34,12 +34,14 @@ import jdk.jfr.Description;
 import jdk.jfr.Event;
 import jdk.jfr.EventType;
 import jdk.jfr.Label;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary Test descriptive annotations for EventType
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.eventtype.TestGetDescription
  */
 public class TestGetDescription {

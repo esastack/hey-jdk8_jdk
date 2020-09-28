@@ -35,13 +35,15 @@ import jdk.jfr.RecordingState;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
 import jdk.management.jfr.FlightRecorderMXBean;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.SimpleEventHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.SimpleEventHelper;
 
 /**
  * @test
+ * @key jfr
  * @summary Copy a recording to file while it is running.
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestCopyToRunning
  */
 public class TestCopyToRunning {

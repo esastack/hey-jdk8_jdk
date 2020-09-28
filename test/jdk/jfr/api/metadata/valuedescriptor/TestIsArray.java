@@ -28,12 +28,14 @@ package jdk.jfr.api.metadata.valuedescriptor;
 import jdk.jfr.Event;
 import jdk.jfr.EventType;
 import jdk.jfr.ValueDescriptor;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary Test ValueDescriptor.isArray().
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.valuedescriptor.TestIsArray
  */
 public class TestIsArray {

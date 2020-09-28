@@ -36,16 +36,18 @@ import java.util.List;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.thread.TestThread;
-import jdk.testlibrary.thread.XRun;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.thread.TestThread;
+import jdk.test.lib.thread.XRun;
 
 
 /**
  * @test
  * @summary Verify the event time stamp and thread name
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps jdk.jfr.event.io.TestRandomAccessFileThread
  */
 

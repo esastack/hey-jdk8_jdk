@@ -94,6 +94,7 @@ static CFMutableArrayRef getAllValidDisplayModes(jint displayID){
 static CGDisplayModeRef getBestModeForParameters(CFArrayRef allModes, int w, int h, int bpp, int refrate) {
     CGDisplayModeRef bestGuess = NULL;
     CFIndex numModes = CFArrayGetCount(allModes), n;
+
     for(n = 0; n < numModes; n++ ) {
         CGDisplayModeRef cRef = (CGDisplayModeRef) CFArrayGetValueAtIndex(allModes, n);
         if(cRef == NULL) {

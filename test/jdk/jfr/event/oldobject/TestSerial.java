@@ -31,14 +31,17 @@ import java.util.List;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.internal.test.WhiteBox;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
+ * @key jfr
+ *
+ *
  * @summary Test leak profiler with Serial GC
- * @library /lib/testlibrary /
- * @modules jdk.jfr/jdk.jfr.internal.test
+ * @library /lib /
+ *
  * @run main/othervm  -XX:TLABSize=2k -XX:+UseSerialGC jdk.jfr.event.oldobject.TestSerial
  */
 public class TestSerial {

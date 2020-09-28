@@ -25,8 +25,8 @@
 
 package jdk.jfr.event.gc.collection;
 
-import static jdk.testlibrary.Asserts.assertGreaterThan;
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertGreaterThan;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -38,9 +38,9 @@ import java.util.Set;
 
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.jfr.AppExecutorHelper;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.OutputAnalyzer;
+import jdk.test.lib.jfr.AppExecutorHelper;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.process.OutputAnalyzer;
 
 
 /**
@@ -62,7 +62,7 @@ public class GCGarbageCollectionUtil {
      * @throws Exception in case of any failure
      */
     public static void test(String testID, String[] testFlags,
-            String[] gcNames, String... gcCauses) throws Throwable {
+            String[] gcNames, String... gcCauses) throws Exception {
 
         String jfrFile = testID + ".jfr";
 
@@ -71,6 +71,9 @@ public class GCGarbageCollectionUtil {
         summaryFlags.add("-Xmx100m");
         summaryFlags.add("-XX:+UnlockExperimentalVMOptions");
         summaryFlags.add("-XX:-UseFastUnorderedTimeStamps");
+        summaryFlags.add("-XX:+PrintGCDetails");
+        summaryFlags.add("-XX:+PrintGC");
+
 
         String args[] = {};
         OutputAnalyzer analyzer = AppExecutorHelper.executeAndRecord(EVENT_SETTINGS_FILE, jfrFile,

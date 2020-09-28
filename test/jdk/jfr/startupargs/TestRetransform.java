@@ -28,13 +28,15 @@ package jdk.jfr.startupargs;
 import jdk.jfr.Event;
 import jdk.jfr.EventType;
 import jdk.jfr.Recording;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.SimpleEvent;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.SimpleEvent;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm -XX:FlightRecorderOptions=retransform=false jdk.jfr.startupargs.TestRetransform
  * @run main/othervm -XX:FlightRecorderOptions=retransform=true jdk.jfr.startupargs.TestRetransform
  */

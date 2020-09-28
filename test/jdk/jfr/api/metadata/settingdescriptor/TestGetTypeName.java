@@ -26,13 +26,15 @@ package jdk.jfr.api.metadata.settingdescriptor;
 
 import jdk.jfr.EventType;
 import jdk.jfr.SettingDescriptor;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Test SettingDescriptor.getTypeName();
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.settingdescriptor.TestGetTypeName
  */
 public class TestGetTypeName {

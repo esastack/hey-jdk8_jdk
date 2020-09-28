@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, 2018, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2016, 2019, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -25,11 +25,11 @@
 
 package jdk.jfr.consumer;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -37,7 +37,7 @@ import jdk.jfr.Timespan;
 import jdk.jfr.Timestamp;
 import jdk.jfr.ValueDescriptor;
 import jdk.jfr.internal.PrivateAccess;
-import jdk.jfr.internal.cmd.PrettyWriter;
+import jdk.jfr.internal.tool.PrettyWriter;
 
 /**
  * A complex data type that consists of one or more fields.
@@ -47,7 +47,7 @@ import jdk.jfr.internal.cmd.PrettyWriter;
  * {@code "aaa.bbb"}). A method evaluates a nested object from left to right,
  * and if a part is {@code null}, it throws {@code NullPointerException}.
  *
- * @since 9
+ * @since 8
  */
 public class RecordedObject {
 
@@ -878,18 +878,23 @@ public class RecordedObject {
     final public String toString() {
         StringWriter s = new StringWriter();
         PrettyWriter p = new PrettyWriter(new PrintWriter(s));
-        try {
-            if (this instanceof RecordedEvent) {
-                p.print((RecordedEvent) this);
-            } else {
-                p.print(this, "");
-            }
-
-        } catch (IOException e) {
-            // Ignore, should not happen with StringWriter
+        p.setStackDepth(5);
+        if (this instanceof RecordedEvent) {
+            p.print((RecordedEvent) this);
+        } else {
+            p.print(this, "");
         }
-        p.flush();
+        p.flush(true);
         return s.toString();
+    }
+
+    // package private for now. Used by EventWriter
+    OffsetDateTime getOffsetDateTime(String name) {
+        Instant instant = getInstant(name);
+        if (instant.equals(Instant.MIN)) {
+            return OffsetDateTime.MIN;
+        }
+        return OffsetDateTime.ofInstant(getInstant(name), timeConverter.getZoneOffset());
     }
 
     private static IllegalArgumentException newIllegalArgumentException(String name, String typeName) {

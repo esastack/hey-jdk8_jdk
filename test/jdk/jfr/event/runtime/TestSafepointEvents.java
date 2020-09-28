@@ -24,7 +24,7 @@
  */
 package jdk.jfr.event.runtime;
 
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.nio.file.Paths;
 import java.time.Duration;
@@ -33,14 +33,16 @@ import java.util.*;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 import sun.hotspot.WhiteBox;
 
 /**
  * @test TestSafepointEvents
- * @library /lib/testlibrary / /lib
+ * @key jfr
+ *
+ * @library /lib /
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox
  *     sun.hotspot.WhiteBox$WhiteBoxPermission

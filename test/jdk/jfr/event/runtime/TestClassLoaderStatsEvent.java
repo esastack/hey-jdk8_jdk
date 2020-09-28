@@ -35,19 +35,21 @@ import java.util.List;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedClassLoader;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @build jdk.jfr.event.runtime.TestClasses
  * @run main/othervm jdk.jfr.event.runtime.TestClassLoaderStatsEvent
  */
 public class TestClassLoaderStatsEvent {
     private final static String EVENT_NAME = EventNames.ClassLoaderStatistics;
-    private final static String CLASS_LOADER_NAME = "jdk/jfr/event/runtime/TestClassLoaderStatsEvent$DummyClassLoader"; //  unsupport "MyDummyClassLoader";
+  private final static String CLASS_LOADER_NAME = "jdk/jfr/event/runtime/TestClassLoaderStatsEvent$DummyClassLoader"; // XXX unsupported in JDK8 "MyDummyClassLoader";
     private final static String CLASSLOADER_TYPE_NAME = "jdk.jfr.event.runtime.TestClassLoaderStatsEvent$DummyClassLoader";
     public static DummyClassLoader dummyloader;
 

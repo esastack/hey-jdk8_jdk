@@ -34,14 +34,16 @@ import jdk.jfr.ValueDescriptor;
 import jdk.jfr.consumer.RecordedClass;
 import jdk.jfr.consumer.RecordedClassLoader;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Verifies the methods of the RecordedEvent
- * @library /lib/testlibrary
- * @run main/othervm -XX:+UnlockDiagnosticVMOptions -XX:+DisplayVMOutput -XX:+LogVMOutput -XX:+FlightRecorder jdk.jfr.api.consumer.TestRecordedEvent
+ * @key jfr
+ *
+ * @library /lib /
+ * @run main/othervm jdk.jfr.api.consumer.TestRecordedEvent
  */
 public class TestRecordedEvent {
 

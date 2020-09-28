@@ -24,9 +24,9 @@
  */
 package jdk.jfr.event.runtime;
 
-import static jdk.testlibrary.Asserts.assertEquals;
-import static jdk.testlibrary.Asserts.assertNull;
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertNull;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -40,13 +40,15 @@ import jdk.jfr.Timespan;
 import jdk.jfr.Timestamp;
 import jdk.jfr.ValueDescriptor;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Tests that the recording properties are properly reflected in the ActiveRecording event
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.event.runtime.TestActiveRecordingEvent
  */
 public final class TestActiveRecordingEvent {

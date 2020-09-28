@@ -27,13 +27,15 @@ package jdk.jfr.api.event;
 
 import jdk.jfr.EventType;
 import jdk.jfr.Recording;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.SimpleEvent;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.SimpleEvent;
 
 /**
  * @test
  * @summary Test Event.isEnabled()
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.event.TestIsEnabled
  */
 

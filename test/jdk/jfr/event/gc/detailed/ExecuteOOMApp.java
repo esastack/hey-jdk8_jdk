@@ -25,8 +25,8 @@
 
 package jdk.jfr.event.gc.detailed;
 
-import jdk.testlibrary.jfr.AppExecutorHelper;
-import jdk.testlibrary.OutputAnalyzer;
+import jdk.test.lib.jfr.AppExecutorHelper;
+import jdk.test.lib.process.OutputAnalyzer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,7 +44,7 @@ public class ExecuteOOMApp {
      * @return true - OOM application is finished as expected,i.e. OOM happened in the test thead
      *         false - OOM application is finished with OOM error which happened in the non test thread
      */
-    public static boolean execute(String settings, String jfrFilename, String[] additionalVmFlags, int bytesToAllocate) throws Throwable {
+    public static boolean execute(String settings, String jfrFilename, String[] additionalVmFlags, int bytesToAllocate) throws Exception {
         List<String> additionalVmFlagsList = new ArrayList<>(Arrays.asList(additionalVmFlags));
         additionalVmFlagsList.add("-XX:-UseGCOverheadLimit");
 

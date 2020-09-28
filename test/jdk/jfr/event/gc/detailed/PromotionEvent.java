@@ -24,10 +24,10 @@
  */
 package jdk.jfr.event.gc.detailed;
 
-import static jdk.testlibrary.Asserts.assertEquals;
-import static jdk.testlibrary.Asserts.assertNotEquals;
-import static jdk.testlibrary.Asserts.assertNotNull;
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertNotEquals;
+import static jdk.test.lib.Asserts.assertNotNull;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.lang.management.GarbageCollectorMXBean;
 import java.lang.management.ManagementFactory;
@@ -36,8 +36,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * This is a base class for testing Promotion Events

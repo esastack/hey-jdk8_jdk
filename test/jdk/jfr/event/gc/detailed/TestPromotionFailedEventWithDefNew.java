@@ -27,14 +27,17 @@ package jdk.jfr.event.gc.detailed;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary /
+ *
+ *
+ * @library /lib /
  * @run main jdk.jfr.event.gc.detailed.TestPromotionFailedEventWithDefNew
  */
 public class TestPromotionFailedEventWithDefNew {
     public static void main(String[] args) throws Throwable {
         PromotionFailedEvent.test("TestPromotionFailedEventWithDefNew", new String[] {"-XX:+UnlockExperimentalVMOptions",
-            "-XX:-UseFastUnorderedTimeStamps", "-Xmx32m", "-Xmn30m",
+            "-XX:-UseFastUnorderedTimeStamps", "-XX:+PrintGCDetails", "-XX:+PrintGC",  "-Xmx32m", "-Xmn30m",
             "-XX:-UseDynamicNumberOfGCThreads", "-XX:MaxTenuringThreshold=0", "-XX:+UseSerialGC"});
     }
 }

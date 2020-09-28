@@ -36,12 +36,14 @@ import jdk.jfr.Recording;
 import jdk.jfr.RecordingState;
 import jdk.management.jfr.FlightRecorderMXBean;
 import jdk.management.jfr.RecordingInfo;
-import jdk.testlibrary.jfr.CommonHelper;
+import jdk.test.lib.jfr.CommonHelper;
 
 /**
  * @test
+ * @key jfr
  * @summary Test for RecordingInfo
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.info.TestRecordingInfo
  */
 public class TestRecordingInfo {

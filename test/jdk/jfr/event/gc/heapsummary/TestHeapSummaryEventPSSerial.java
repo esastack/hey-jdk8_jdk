@@ -24,11 +24,14 @@
  */
 
 package jdk.jfr.event.gc.heapsummary;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.jfr.GCHelper;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ *
+ * @library /lib /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:-UseParallelOldGC -XX:+UseParallelGC jdk.jfr.event.gc.heapsummary.TestHeapSummaryEventPSSerial
  */
 public class TestHeapSummaryEventPSSerial {

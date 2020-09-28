@@ -25,14 +25,18 @@
 
 package jdk.jfr.startupargs;
 
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.OutputAnalyzer;
-import jdk.testlibrary.ProcessTools;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.process.OutputAnalyzer;
+import jdk.test.lib.process.ProcessTools;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
+ *
+
  *
  * @run main jdk.jfr.startupargs.TestBadOptionValues
  */
@@ -48,7 +52,7 @@ public class TestBadOptionValues {
         Asserts.assertGreaterThan(options.length, 0);
 
         for (String option : options) {
-            pb = ProcessTools.createJavaProcessBuilder(prepend + option, "-XX:+PrintJFRLog", "-version");
+            pb = ProcessTools.createJavaProcessBuilder(prepend + option, "-version");
             output = new OutputAnalyzer(pb.start());
             output.shouldContain(expectedOutput);
         }

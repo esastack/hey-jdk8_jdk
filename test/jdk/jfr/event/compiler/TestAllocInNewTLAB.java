@@ -26,20 +26,22 @@
 package jdk.jfr.event.compiler;
 
 import static java.lang.Math.floor;
-import static jdk.testlibrary.Asserts.assertGreaterThanOrEqual;
-import static jdk.testlibrary.Asserts.assertLessThanOrEqual;
+import static jdk.test.lib.Asserts.assertGreaterThanOrEqual;
+import static jdk.test.lib.Asserts.assertLessThanOrEqual;
 
 import java.time.Duration;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Test that event is triggered when an object is allocated in a new TLAB.
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm -XX:+UseTLAB -XX:TLABSize=100k -XX:-ResizeTLAB -XX:TLABRefillWasteFraction=1 jdk.jfr.event.compiler.TestAllocInNewTLAB
  * @run main/othervm -XX:+UseTLAB -XX:TLABSize=100k -XX:-ResizeTLAB -XX:TLABRefillWasteFraction=1 -XX:-FastTLABRefill jdk.jfr.event.compiler.TestAllocInNewTLAB
  * @run main/othervm -XX:+UseTLAB -XX:TLABSize=100k -XX:-ResizeTLAB -XX:TLABRefillWasteFraction=1 -Xint jdk.jfr.event.compiler.TestAllocInNewTLAB

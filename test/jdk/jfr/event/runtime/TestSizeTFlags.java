@@ -24,21 +24,24 @@
  */
 package jdk.jfr.event.runtime;
 
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.nio.file.Paths;
 import java.time.Duration;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @bug 8058552
+ *
+ *
+ * @key jfr
  * @summary Test checks that flags of type size_t are being sent to the jfr
- * @library /lib/testlibrary
+ * @library /lib /
  * @run main/othervm -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+UseG1GC -XX:+UseTLAB -XX:MinTLABSize=3k -XX:OldSize=30m -XX:YoungPLABSize=3k -XX:MaxDirectMemorySize=5M  jdk.jfr.event.runtime.TestSizeTFlags
  */
 public class TestSizeTFlags {

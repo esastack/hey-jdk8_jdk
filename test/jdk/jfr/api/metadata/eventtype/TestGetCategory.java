@@ -30,12 +30,14 @@ import java.util.List;
 import jdk.jfr.Category;
 import jdk.jfr.Event;
 import jdk.jfr.EventType;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary Test setName().
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.eventtype.TestGetCategory
  */
 public class TestGetCategory {

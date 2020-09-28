@@ -27,8 +27,11 @@ package jdk.jfr.event.gc.collection;
 
 /**
  * @test
- * @library /lib/testlibrary /
- * @run main/othervm -Xmx50m -Xmn2m -XX:+UseConcMarkSweepGC -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps jdk.jfr.event.gc.collection.TestYoungGarbageCollectionEventWithParNew
+ * @key jfr
+ *
+ *
+ * @library /lib /
+ * @run main/othervm -Xmx50m -Xmn2m -XX:+UseConcMarkSweepGC -XX:+UnlockExperimentalVMOptions -XX:-UseFastUnorderedTimeStamps -XX:+PrintGCDetails -XX:+PrintGC jdk.jfr.event.gc.collection.TestYoungGarbageCollectionEventWithParNew
  */
 public class TestYoungGarbageCollectionEventWithParNew {
 

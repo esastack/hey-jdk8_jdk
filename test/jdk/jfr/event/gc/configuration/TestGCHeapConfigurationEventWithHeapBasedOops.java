@@ -26,7 +26,7 @@
 package jdk.jfr.event.gc.configuration;
 
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventVerifier;
+import jdk.test.lib.jfr.EventVerifier;
 
 /* See the shell script wrapper for the flags used when invoking the JVM */
 public class TestGCHeapConfigurationEventWithHeapBasedOops extends GCHeapConfigurationEventTester {

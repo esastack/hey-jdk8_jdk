@@ -36,12 +36,14 @@ import jdk.jfr.Event;
 import jdk.jfr.EventType;
 import jdk.jfr.MetadataDefinition;
 import jdk.jfr.Timespan;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.annotations.TestContentType
  */
 public class TestContentType {

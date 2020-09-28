@@ -34,14 +34,17 @@ import jdk.jfr.EventFactory;
 import jdk.jfr.EventType;
 import jdk.jfr.Label;
 import jdk.jfr.ValueDescriptor;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 
 /**
  * @test
  * @summary EventFactory simple test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.event.TestEventFactory
+ * @run main/othervm -XX:+AllowParallelDefineClass jdk.jfr.api.event.TestEventFactory
  */
 public class TestEventFactory {
 

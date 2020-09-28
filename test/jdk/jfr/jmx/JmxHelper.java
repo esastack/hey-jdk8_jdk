@@ -47,9 +47,9 @@ import jdk.management.jfr.EventTypeInfo;
 import jdk.management.jfr.FlightRecorderMXBean;
 import jdk.management.jfr.RecordingInfo;
 import jdk.management.jfr.SettingDescriptorInfo;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.CommonHelper;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.CommonHelper;
+import jdk.test.lib.jfr.Events;
 
 public class JmxHelper {
 

@@ -40,13 +40,15 @@ import java.util.List;
 
 import jdk.jfr.Event;
 import jdk.jfr.Recording;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.OutputAnalyzer;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.process.OutputAnalyzer;
 
 /**
  * @test
  * @summary The test verifies JFR.dump command
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jcmd.TestJcmdDumpLimited
  */
 public class TestJcmdDumpLimited {
@@ -230,9 +232,9 @@ public class TestJcmdDumpLimited {
     }
 
     private static void testDumpBeginEndLocalTime() throws IOException {
-        // LocalTime centerLeftLocal = LocalTime.ofInstant(centerLeft, ZoneOffset.systemDefault());
+        //LocalTime centerLeftLocal = LocalTime.ofInstant(centerLeft, ZoneOffset.systemDefault());
         LocalTime centerLeftLocal = LocalDateTime.ofInstant(centerLeft, ZoneOffset.systemDefault()).toLocalTime();
-        // LocalTime centerRightLocal = LocalTime.ofInstant(centerRight, ZoneOffset.systemDefault());
+        //LocalTime centerRightLocal = LocalTime.ofInstant(centerRight, ZoneOffset.systemDefault());
         LocalTime centerRightLocal = LocalDateTime.ofInstant(centerRight, ZoneOffset.systemDefault()).toLocalTime();
         Path testBeginEnd = Paths.get("testBeginEndLocalTime.jfr");
         JcmdHelper.jcmd("JFR.dump", "filename=" + testBeginEnd.toFile().getAbsolutePath(), "begin=" + centerLeftLocal, "end=" + centerRightLocal);

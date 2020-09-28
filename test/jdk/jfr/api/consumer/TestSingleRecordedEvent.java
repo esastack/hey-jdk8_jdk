@@ -31,13 +31,15 @@ import jdk.jfr.Description;
 import jdk.jfr.Event;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Verifies that a single JFR event is recorded as expected
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.consumer.TestSingleRecordedEvent
  */
 public class TestSingleRecordedEvent {

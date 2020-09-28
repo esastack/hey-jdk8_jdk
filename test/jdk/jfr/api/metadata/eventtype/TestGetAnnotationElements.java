@@ -60,12 +60,14 @@ import jdk.jfr.TransitionFrom;
 import jdk.jfr.TransitionTo;
 import jdk.jfr.Unsigned;
 import jdk.jfr.ValueDescriptor;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary Test for AnnotationElement.getAnnotationElements()
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.eventtype.TestGetAnnotationElements
  */
 public class TestGetAnnotationElements {

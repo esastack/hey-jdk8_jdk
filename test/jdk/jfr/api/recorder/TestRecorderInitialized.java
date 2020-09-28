@@ -27,11 +27,13 @@ package jdk.jfr.api.recorder;
 
 import jdk.jfr.FlightRecorder;
 import jdk.jfr.FlightRecorderListener;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test TestRecorderListener
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  *
  * @run main/othervm jdk.jfr.api.recorder.TestRecorderInitialized
  */

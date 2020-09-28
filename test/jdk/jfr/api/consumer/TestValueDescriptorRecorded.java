@@ -33,14 +33,16 @@ import jdk.jfr.Label;
 import jdk.jfr.Recording;
 import jdk.jfr.ValueDescriptor;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 
 /**
  * @test
  * @summary Verifies that the recorded value descriptors are correct
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm  jdk.jfr.api.consumer.TestValueDescriptorRecorded
  */
 public class TestValueDescriptorRecorded {

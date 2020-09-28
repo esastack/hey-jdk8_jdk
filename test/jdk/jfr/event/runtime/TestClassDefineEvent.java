@@ -31,16 +31,19 @@ import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedClass;
 import jdk.jfr.consumer.RecordedClassLoader;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.TestClassLoader;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.TestClassLoader;
 
 /**
  * @test
- * @library /lib/testlibrary / 
+ * @key jfr
+ *
+ * @library /lib /
  * @build jdk.jfr.event.runtime.TestClasses
  * @run main/othervm jdk.jfr.event.runtime.TestClassDefineEvent
+ * @run main/othervm -XX:+AllowParallelDefineClass jdk.jfr.event.runtime.TestClassDefineEvent
  */
 public final class TestClassDefineEvent {
 
@@ -67,8 +70,8 @@ public final class TestClassDefineEvent {
                 Asserts.assertNotNull(definingClassLoaderType, "The defining Class Loader type should not be null");
                 Asserts.assertEquals(cl.getClass().getName(), definingClassLoaderType.getName(),
                     "Expected type " + cl.getClass().getName() + ", got type " + definingClassLoaderType.getName());
-//                Asserts.assertEquals(cl.getName(), definingClassLoader.getName(),
-//                    "Defining Class Loader should have the same name as the original class loader");
+                //Asserts.assertEquals(cl.getName(), definingClassLoader.getName(),
+                  //  "Defining Class Loader should have the same name as the original class loader");
                 foundTestClasses = true;
             }
         }

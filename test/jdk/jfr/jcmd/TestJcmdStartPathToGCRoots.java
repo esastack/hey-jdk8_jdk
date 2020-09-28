@@ -29,13 +29,15 @@ import java.util.List;
 
 import jdk.jfr.FlightRecorder;
 import jdk.jfr.Recording;
-import jdk.testlibrary.jfr.EventNames;
+import jdk.test.lib.jfr.EventNames;
 
 
 /**
  * @test
  * @summary Start a recording with or without path-to-gc-roots
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
+ * @key jfr
  *
  * @run main/othervm jdk.jfr.jcmd.TestJcmdStartPathToGCRoots
  */

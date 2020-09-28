@@ -29,17 +29,19 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import java.lang.management.ManagementFactory;
 
 import jdk.jfr.Configuration;
 import jdk.jfr.Recording;
-import jdk.testlibrary.jfr.FileHelper;
-import jdk.testlibrary.OutputAnalyzer;
-import jdk.testlibrary.ProcessTools;
+import jdk.test.lib.jfr.FileHelper;
+import jdk.test.lib.process.OutputAnalyzer;
 
 /**
  * @test
  * @summary The test verifies JFR.dump command
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jcmd.TestJcmdDumpGeneratedFilename
  */
 public class TestJcmdDumpGeneratedFilename {
@@ -91,9 +93,29 @@ public class TestJcmdDumpGeneratedFilename {
         }
     }
 
+    private static long getProcessId() {
+
+        // something like '<pid>@<hostname>', at least in SUN / Oracle JVMs
+        final String jvmName = ManagementFactory.getRuntimeMXBean().getName();
+
+        final int index = jvmName.indexOf('@');
+
+        if (index < 1) {
+            // part before '@' empty (index = 0) / '@' not found (index = -1)
+            return 42;
+        }
+
+        try {
+            return Long.parseLong(jvmName.substring(0, index));
+        } catch (NumberFormatException e) {
+            // ignore
+        }
+        return 42;
+    }
+
     private static void verifyFile(String filename, Long id) throws Exception {
         String idText = id == null ? "" : "-id-" + Long.toString(id);
-        String expectedName = "hotspot-pid-" + ProcessTools.getProcessId() + idText;
+        String expectedName = "hotspot-pid-" + getProcessId() + idText;
         if (!filename.contains(expectedName)) {
             throw new Exception("Expected filename to contain " + expectedName);
         }

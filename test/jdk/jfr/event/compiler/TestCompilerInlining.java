@@ -30,10 +30,10 @@ import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedMethod;
 import jdk.jfr.consumer.RecordedObject;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.Platform;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.Platform;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 import sun.hotspot.WhiteBox;
 
 import java.io.IOException;
@@ -46,11 +46,14 @@ import java.util.stream.IntStream;
 /**
  * @test CompilerInliningTest
  * @bug 8073607
+ * @key jfr
  * @summary Verifies that corresponding JFR events are emitted in case of inlining.
  *
- * @library /lib/testlibrary /lib /
- * @modules java.base/jdk.internal.org.objectweb.asm
- *          jdk.jfr
+ *
+ *
+ * @library /lib /
+ *
+
  *
  * @build sun.hotspot.WhiteBox
  * @run main ClassFileInstaller sun.hotspot.WhiteBox

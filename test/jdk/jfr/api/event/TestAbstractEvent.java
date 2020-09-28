@@ -34,14 +34,17 @@ import jdk.jfr.FlightRecorder;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Tests that abstract events are not part of metadata
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.event.TestAbstractEvent
+ * @run main/othervm -XX:+AllowParallelDefineClass jdk.jfr.api.event.TestAbstractEvent
  */
 public class TestAbstractEvent {
 

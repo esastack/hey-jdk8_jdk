@@ -27,12 +27,14 @@ package jdk.jfr.jvm;
 
 import jdk.jfr.FlightRecorder;
 import jdk.jfr.internal.JVM;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test TestGetStackTraceId
- * @library /lib/testlibrary /
- * @modules jdk.jfr/jdk.jfr.internal
+ * @key jfr
+ *
+ * @library /lib /
+ *
  * @run main/othervm jdk.jfr.jvm.TestGetStackTraceId
  */
 public class TestGetStackTraceId {

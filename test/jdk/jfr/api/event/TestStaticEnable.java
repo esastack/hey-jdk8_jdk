@@ -31,12 +31,14 @@ import java.util.List;
 import jdk.jfr.Event;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
  * @summary Enable an event from a static function in the event.
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.event.TestStaticEnable
  */
 public class TestStaticEnable {

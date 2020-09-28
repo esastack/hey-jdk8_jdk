@@ -40,13 +40,15 @@ import java.util.stream.Collectors;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.SimpleEvent;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.SimpleEvent;
 
 /**
  * @test
  * @summary A simple test for Recording.getStream()
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.misc.TestGetStream
  */
 public class TestGetStream {

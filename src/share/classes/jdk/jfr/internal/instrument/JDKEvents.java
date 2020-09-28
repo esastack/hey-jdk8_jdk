@@ -58,7 +58,7 @@ public final class JDKEvents {
         ExceptionStatisticsEvent.class,
         ErrorThrownEvent.class,
         ActiveSettingEvent.class,
-        ActiveRecordingEvent.class,
+        ActiveRecordingEvent.class
     };
 
     // This is a list of the classes with instrumentation code that should be applied.

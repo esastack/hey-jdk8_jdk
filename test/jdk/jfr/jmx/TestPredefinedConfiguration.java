@@ -31,11 +31,13 @@ import java.util.List;
 import jdk.jfr.Configuration;
 import jdk.management.jfr.FlightRecorderMXBean;
 import jdk.management.jfr.RecordingInfo;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestPredefinedConfiguration
  */
 public class TestPredefinedConfiguration {

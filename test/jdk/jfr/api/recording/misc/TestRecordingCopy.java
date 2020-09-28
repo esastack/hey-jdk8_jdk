@@ -27,16 +27,18 @@ package jdk.jfr.api.recording.misc;
 import jdk.jfr.Recording;
 import jdk.jfr.RecordingState;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.SimpleEvent;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.SimpleEvent;
 
 import java.util.List;
 
 /**
  * @test
  * @summary A simple test for Recording.copy()
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.misc.TestRecordingCopy
  */
 public class TestRecordingCopy {

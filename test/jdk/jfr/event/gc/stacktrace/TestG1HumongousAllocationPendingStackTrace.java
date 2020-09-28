@@ -26,9 +26,12 @@ package jdk.jfr.event.gc.stacktrace;
 
 /**
  * @test
+ * @key jfr
  *
- * @library /lib/testlibrary /
- * @run main/othervm -XX:+UseG1GC -Xmx64M -XX:InitiatingHeapOccupancyPercent=100 jdk.jfr.event.gc.stacktrace.TestG1HumongousAllocationPendingStackTrace
+ *
+ *
+ * @library /lib /
+ * @run main/othervm -XX:+UseG1GC -XX:+PrintGCDetails -XX:+PrintGC -Xmx64M -XX:InitiatingHeapOccupancyPercent=100 jdk.jfr.event.gc.stacktrace.TestG1HumongousAllocationPendingStackTrace
  */
 public class TestG1HumongousAllocationPendingStackTrace {
 

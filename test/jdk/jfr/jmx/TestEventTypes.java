@@ -39,13 +39,15 @@ import jdk.jfr.SettingDescriptor;
 import jdk.management.jfr.EventTypeInfo;
 import jdk.management.jfr.FlightRecorderMXBean;
 import jdk.management.jfr.SettingDescriptorInfo;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
+ * @key jfr
  * @summary Verifies that EventTypes from jmx and FlightRecorder are the same.
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestEventTypes
  */
 public class TestEventTypes {

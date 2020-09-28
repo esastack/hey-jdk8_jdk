@@ -29,10 +29,10 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.dcmd.CommandExecutor;
-import jdk.testlibrary.dcmd.PidJcmdExecutor;
-import jdk.testlibrary.OutputAnalyzer;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.dcmd.CommandExecutor;
+import jdk.test.lib.dcmd.PidJcmdExecutor;
+import jdk.test.lib.process.OutputAnalyzer;
 
 public class JcmdHelper {
 

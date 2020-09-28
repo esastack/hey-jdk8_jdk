@@ -26,8 +26,8 @@
 package jdk.jfr.event.gc.configuration;
 
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventVerifier;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.jfr.EventVerifier;
+import jdk.test.lib.jfr.GCHelper;
 import sun.hotspot.WhiteBox;
 
 /* See the shell script wrapper for the flags used when invoking the JVM */

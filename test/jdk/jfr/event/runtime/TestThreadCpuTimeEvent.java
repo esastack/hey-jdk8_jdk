@@ -29,9 +29,9 @@ import com.sun.management.ThreadMXBean;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordedThread;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 import java.lang.management.ManagementFactory;
 import java.time.Duration;
@@ -45,9 +45,10 @@ import java.util.stream.Collectors;
 
 /**
  * @test
- * @library /lib/testlibrary
- * @modules jdk.jfr
- *          jdk.management
+ * @key jfr
+ *
+ * @library /lib /
+ *
  *
  * @run main/othervm jdk.jfr.event.runtime.TestThreadCpuTimeEvent
  */

@@ -34,12 +34,14 @@ import jdk.jfr.jmx.JmxHelper;
 
 import jdk.jfr.Configuration;
 import jdk.management.jfr.ConfigurationInfo;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
+ * @key jfr
  * @summary Test for ConfigurationInfo. Compare infos from java API and jmx API.
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.info.TestConfigurationInfo
  */
 public class TestConfigurationInfo {

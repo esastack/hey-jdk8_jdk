@@ -32,12 +32,14 @@ import java.util.Set;
 import jdk.jfr.EventType;
 import jdk.jfr.FlightRecorder;
 import jdk.jfr.ValueDescriptor;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.event.metadata.TestEventMetadata
  */
 

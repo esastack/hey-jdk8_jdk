@@ -29,12 +29,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jdk.management.jfr.FlightRecorderMXBean;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
+ * @key jfr
  * @summary Verify exception when setting invalid settings.
- * @library /lib/testlibrary /
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestRecordingSettingsInvalid
  */
 public class TestRecordingSettingsInvalid {

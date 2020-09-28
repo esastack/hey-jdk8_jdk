@@ -29,12 +29,14 @@ import java.util.List;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.event.os.TestCPUInformation
  */
 public class TestCPUInformation {
@@ -53,7 +55,7 @@ public class TestCPUInformation {
             Events.assertField(event, "cores").atLeast(1);
             Events.assertField(event, "sockets").atLeast(1);
             Events.assertField(event, "cpu").containsAny("Intel", "AMD", "Unknown x86", "sparc", "ARM", "PPC", "PowerPC", "AArch64", "s390");
-            Events.assertField(event, "description").containsAny("Intel", "AMD", "Unknown x86", "SPARC", "ARM", "PPC", "PowerPC", "AArch64", "s390");
+            Events.assertField(event, "description").containsAny("Intel", "AMD", "Unknown x86", "SPARC", "ARM", "PPC", "PowerPC", "AArch64", "zArch");
         }
     }
 }

@@ -47,7 +47,6 @@ public final class JVMSupport {
                 return false;
             }
         } catch (NoClassDefFoundError cnfe) {
-            // May happen on JDK 8, where jdk.internal.misc.Unsafe can't be found
             return false;
         }
         try {

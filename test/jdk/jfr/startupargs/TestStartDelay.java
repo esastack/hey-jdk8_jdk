@@ -30,13 +30,15 @@ import java.time.Instant;
 
 import jdk.jfr.Recording;
 import jdk.jfr.RecordingState;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.CommonHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.CommonHelper;
 
 /**
  * @test
  * @summary Start a recording with delay. Verify recording starts later.
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm -XX:StartFlightRecording=name=TestStartDelay,delay=5000s jdk.jfr.startupargs.TestStartDelay
  */
 public class TestStartDelay {

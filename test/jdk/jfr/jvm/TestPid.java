@@ -25,18 +25,40 @@
 
 package jdk.jfr.jvm;
 
-import static jdk.testlibrary.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertEquals;
+import java.lang.management.ManagementFactory;
 
 import jdk.jfr.internal.JVM;
-import jdk.testlibrary.ProcessTools;
 
 /**
  * @test TestPid
- * @library /lib/testlibrary /
- * @modules jdk.jfr/jdk.jfr.internal
+ * @key jfr
+ *
+ * @library /lib /
+ *
  * @run main/othervm jdk.jfr.jvm.TestPid
  */
 public class TestPid {
+
+    private static long getProcessId() {
+
+        // something like '<pid>@<hostname>', at least in SUN / Oracle JVMs
+        final String jvmName = ManagementFactory.getRuntimeMXBean().getName();
+
+        final int index = jvmName.indexOf('@');
+
+        if (index < 1) {
+            // part before '@' empty (index = 0) / '@' not found (index = -1)
+            return 42;
+        }
+
+        try {
+            return Long.parseLong(jvmName.substring(0, index));
+        } catch (NumberFormatException e) {
+            // ignore
+        }
+        return 42;
+    }
 
     public static void main(String... args) throws InterruptedException {
 
@@ -44,9 +66,9 @@ public class TestPid {
         String pid = jvm.getPid();
 
         try {
-            String managementPid = String.valueOf(ProcessTools.getProcessId());
+            String managementPid = String.valueOf(getProcessId());
             assertEquals(pid, managementPid, "Pid doesn't match value returned by RuntimeMXBean");
-        } catch (Exception nfe) {
+        } catch (NumberFormatException nfe) {
             throw new AssertionError("Pid must be numeric, but was '" + pid + "'");
         }
     }

@@ -25,16 +25,16 @@
 
 package jdk.jfr.event.gc.collection;
 
-import static jdk.testlibrary.Asserts.assertGreaterThan;
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertGreaterThan;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.time.Duration;
 import java.time.Instant;
 
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.GCHelper;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.GCHelper;
 
 
 public class YoungGarbageCollectionEvent {

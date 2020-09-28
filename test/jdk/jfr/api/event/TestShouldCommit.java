@@ -29,13 +29,15 @@ import java.time.Duration;
 
 import jdk.jfr.Event;
 import jdk.jfr.Recording;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary Test enable/disable event and verify recording has expected events.
- * @library /lib/testlibrary
- * @run main/othervm jdk.jfr.api.event.TestShouldCommit
+ * @key jfr
+ *
+ * @library /lib /
+ * @run main/othervm -XX:+LogJFR jdk.jfr.api.event.TestShouldCommit
  */
 
 public class TestShouldCommit {

@@ -25,21 +25,23 @@
 
 package jdk.jfr.api.recording.misc;
 
-import static jdk.testlibrary.Asserts.assertEquals;
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertEquals;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import jdk.jfr.Recording;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
 
 /**
  * @test
  * @summary Test recording file size with Recording.getSize()
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.misc.TestGetSizeToMem
  */
 public class TestGetSizeToMem {

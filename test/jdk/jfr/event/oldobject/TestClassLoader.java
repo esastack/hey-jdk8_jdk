@@ -27,9 +27,9 @@ package jdk.jfr.event.oldobject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.ByteArrayOutputStream;
 
 /*
  * A special class loader that will, for our test class, make sure that each
@@ -110,14 +110,14 @@ public final class TestClassLoader extends ClassLoader {
             if (is == null) {
                 throw new RuntimeException("Culd not find class file " + classFileName);
             }
-//            byte[] b = is.readAllBytes();
-//            is.close();
-//            return b;
+            //byte[] b;= is.readAllBytes();
+            //is.read(b);
             ByteArrayOutputStream os = new ByteArrayOutputStream();
             byte[] buffer = new byte[0xFFFF];
             for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
                 os.write(buffer, 0, len);
             }
+            is.close();
             return os.toByteArray();
         } catch (IOException ioe) {
             ioe.printStackTrace();

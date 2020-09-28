@@ -25,13 +25,15 @@
 
 package jdk.jfr.api.flightrecorder;
 
-import static jdk.testlibrary.Asserts.fail;
+import static jdk.test.lib.Asserts.fail;
 
 import jdk.jfr.FlightRecorder;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.flightrecorder.TestListenerNull
  */
 public class TestListenerNull {

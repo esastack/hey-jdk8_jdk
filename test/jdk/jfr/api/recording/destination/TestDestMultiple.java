@@ -33,15 +33,17 @@ import java.util.List;
 import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedEvent;
 import jdk.jfr.consumer.RecordingFile;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.SimpleEventHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.SimpleEventHelper;
 
 /**
  * @test
  * @summary Test setDestination with concurrent recordings
- * @library /lib/testlibrary
- * @run main/othervm jdk.jfr.api.recording.destination.TestDestMultiple
+ * @key jfr
+ *
+ * @library /lib /
+ * @run main/othervm -XX:+LogJFR  jdk.jfr.api.recording.destination.TestDestMultiple
  */
 public class TestDestMultiple {
 

@@ -26,17 +26,19 @@
 package jdk.jfr.event.gc.configuration;
 
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.jfr.EventVerifier;
-import jdk.testlibrary.OutputAnalyzer;
-import jdk.testlibrary.ProcessTools;
+import jdk.test.lib.jfr.EventVerifier;
+import jdk.test.lib.process.OutputAnalyzer;
+import jdk.test.lib.process.ProcessTools;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run driver jdk.jfr.event.gc.configuration.TestGCYoungGenerationConfigurationEventWithMinAndMaxSize
  */
 public class TestGCYoungGenerationConfigurationEventWithMinAndMaxSize {
-    public static void main(String[] args) throws Throwable {
+    public static void main(String[] args) throws Exception {
         String[] jvm_args = {"-XX:+UnlockExperimentalVMOptions",
                              "-XX:-UseFastUnorderedTimeStamps",
                              "-XX:NewSize=12m",

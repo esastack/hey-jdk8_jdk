@@ -29,11 +29,13 @@ import jdk.jfr.Enabled;
 import jdk.jfr.Event;
 import jdk.jfr.EventType;
 import jdk.jfr.Recording;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.metadata.annotations.TestEnabled
  */
 public class TestEnabled {

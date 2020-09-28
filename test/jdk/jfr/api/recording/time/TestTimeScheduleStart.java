@@ -30,13 +30,15 @@ import java.time.Instant;
 
 import jdk.jfr.Recording;
 import jdk.jfr.RecordingState;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.CommonHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.CommonHelper;
 
 /**
  * @test
+ * @key jfr
  * @summary Test Recording.scheduleStart() and Recording.get*Time()
- * @library /lib/testlibrary
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.time.TestTimeScheduleStart
  */
 

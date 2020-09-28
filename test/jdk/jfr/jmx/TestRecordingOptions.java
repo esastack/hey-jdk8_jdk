@@ -30,11 +30,13 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import jdk.management.jfr.FlightRecorderMXBean;
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jmx.TestRecordingOptions
  */
 public class TestRecordingOptions {

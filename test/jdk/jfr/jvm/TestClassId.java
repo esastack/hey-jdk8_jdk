@@ -25,16 +25,18 @@
 
 package jdk.jfr.jvm;
 
-import static jdk.testlibrary.Asserts.assertGreaterThan;
-import static jdk.testlibrary.Asserts.assertNE;
+import static jdk.test.lib.Asserts.assertGreaterThan;
+import static jdk.test.lib.Asserts.assertNE;
 
 import jdk.jfr.internal.JVM;
 import jdk.jfr.internal.Type;
 
 /**
  * @test TestClassId
- * @library /lib/testlibrary /
- * @modules jdk.jfr/jdk.jfr.internal
+ * @key jfr
+ *
+ * @library /lib /
+ *
  * @run main/othervm jdk.jfr.jvm.TestClassId
  */
 public class TestClassId {

@@ -32,17 +32,19 @@ import jdk.jfr.Recording;
 import jdk.jfr.consumer.RecordedClass;
 import jdk.jfr.consumer.RecordedClassLoader;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.EventNames;
-import jdk.testlibrary.jfr.Events;
-import jdk.testlibrary.jfr.TestClassLoader;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.EventNames;
+import jdk.test.lib.jfr.Events;
+import jdk.test.lib.jfr.TestClassLoader;
 
 /**
  * @test
  * @summary The test verifies that a class unload event is created when class is unloaded
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @build jdk.jfr.event.runtime.TestClasses
- * @run main/othervm -Xmx16m jdk.jfr.event.runtime.TestClassUnloadEvent
+ * @run main/othervm -XX:+PrintGCDetails -XX:+PrintGC  -verbose:class -Xmx16m jdk.jfr.event.runtime.TestClassUnloadEvent
  */
 
 /**
@@ -80,8 +82,8 @@ public final class TestClassUnloadEvent {
                 RecordedClassLoader definingClassLoader = unloadedClass.getClassLoader();
                 Asserts.assertEquals(TestClassLoader.class.getName(), definingClassLoader.getType().getName(),
                     "Expected " + TestClassLoader.class.getName() + ", got " + definingClassLoader.getType().getName());
-//                Asserts.assertEquals(TestClassLoader.CLASS_LOADER_NAME, definingClassLoader.getName(),
-//                    "Expected " + TestClassLoader.CLASS_LOADER_NAME + ", got " + definingClassLoader.getName());
+                //Asserts.assertEquals(TestClassLoader.CLASS_LOADER_NAME, definingClassLoader.getName(),
+                  //  "Expected " + TestClassLoader.CLASS_LOADER_NAME + ", got " + definingClassLoader.getName());
                 Asserts.assertFalse(isAnyFound, "Found more than 1 event");
                 isAnyFound = true;
             }

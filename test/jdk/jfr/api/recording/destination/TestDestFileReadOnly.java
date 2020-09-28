@@ -30,13 +30,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import jdk.jfr.Recording;
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.FileHelper;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.FileHelper;
 
 /**
  * @test
  * @summary Set destination to a read-only file. Expects exception.
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.recording.destination.TestDestFileReadOnly
  */
 public class TestDestFileReadOnly {

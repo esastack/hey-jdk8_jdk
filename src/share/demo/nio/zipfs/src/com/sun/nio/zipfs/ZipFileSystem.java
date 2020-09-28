@@ -1073,7 +1073,7 @@ public class ZipFileSystem extends FileSystem {
         int pos = 0;
         int limit = cen.length - ENDHDR;
         while (pos < limit) {
-            if (CENSIG(cen, pos) != CENSIG)
+            if (!cenSigAt(cen, pos))
                 zerror("invalid CEN header (bad signature)");
             int method = CENHOW(cen, pos);
             int nlen   = CENNAM(cen, pos);
@@ -1105,9 +1105,7 @@ public class ZipFileSystem extends FileSystem {
 
     // Creates a new empty temporary file in the same directory as the
     // specified file.  A variant of Files.createTempFile.
-    private Path createTempFileInSameDirectoryAs(Path path)
-        throws IOException
-    {
+    private Path createTempFileInSameDirectoryAs(Path path) throws IOException {
         Path parent = path.toAbsolutePath().getParent();
         Path dir = (parent == null) ? path.getFileSystem().getPath(".") : parent;
         Path tmpPath = Files.createTempFile(dir, "zipfstmp", null);
@@ -1213,6 +1211,7 @@ public class ZipFileSystem extends FileSystem {
         }
         if (!hasUpdate)
             return;
+        PosixFileAttributes attrs = getPosixAttributes(zfpath);
         Path tmpFile = createTempFileInSameDirectoryAs(zfpath);
         try (OutputStream os = new BufferedOutputStream(Files.newOutputStream(tmpFile, WRITE)))
         {
@@ -1313,6 +1312,11 @@ public class ZipFileSystem extends FileSystem {
             Files.delete(zfpath);
         }
 
+        // Set the POSIX permissions of the original Zip File if available
+        // before moving the temp file
+        if (attrs != null) {
+            Files.setPosixFilePermissions(tmpFile, attrs.permissions());
+        }
         Files.move(tmpFile, zfpath, REPLACE_EXISTING);
         hasUpdate = false;    // clear
         /*
@@ -1322,6 +1326,29 @@ public class ZipFileSystem extends FileSystem {
         }
          */
         //System.out.printf("->sync(%s) done!%n", toString());
+    }
+
+    /**
+     * Returns a file's POSIX file attributes.
+     * @param path The path to the file
+     * @return The POSIX file attributes for the specified file or
+     *         null if the POSIX attribute view is not available
+     * @throws IOException If an error occurs obtaining the POSIX attributes for
+     *                    the specified file
+     */
+    private PosixFileAttributes getPosixAttributes(Path path) throws IOException {
+        try {
+            PosixFileAttributeView view =
+                    Files.getFileAttributeView(path, PosixFileAttributeView.class);
+            // Return if the attribute view is not supported
+            if (view == null) {
+                return null;
+            }
+            return view.readAttributes();
+        } catch (UnsupportedOperationException e) {
+            // PosixFileAttributes not available
+            return null;
+        }
     }
 
     private IndexNode getInode(byte[] path) {
@@ -1894,7 +1921,7 @@ public class ZipFileSystem extends FileSystem {
             throws IOException
         {
             byte[] cen = zipfs.cen;
-            if (CENSIG(cen, pos) != CENSIG)
+            if (!cenSigAt(cen, pos))
                 zerror("invalid CEN header (bad signature)");
             versionMade = CENVEM(cen, pos);
             version     = CENVER(cen, pos);
@@ -2057,9 +2084,9 @@ public class ZipFileSystem extends FileSystem {
             assert (buf.length >= LOCHDR);
             if (zipfs.readFullyAt(buf, 0, LOCHDR , pos) != LOCHDR)
                 throw new ZipException("loc: reading failed");
-            if (LOCSIG(buf) != LOCSIG)
+            if (!locSigAt(buf, 0))
                 throw new ZipException("loc: wrong sig ->"
-                                       + Long.toString(LOCSIG(buf), 16));
+                                       + Long.toString(getSig(buf, 0), 16));
             //startPos = pos;
             version  = LOCVER(buf);
             flag     = LOCFLG(buf);
@@ -2291,9 +2318,9 @@ public class ZipFileSystem extends FileSystem {
                     if (zipfs.readFullyAt(buf, 0, buf.length , locoff)
                         != buf.length)
                         throw new ZipException("loc: reading failed");
-                    if (LOCSIG(buf) != LOCSIG)
+                    if (!locSigAt(buf, 0))
                         throw new ZipException("loc: wrong sig ->"
-                                           + Long.toString(LOCSIG(buf), 16));
+                                           + Long.toString(getSig(buf, 0), 16));
 
                     int locElen = LOCEXT(buf);
                     if (locElen < 9)    // EXTT is at lease 9 bytes

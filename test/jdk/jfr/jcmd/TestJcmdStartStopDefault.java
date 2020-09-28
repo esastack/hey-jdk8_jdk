@@ -30,14 +30,16 @@ import java.nio.file.Paths;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import jdk.testlibrary.Asserts;
-import jdk.testlibrary.jfr.FileHelper;
-import jdk.testlibrary.OutputAnalyzer;
+import jdk.test.lib.Asserts;
+import jdk.test.lib.jfr.FileHelper;
+import jdk.test.lib.process.OutputAnalyzer;
 
 /**
  * @test
  * @summary Start a recording without name.
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.jcmd.TestJcmdStartStopDefault
  */
 public class TestJcmdStartStopDefault {

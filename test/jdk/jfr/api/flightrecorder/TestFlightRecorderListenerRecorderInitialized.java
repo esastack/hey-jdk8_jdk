@@ -24,7 +24,7 @@
  */
 
 package jdk.jfr.api.flightrecorder;
-import static jdk.testlibrary.Asserts.assertTrue;
+import static jdk.test.lib.Asserts.assertTrue;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
@@ -36,7 +36,9 @@ import jdk.jfr.FlightRecorderListener;
 
 /**
  * @test
- * @library /lib/testlibrary
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.api.flightrecorder.TestFlightRecorderListenerRecorderInitialized
  */
 public class TestFlightRecorderListenerRecorderInitialized {

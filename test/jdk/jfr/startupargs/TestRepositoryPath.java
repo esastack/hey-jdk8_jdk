@@ -29,12 +29,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import jdk.testlibrary.Asserts;
+import jdk.test.lib.Asserts;
 
 /**
  * @test
  * @summary Set repository path. Verify recording created in repo.
- * @library /lib/testlibrary /
+ * @key jfr
+ *
+ * @library /lib /
  * @run main/othervm -XX:StartFlightRecording=name=TestStartRecording,settings=profile -XX:FlightRecorderOptions=repository=./repo jdk.jfr.startupargs.TestRepositoryPath
  */
 public class TestRepositoryPath {

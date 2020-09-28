@@ -29,8 +29,10 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @test
+ * @key jfr
  * @bug 8013122
- * @library /lib/testlibrary
+ *
+ * @library /lib /
  * @run main/othervm jdk.jfr.event.runtime.TestExceptionSubclass
  */
 public class TestExceptionSubclass {
