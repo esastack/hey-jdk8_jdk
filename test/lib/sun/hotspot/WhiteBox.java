@@ -273,6 +273,7 @@ public class WhiteBox {
     Objects.requireNonNull(method);
     return getMethodData0(method);
   }
+  public native Object[] getCodeBlob(long addr);
 
   private native void clearInlineCaches0(boolean preserve_static_stubs);
   public void clearInlineCaches() {
