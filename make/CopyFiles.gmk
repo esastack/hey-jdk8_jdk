@@ -171,16 +171,6 @@ $(LIBDIR)/calendars.properties: $(CALENDARS_SRC)/calendars.properties
 
 COPY_FILES += $(LIBDIR)/calendars.properties
 
-##########################################################################################
-
-FONTCONFIG_SRC := $(JDK_TOPDIR)/src/share/lib
-
-$(LIBDIR)/fontconfig.properties: $(FONTCONFIG_SRC)/fontconfig.properties
-	$(call install-file)
-
-COPY_FILES += $(LIBDIR)/fontconfig.properties
-
-##########################################################################################
 $(LIBDIR)/hijrah-config-umalqura.properties: $(CALENDARS_SRC)/hijrah-config-umalqura.properties
 	$(MKDIR) -p $(@D)
 	$(RM) $@
@@ -522,30 +512,6 @@ ifndef OPENJDK
     COPY_FILES += $(OBL_FONTS_DST) $(OBL_FONTS_DST_DIR)/fonts.dir
 
   endif # linux
-
-else # OpenJDK
-    SHARED_FONTS_SRC_DIR := $(JDK_TOPDIR)/src/share/lib/fonts
-  	SHARED_FONTS_DST_DIR := $(JDK_OUTPUTDIR)/lib/fonts
-  	SHARED_FONTS_FILES := \
-      fonts.dir \
-      OPPOSans-S-R-0802.ttf \
-      OPPOSans-S-B-0802.ttf \
-      OPPOSans-Bold.ttf \
-      OPPOSans-BoldItalic.ttf \
-      OPPOSans-Regular.ttf \
-      OPPOSans-RegularItalic.ttf
-
-  	SHARED_FONTS_SRC := $(foreach F, $(SHARED_FONTS_FILES), $(SHARED_FONTS_SRC_DIR)/$(F))
-  	SHARED_FONTS_DST := $(foreach F, $(SHARED_FONTS_FILES), $(SHARED_FONTS_DST_DIR)/$(F))
-
-  	$(SHARED_FONTS_DST_DIR)/%.ttf: $(SHARED_FONTS_SRC_DIR)/%.ttf
-		$(call install-file)
-
-  	$(SHARED_FONTS_DST_DIR)/fonts.dir: $(SHARED_FONTS_SRC_DIR)/fonts.dir
-		$(call install-file)
-
-  	COPY_FILES += $(SHARED_FONTS_DST)
-
 endif # OPENJDK
 
 ##########################################################################################

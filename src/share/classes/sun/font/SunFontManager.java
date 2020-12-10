@@ -189,21 +189,10 @@ public abstract class SunFontManager implements FontSupport, FontManagerForSGE {
     boolean loadedAllFontFiles = false;
     HashMap<String,String> jreFontMap;
     HashSet<String> jreLucidaFontFiles;
-
-    /* Like Oracle, all font files are placed in jre/lib/fonts directory.
-     * We provide 6 font files (OPPOSans*.ttf) for free
-     */
-    HashSet<String> jreOppoFontFiles;
     String[] jreOtherFontFiles;
     boolean noOtherJREFontFiles = false; // initial assumption.
 
     public static final String lucidaFontName = "Lucida Sans Regular";
-
-    /* OPPOSans-S-R font is used by default, while Oracle uses Lucida Sans
-     * Regular by default. The default font will only work when there are no
-     * other fonts on the system
-     */
-    public static final String oppoFontName = "OPPOSans-S-R";
     public static String jreLibDirName;
     public static String jreFontDirName;
     private static HashSet<String> missingFontFiles = null;
@@ -290,21 +279,8 @@ public abstract class SunFontManager implements FontSupport, FontManagerForSGE {
          */
         jreFontMap = new HashMap<String,String>();
         jreLucidaFontFiles = new HashSet<String>();
-        jreOppoFontFiles = new HashSet<String>();
-        if (isOpenJDK()) {
-            jreFontMap.put("oppo sans0",  "OPPOSans-Regular.ttf");
-            jreFontMap.put("oppo sans regular0", "OPPOSans-Regular.ttf");
-            jreFontMap.put("oppo sans regular1", "OPPOSans-Bold.ttf");
-            jreFontMap.put("oppo sans regular2", "OPPOSans-RegularItalic.ttf");
-            jreFontMap.put("oppo sans bold1", "OPPOSans-Bold.ttf");
-            jreFontMap.put("oppo sans bold2", "OPPOSans-BoldItalic.ttf");
-            jreFontMap.put("opposans-s-r0", "OPPOSans-S-R-0802.ttf");
-            jreFontMap.put("opposans-s-r1", "OPPOSans-S-B-0802.ttf");
-            jreFontMap.put("opposans-s-b1", "OPPOSans-S-B-0802.ttf");
 
-            for (String ffile : jreFontMap.values()) {
-                jreOppoFontFiles.add(ffile);
-            }
+        if (isOpenJDK()) {
             return;
         }
         /* Lucida Sans Family */
@@ -388,8 +364,6 @@ public abstract class SunFontManager implements FontSupport, FontManagerForSGE {
                File lucidaFile =
                    new File(jreFontDirName + File.separator + FontUtilities.LUCIDA_FILE_NAME);
 
-               File oppoFile =
-                       new File(jreFontDirName + File.separator + FontUtilities.OPPO_FILE_NAME);
                 maxSoftRefCnt =
                     Integer.getInteger("sun.java2d.font.maxSoftRefs", 10);
 
@@ -466,13 +440,11 @@ public abstract class SunFontManager implements FontSupport, FontManagerForSGE {
                          * that might be specified.
                          */
                         fontConfig = createFontConfiguration();
-
-                        // use oppo font as the default font
-//                        if (isOpenJDK()) {
-//                            String[] fontInfo = getDefaultPlatformFont();
-//                            defaultFontName = fontInfo[0];
-//                            defaultFontFileName = fontInfo[1];
-//                        }
+                        if (isOpenJDK()) {
+                            String[] fontInfo = getDefaultPlatformFont();
+                            defaultFontName = fontInfo[0];
+                            defaultFontFileName = fontInfo[1];
+                        }
 
                         String extraFontPath = fontConfig.getExtraFontPath();
 
@@ -1032,7 +1004,7 @@ public abstract class SunFontManager implements FontSupport, FontManagerForSGE {
                      */
                     if (dir == null ||
                         !dir.equals(jreFontDirName) ||
-                        jreLucidaFontFiles.contains(fname) || jreOppoFontFiles.contains(fname)) {
+                        jreLucidaFontFiles.contains(fname)) {
                         continue;
                     }
                     otherFontFiles.add(deferredFile);
@@ -1070,7 +1042,7 @@ public abstract class SunFontManager implements FontSupport, FontManagerForSGE {
             String fname = file.getName();
             if (dir != null &&
                 dir.equals(jreFontDirName) &&
-                jreLucidaFontFiles.contains(fname) && jreOppoFontFiles.contains(fname)) {
+                jreLucidaFontFiles.contains(fname)) {
                 continue;
             }
             PhysicalFont physicalFont = initialiseDeferredFont(fileName);
@@ -1257,13 +1229,6 @@ public abstract class SunFontManager implements FontSupport, FontManagerForSGE {
              */
             defaultPhysicalFont = (PhysicalFont)
                 findFont2D("Lucida Sans Regular", Font.PLAIN, NO_FALLBACK);
-
-            // default oppo font
-            if (defaultPhysicalFont == null) {
-                defaultPhysicalFont = (PhysicalFont)
-                        findFont2D("OPPOSans-S-R", Font.PLAIN, NO_FALLBACK);
-            }
-
             if (defaultPhysicalFont == null) {
                 defaultPhysicalFont = (PhysicalFont)
                     findFont2D("Arial", Font.PLAIN, NO_FALLBACK);
@@ -3453,14 +3418,6 @@ public abstract class SunFontManager implements FontSupport, FontManagerForSGE {
                     jreFontDirName + File.separator + FontUtilities.LUCIDA_FILE_NAME;
             } else {
                 defaultFontFileName = FontUtilities.LUCIDA_FILE_NAME;
-            }
-        } else {
-            defaultFontName = oppoFontName;
-            if (useAbsoluteFontFileNames()) {
-                defaultFontFileName =
-                        jreFontDirName + File.separator + FontUtilities.OPPO_FILE_NAME;
-            } else {
-                defaultFontFileName = FontUtilities.OPPO_FILE_NAME;
             }
         }
     }
