@@ -148,7 +148,7 @@ public class DcmdMBeanPermissionsTest {
             return true;
         } catch (RuntimeMBeanException ex) {
             if (ex.getCause() instanceof SecurityException) {
-                //ex.printStackTrace();
+                ex.printStackTrace();
                 return true;
             }
         } catch (MBeanException | InstanceNotFoundException
@@ -228,6 +228,12 @@ public class DcmdMBeanPermissionsTest {
         sm.grantPermission(new java.lang.RuntimePermission("exitVM.97"));
         sm.grantPermission(new java.lang.RuntimePermission("modifyThreadGroup"));
         sm.grantPermission(new java.lang.RuntimePermission("modifyThread"));
+        for (MBeanOperationInfo opInfo : info.getOperations()) {
+            if (opInfo.getName().equals("jfrStart")) {
+                // Only for jfr dcmd security checking.
+                sm.grantPermission(new java.util.PropertyPermission("line.separator", "read,write"));
+            }
+        }
         for(MBeanOperationInfo opInfo : info.getOperations()) {
             Permission opPermission = new MBeanPermission(info.getClassName(),
                     opInfo.getName(),
